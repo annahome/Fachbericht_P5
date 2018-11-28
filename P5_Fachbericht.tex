@@ -1,0 +1,79 @@
+\documentclass[final]{fhnwreport}       %[mode] = draft or final
+                                        %{class} = fhnwreport, article, 
+                                        %          report, book, beamer, standalone
+\input{header}			                %loads all packages, definitions and settings												
+\title{Drahtlose Energie- und Datenübertragung}          %Project Title
+\author{P5 Fachbericht}          %Document Type => Technical Report, ...
+\date{Windisch, 28.11.2018}             %Place and Date
+
+\begin{document}
+
+%%---TITLEPAGE---------------------------------------------------------------------------
+\selectlanguage{ngerman}                %ngerman or english
+\maketitle
+
+\vspace*{-1cm}						    %compensates the space after the date line.
+\vfill
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\linewidth]{titelbild_1.jpg}
+\end{figure}
+\vfill
+
+{
+\renewcommand\arraystretch{2}
+\begin{center}
+\begin{tabular}{>{\bf}p{4cm} l}
+Hochschule                 &    Hochschule für Technik - FHNW\\
+Studiengang                &    Elektro- und Informationstechnik\\
+Autor   		           & 	Adrian Annaheim und Simon Zoller\\
+Betreuer                   &    Schleuniger Pascal\\
+Auftraggeber               &    \\
+Version                    &    1.0 %Normally not used!
+\end{tabular}
+\end{center}
+}
+
+\clearpage
+			
+%%---ABSTRACT----------------------------------------------------------------------------
+\selectlanguage{ngerman}				%ngerman or english
+\thispagestyle{empty}
+\include{sections/abstract}
+
+%%---TABLE OF CONTENTS-------------------------------------------------------------------
+\pagenumbering{Roman}		
+\selectlanguage{ngerman}				%ngerman or english
+\tableofcontents
+\clearpage
+
+%%---TEXT--------------------------------------------------------------------------------
+\pagenumbering{arabic}
+\include{sections/einleitung}
+\include{sections/grundlagen}
+\include{sections/energie}
+\include{sections/daten}
+\include{sections/validierung}
+\include{sections/fazit}
+
+%%---BIBLIOGRAPHY------------------------------------------------------------------------
+{\sloppypar
+\printbibliography[heading=bibintoc]
+\label{sec:lit}
+\selectlanguage{english}				%ngerman or english
+\printbibliography[heading=bibintoc]
+}
+
+%%---APPENDIX----------------------------------------------------------------------------
+\include{sections/appendix}
+
+%%---NOTES for DEBUG---------------------------------------------------------------------
+\ifdraft{%Do this only if mode=draft
+%%requires \usepackage{todonotes})
+\newpage
+\listoftodos[\section{Todo-Notes}]
+\clearpage
+}
+{%Do this only if mode=final
+}
+\end{document}
