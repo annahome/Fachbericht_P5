@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.26)  30 NOV 2018 12:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.26)  2 JAN 2019 23:10
 entering extended mode
 **./P5_Fachbericht.tex
 (P5_Fachbericht.tex
@@ -1981,11 +1981,6 @@ l.52 \include{sections/einleitung}
 \openout2 = `sections/grundlagen.aux'.
 
  (sections/grundlagen.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
@@ -1996,73 +1991,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-<./graphics/MLT3encoding.png, id=134, 1927.2pt x 754.82pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+<./graphics/MLT3encoding.png, id=136, 1927.2pt x 754.82pt>
 File: ./graphics/MLT3encoding.png Graphic file (type png)
 <use ./graphics/MLT3encoding.png>
-Package pdftex.def Info: ./graphics/MLT3encoding.png  used on input line 26.
+Package pdftex.def Info: ./graphics/MLT3encoding.png  used on input line 28.
 (pdftex.def)             Requested size: 364.19664pt x 142.6341pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [2
 
 
 ]
-<./graphics/Kennlinie_Photodiode.png, id=139, 516.12825pt x 241.50224pt>
+<./graphics/Kennlinie_Photodiode.png, id=141, 516.12825pt x 241.50224pt>
 File: ./graphics/Kennlinie_Photodiode.png Graphic file (type png)
 <use ./graphics/Kennlinie_Photodiode.png>
 Package pdftex.def Info: ./graphics/Kennlinie_Photodiode.png  used on input lin
-e 39.
+e 41.
 (pdftex.def)             Requested size: 364.19664pt x 170.41017pt.
-<./graphics/Ersatzschaltbild_Photodiode.png, id=141, 303.534pt x 187.902pt>
+<./graphics/Ersatzschaltbild_Photodiode.png, id=143, 303.534pt x 187.902pt>
 File: ./graphics/Ersatzschaltbild_Photodiode.png Graphic file (type png)
 <use ./graphics/Ersatzschaltbild_Photodiode.png>
 Package pdftex.def Info: ./graphics/Ersatzschaltbild_Photodiode.png  used on in
-put line 46.
+put line 48.
 (pdftex.def)             Requested size: 364.19664pt x 225.45546pt.
  [3 <./graphics/MLT3encoding.png> <./graphics/Kennlinie_Photodiode.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
-<./graphics/Photo_Amp.png, id=153, 376.40625pt x 250.9375pt>
+<./graphics/Photo_Amp.png, id=155, 376.40625pt x 250.9375pt>
 File: ./graphics/Photo_Amp.png Graphic file (type png)
 <use ./graphics/Photo_Amp.png>
-Package pdftex.def Info: ./graphics/Photo_Amp.png  used on input line 54.
+Package pdftex.def Info: ./graphics/Photo_Amp.png  used on input line 56.
 (pdftex.def)             Requested size: 227.62204pt x 151.75064pt.
-) [4 <./graphics/Ersatzschaltbild_Photodiode.png> <./graphics/Photo_Amp.png>]
+[4 <./graphics/Ersatzschaltbild_Photodiode.png> <./graphics/Photo_Amp.png>])
+[5]
 \openout2 = `sections/energie.aux'.
 
-
-(sections/energie.tex) [5
+ (sections/energie.tex) [6
 
 
 ]
 \openout2 = `sections/daten.aux'.
 
- (sections/daten.tex) [6
+ (sections/daten.tex
+<./graphics/Konzept_Daten.png, id=180, 885.5484pt x 486.1362pt>
+File: ./graphics/Konzept_Daten.png Graphic file (type png)
+<use ./graphics/Konzept_Daten.png>
+Package pdftex.def Info: ./graphics/Konzept_Daten.png  used on input line 9.
+(pdftex.def)             Requested size: 455.24408pt x 249.91415pt.
+<./graphics/Konzept_Sender.png, id=181, 796.4154pt x 218.2554pt>
+File: ./graphics/Konzept_Sender.png Graphic file (type png)
+<use ./graphics/Konzept_Sender.png>
+Package pdftex.def Info: ./graphics/Konzept_Sender.png  used on input line 22.
+(pdftex.def)             Requested size: 455.24408pt x 124.75655pt.
 
 
-]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7
+
+
+ <./graphics/Konzept_Daten.png>]) [8 <./graphics/Konzept_Sender.png>]
 \openout2 = `sections/validierung.aux'.
 
- (sections/validierung.tex)
-[7
+
+(sections/validierung.tex) [9
 
 
 ]
 \openout2 = `sections/fazit.aux'.
 
- (sections/fazit.tex) [8
+ (sections/fazit.tex) [10
 
 
 ]
@@ -2090,27 +2102,28 @@ Package logreq Info: Writing requests to 'P5_Fachbericht.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
- 48926 strings out of 492972
- 1013538 string characters out of 3135883
- 1563755 words of memory out of 3000000
- 52017 multiletter control sequences out of 15000+200000
+ 48947 strings out of 492972
+ 1013989 string characters out of 3135883
+ 1564030 words of memory out of 3000000
+ 52031 multiletter control sequences out of 15000+200000
  592259 words of font info for 58 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
  64i,8n,81p,1141b,2285s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Fil
-es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec
-.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lms
-y10.pfb>
-Output written on P5_Fachbericht.pdf (10 pages, 466841 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fon
+ts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
+thit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on P5_Fachbericht.pdf (12 pages, 565899 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 187 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 252 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

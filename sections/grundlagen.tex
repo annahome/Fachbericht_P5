@@ -1,4 +1,5 @@
 \section{Grundlagen}
+\label{sec:Grundlagen}
 In diesem Kapitel werden die wichtigsten Grundlagen erklärt, welche nötig sind um den Bericht zu verstehen.
 \subsection{Grundlagen zur Energieübertragung}
 In diesem Unterkapitel werden die Grundlagen zur Energieübertragung erläutert. Im wesentlichen beinhaltet dies folgende Themen:
@@ -7,7 +8,8 @@ In diesem Unterkapitel werden die Grundlagen zur Energieübertragung erläutert.
 \paragraph{Transformator Ersatzschaltbild}
 
 \subsection{Grundlagen zur Datenübertragung}
-In diesem Unterkapitel werden die Grundlagen zur Datenübertragung erläutert. Im wesentlichen beinhaltet dies folgende Themen:
+In diesem Unterkapitel werden einige Grundlagen zur Datenübertragung erläutert. Mittels dieser Grundlagen sollen die Eigenschaften des zu übertragenden Datenbussystems und Grundkenntnisse zu Photodioden und Empfängerschaltungen vermittelt werden. Es soll dem Leser als Basis für das Kapitel \textbf{\ref{sec:Daten} \nameref{sec:Daten}} dienen.
+
 \paragraph{VARAN-Bus}
 
 Der VARAN-Bus ist ein Echtzeit-Bussystem für die industrielle Automatisierung. Der Bus ist ein offener, herstellerunabhängiger Standard. Er verbindet Anlagen, Maschinen und Komponenten in der modernen Industrie. Das Bussystem arbeitet nach dem Manager-/Client-Prinzip. Weil der Manager die Kommunikation initialisiert, sind Paketkollisionen ausgeschlossen. Die Übertragungsschicht basiert auf dem Ethernet-Standard nach IEEE 802.3. Die verwendete 100TX Standard Ethernet Technologie erlaubt eine maximale Übertragungsgeschwindigkeit von 100MBit pro Sekunde.
@@ -62,3 +64,12 @@ V_{out}=R_{f} \cdot I_{p}
 
 Aus der Formel \ref{eq:Vout_Photo} ist leicht ersichtlich, dass $ R_{f} $ dem Verstärkungsfaktor der Transimpedanzverstärkerschaltung entspricht.
 
+Die Bandbreite eines Photodiodenverstärkers ist begrenzt und hängt vom Gain-Bandwidth Product $GBWP$ des Operationsverstärkers, dem Rückkopplungswiderstand $ R_{f} $ und den parasitären Kapazitäten von Operationsverstärker $ C_{opamp} $ und Photodiode $ C_{photo} $ ab. Mit folgender Formel \ref{eq:Bandwidth} kann die Bandbreite berechnet werden:
+
+\begin{equation}\label{eq:Bandwidth}
+B=\sqrt{\frac{GBWP}{2\pi\cdot R_{f}\cdot (C_{opamp}+C_{photo})}}
+\end{equation}
+
+Wie man in der Formel erkennen kann, begrenzt unter anderem die Kapazität $ C_{photo} $ der Photodiode die Bandbreite der Schaltung. Durch Anlegen einer negativen Biasspannung an der Anode der Photodiode, kann $ C_{photo} $ reduziert werden.
+
+Für eine Anwendung mit hoher Bandbreite, wie in dieser Arbeit verlangt, ist also ein Operationsverstärker mit hohem Gain-Bandwidth Product $GBWP$ und kleiner Eingangskapazität $ C_{opamp} $ gewünscht. Ausserdem wird idealerweise eine Photodiode mit kleiner parasitärer Kapazität $ C_{photo} $ verwendet und diese zusätzlich durch Anlegen einer negativen Biasspannung reduziert. 
