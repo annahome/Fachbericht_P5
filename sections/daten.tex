@@ -16,14 +16,38 @@ Eine Empfangseinheit besteht aus Photodioden und Verstärkerschaltungen. Im blau
 \newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung.
 
 \paragraph{Sender}
-In folgender Abbildung wird das Konzept einer Sendeeinheit detaillierter beschrieben.
+In folgender Abbildung ist das Konzept einer Sendeeinheit detaillierter dargestellt.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{Konzept_Sender.png}
 	\caption{Konzept der optischen Sendeeinheit}\label{fig:Konzept_Sender}
 \end{figure}
+
+Aus dem symmetrischen Signal des VARAN-Buses wird zuerst ein unsymmetrisches Signal erzeugt. Dafür kann ein Signal-Transformator eingesetzt werden. Das Signal hat nun einen Bezug zur Masse der restlichen Schaltung. Mit zwei Komparatoren wird unterschieden, ob es sich um einen positiven oder negativen Pegel handelt. Dafür werden Komparatoren mit möglichst kurzer Verzögerungszeit und ausreichender Bandbreite verwendet. Die Komparatoren steuern anschliessend die entsprechenden Treiber an. Als Treiber dient ein FET-Treiber Baustein mit hoher Treiberspannung für schnelle Anstiegs- und Abfallzeiten. Die LED wird mit einem N-Kanal-FET nach Masse geschaltet. Die Schaltzeiten der LED sind entscheidend um auf die geforderte Schaltfrequenz von \textgreater \SI{30}{MHz} zu kommen. Dafür wurde einerseits ein FET mit kleiner Gate-Kapazität gewählt und andererseits auf kurze Anstiegs- und Abfallzeiten der LED geachtet.
+\newline
+Mit einer kleinen Erweiterung der Beschaltung der LED können die Anstiegs- und Abfallzeiten nochmals reduziert werden. Folgende Abbildung zeigt die Ansteuerung der LED mitsamt der Erweiterung von $R_{2}$, $C$ und $L$.
+
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=0.3\linewidth]{Fast_LED.png}
+ 	\caption{Erweiterte Schaltung um Schaltzeiten zu verkürzen}\label{fig:Fast_LED}
+ \end{figure}
+
+Durch den Leckstrom des FET wird die LED auch im abgeschalteten Zustand mit einigen Ladungsträgern durchflossen, was die Anstiegszeit geringfügig verkürzt. Im Einschaltmoment sorgt der Kondensator $C$ für einen Kurzschluss und überbrückt den Vorwiderstand $R_{1}$. Es kommt zu einem Strompeak, der die Kapazität der LED schneller laden lässt. Die Anstiegszeit wird dadurch massiv verkürzt. Im Ausschaltmoment induziert das Magnetfeld in der Spule $L$ eine negative Spannung. Folglich werden die Ladungsträger aus der LED gezogen. Dadurch wird auch die Abfallzeit gegenüber dem \glqq einfachen\grqq Ausschalten verkürzt.
+
 \paragraph{Empfänger}
-In folgender Abbildung wird das Konzept einer Empfangseinheit detaillierter beschrieben.
+In folgender Abbildung wird das Konzept einer Empfangseinheit detaillierter dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{Konzept_Empfaenger.png}
+	\caption{Konzept der optischen Empfangseinheit}\label{fig:Konzept_Empfaenger}
+\end{figure}
+
+Der von der Photodiode erzeugte Strom wird mit einer Transimpedanzverstärkerschaltung in eine Spannung gewandelt und verstärkt. Wie im Kapitel \nameref{sec:Grundlagen} bereits erwähnt, ist eine hohe Bandbreite bei der Verstärkerschaltung erforderlich. Deshalb ist ein Verstärker mit hohem Gain-Bandwidth Product und kleiner Eingangskapazität zu wählen. Auch die parasitäre Kapazität der Photodiode beeinflusst die Bandbreite, weshalb auch diese möglichst klein gewählt werden muss. Durch negative Biasspannung an der Anode kann die Kapazität nochmals reduziert werden.
+\newline
+Nach dem Transimpedanzverstärker werden mit Komparatoren die Pegel in Amplitude und Form angepasst. Das Signal vom blauen Spektralbereich, welches die negativen Pegel überträgt wird noch invertiert. Mit einem Signal-Transformator wird aus dem unsymmetrischen Signal wieder ein symmetrisches Signal generiert und dieses zurück an den VARAN-Bus geführt.
 \subsection{Dimensionierung}
 Hier wird auf die Dimensionierung der Schaltung eingegangen.
 \subsection{Simulation}
