@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.5)  29 NOV 2018 09:58
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.26)  29 NOV 2018 09:57
->>>>>>> Stashed changes
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.5)  3 JAN 2019 21:46
 entering extended mode
 **./P5_Fachbericht.tex
 (P5_Fachbericht.tex
@@ -2264,19 +2260,20 @@ Package pdftex.def Info: fhnwlogo.pdf used on input line 14.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <12> on input line 14.
 
-<./graphics/titelbild_1.jpg, id=79, 602.25pt x 702.625pt>
-File: ./graphics/titelbild_1.jpg Graphic file (type jpg)
+<./graphics/titelbild.pdf, id=79, 762.85pt x 401.5pt>
+File: ./graphics/titelbild.pdf Graphic file (type pdf)
 
-<use ./graphics/titelbild_1.jpg>
-Package pdftex.def Info: ./graphics/titelbild_1.jpg used on input line 19.
-(pdftex.def)             Requested size: 227.62204pt x 265.56363pt.
+<use ./graphics/titelbild.pdf>
+Package pdftex.def Info: ./graphics/titelbild.pdf used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 239.60306pt.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./fhnwlogo.pdf> <./graphi
-cs/titelbild_1.jpg>]
+cs/titelbild.pdf>]
 \openout2 = `sections/abstract.aux'.
 
- (sections/abstract.tex) [2
+ (sections/abstract.tex)
+[2
 
 
 ]
@@ -2287,7 +2284,7 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \tf@toc=\write7
 \openout7 = `P5_Fachbericht.toc'.
 
- [1
+[1
 
 ]
 \openout2 = `sections/einleitung.aux'.
@@ -2304,32 +2301,20 @@ l.52 \include{sections/einleitung}
 \openout2 = `sections/grundlagen.aux'.
 
  (sections/grundlagen.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 14.
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 13--53
+Underfull \hbox (badness 10000) in paragraph at lines 30--53
 
  []
 
@@ -2344,27 +2329,40 @@ l.53 \include{sections/grundlagen}
 ]
 \openout2 = `sections/energie.aux'.
 
- (sections/energie.tex) [3
+ (sections/energie.tex [3
 
 
 ]
+<./graphics/femm_1.png, id=174, 422.86554pt x 424.58624pt>
+File: ./graphics/femm_1.png Graphic file (type png)
+
+<use ./graphics/femm_1.png>
+Package pdftex.def Info: ./graphics/femm_1.png used on input line 66.
+(pdftex.def)             Requested size: 204.85844pt x 205.69084pt.
+
+<./graphics/femm_2.png, id=176, 420.28447pt x 426.30696pt>
+File: ./graphics/femm_2.png Graphic file (type png)
+
+<use ./graphics/femm_2.png>
+Package pdftex.def Info: ./graphics/femm_2.png used on input line 67.
+(pdftex.def)             Requested size: 204.85844pt x 207.7929pt.
+ [4 <./graphics/femm_1.png> <./graphics/femm_2.png>]) [5]
 \openout2 = `sections/daten.aux'.
 
-
-(sections/daten.tex) [4
+ (sections/daten.tex) [6
 
 
 ]
 \openout2 = `sections/validierung.aux'.
 
- (sections/validierung.tex) [5
+ (sections/validierung.tex) [7
 
 
 ]
 \openout2 = `sections/fazit.aux'.
 
- (sections/fazit.tex)
-[6
+
+(sections/fazit.tex) [8
 
 
 ]
@@ -2393,34 +2391,30 @@ Package logreq Info: Writing requests to 'P5_Fachbericht.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< Updated upstream
- 48029 strings out of 493323
- 1000317 string characters out of 3139066
- 1551299 words of memory out of 3000000
- 50778 multiletter control sequences out of 15000+200000
- 590193 words of font info for 56 fonts, out of 3000000 for 9000
-=======
- 48894 strings out of 492972
- 1012887 string characters out of 3135883
- 1565008 words of memory out of 3000000
- 51991 multiletter control sequences out of 15000+200000
- 592259 words of font info for 58 fonts, out of 3000000 for 9000
->>>>>>> Stashed changes
+ 48226 strings out of 493323
+ 1004200 string characters out of 3139066
+ 1559497 words of memory out of 3000000
+ 50922 multiletter control sequences out of 15000+200000
+ 596186 words of font info for 58 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 64i,8n,72p,10519b,2285s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr
-12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmssbx10.pfb>
-<<<<<<< Updated upstream
-Output written on P5_Fachbericht.pdf (9 pages, 386944 bytes).
-=======
-Output written on P5_Fachbericht.pdf (9 pages, 387068 bytes).
->>>>>>> Stashed changes
+ 64i,10n,94p,10519b,2285s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy
+.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/lm/lmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/lm/lmsy10.pfb>
+Output written on P5_Fachbericht.pdf (11 pages, 1027219 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
- 167 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 290 PDF objects out of 1000 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
