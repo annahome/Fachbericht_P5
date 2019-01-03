@@ -13,10 +13,10 @@
 \contentsline {subsection}{\numberline {3.4}Testaufbau}{6}{subsection.3.4}
 \contentsline {section}{\numberline {4}Daten\IeC {\"u}bertragung}{7}{section.4}
 \contentsline {subsection}{\numberline {4.1}Konzept}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Dimensionierung}{9}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Simulation}{9}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Testaufbau}{9}{subsection.4.4}
-\contentsline {section}{\numberline {5}Validierung}{10}{section.5}
-\contentsline {subsection}{\numberline {5.1}Validierung Energie\IeC {\"u}bertragung}{10}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Validierung Daten\IeC {\"u}bertragung}{10}{subsection.5.2}
-\contentsline {section}{\numberline {6}Fazit}{11}{section.6}
+\contentsline {subsection}{\numberline {4.2}Dimensionierung Testaufbau}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Simulation}{11}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Testaufbau}{11}{subsection.4.4}
+\contentsline {section}{\numberline {5}Validierung}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}Validierung Energie\IeC {\"u}bertragung}{12}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Validierung Daten\IeC {\"u}bertragung}{12}{subsection.5.2}
+\contentsline {section}{\numberline {6}Fazit}{13}{section.6}

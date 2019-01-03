@@ -48,8 +48,40 @@ In folgender Abbildung wird das Konzept einer Empfangseinheit detaillierter darg
 Der von der Photodiode erzeugte Strom wird mit einer Transimpedanzverstärkerschaltung in eine Spannung gewandelt und verstärkt. Wie im Kapitel \nameref{sec:Grundlagen} bereits erwähnt, ist eine hohe Bandbreite bei der Verstärkerschaltung erforderlich. Deshalb ist ein Verstärker mit hohem Gain-Bandwidth Product und kleiner Eingangskapazität zu wählen. Auch die parasitäre Kapazität der Photodiode beeinflusst die Bandbreite, weshalb auch diese möglichst klein gewählt werden muss. Durch negative Biasspannung an der Anode kann die Kapazität nochmals reduziert werden.
 \newline
 Nach dem Transimpedanzverstärker werden mit Komparatoren die Pegel in Amplitude und Form angepasst. Das Signal vom blauen Spektralbereich, welches die negativen Pegel überträgt wird noch invertiert. Mit einem Signal-Transformator wird aus dem unsymmetrischen Signal wieder ein symmetrisches Signal generiert und dieses zurück an den VARAN-Bus geführt.
-\subsection{Dimensionierung}
-Hier wird auf die Dimensionierung der Schaltung eingegangen.
+
+\paragraph{Kanal}
+Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist keine direkte Verbindung sichergestellt. Deshalb bestehen die beiden Kanäle aus einem lichtstreuenden Werkstoff und sind optisch voneinander isoliert. Nachfolgende Abbildung zeigt den prinzipiellen Aufbau der Kanäle.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Konzept_Kanal.png}
+	\caption{Konzept der Kanäle}\label{fig:Konzept_Kanal}
+\end{figure}
+
+In der Abbildung ist die optische Isolation (schwarz) gut zu erkennen, welche die gegenseitige Störung zwischen den Kanälen verhindert. Im Kanal 1 ist die Rotation der mechanischen Konstruktion unproblematisch, da sich Sender und Empfänger auf der Drehachse befinden. Der Kanal 2 nimmt das Licht auf der einen Seite auf und der lichtstreuende Werkstoff (grau) verteilt es im ganzen Kreisring. Nun spielt es auf der Empfängerseite keine Rolle mehr, in welchem Abschnitt auf dem Kreisring man sich befindet.
+
+\subsection{Dimensionierung Testaufbau}
+Um wichtige Erkenntnisse für den weiteren Projektverlauf zu gewinnen, wurde ein Testaufbau realisiert. Dieser beinhaltet eine Sende- und Empfangseinheit um einen Rechteckpuls im Infrarotbereich zu übertragen. 
+In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung des Testaufbaus eingegangen.
+\paragraph{Sender} 
+Als Eingang beim Sender dient eine BNC-Buchse, um den Rechteckpuls einzuspeisen. Als Gatetreiber des FET wird der ISL55110 vom Hersteller Renesas verwendet. Dieser zeichnet sich durch kurze Anstiegs- und Fallzeiten von \SI{1.5}{ns} bei einer Last von \SI{100}{pF} aus.
+Der gewählte N-Kanal-FET ist ein BSS316N vom Hersteller Infineon. Durch die kleine Eingangskapazität von \textless \SI{100}{pF} kann der FET in Kombination mit dem Gatetreiber sehr schnell geschaltet werden.
+Als Infrarot-Emitter wurde die SFH4235 von OSRAM gewählt. Die Leuchtdiode kann mit Anstiegs- und Abfallzeiten von 7/\SI{14}{ns} mit \textgreater \SI{30}{MHz} betrieben werden und ist deshalb für diese Anwendung geeignet. Folgende Abbildung zeigt das Spektrum des Infrarot-Emitters.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{Spektrum_Infra.png}
+	\caption{Spektrum SFH4235}\label{fig:Spektrum_Infra}
+\end{figure}
+
+Wie in der Abbildung zu erkennen ist, hat das Spektrum den Peak bei \SI{860}{nm}. Die Photodiode auf der Empfängerseite muss dementsprechend passend zum Spektrum ausgewählt werden. Die im Konzept beschriebene Schaltungsergänzung wurde im Testaufbau vorbereitet. Weil die Standartbeschaltung schnell genug ist, wird die Ergänzung jedoch nicht bestückt.
+
+\paragraph{Empfänger}
+Mit zwei Z-Dioden (SZBZX84C3V3 und BZD27C13) und einem Operationsverstärker (LM7321) als Buffer geschaltet, wird eine Speisung für die Empfängerschaltung generiert. Diese liefert die benötigten Spannungen von \SI{3.3}{V} für die integrierten Bauteile und \SI{-13}{V} um die Photodiode mit einer negativen Biasspannung vorzuspannen. Die Beschaltung ist im Schema im Anhang abgebildet.
+\newline
+Es wurden zuerst drei verschiedene Photodioden ausgewählt und ausgemessen.
+
+
 \subsection{Simulation}
 Im Simulations-Abschnitt wird die Dimensionierung und das Konzept überprüft.
 \subsection{Testaufbau}
