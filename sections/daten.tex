@@ -79,7 +79,93 @@ Wie in der Abbildung zu erkennen ist, hat das Spektrum den Peak bei \SI{860}{nm}
 \paragraph{Empfänger}
 Mit zwei Z-Dioden (SZBZX84C3V3 und BZD27C13) und einem Operationsverstärker (LM7321) als Buffer geschaltet, wird eine Speisung für die Empfängerschaltung generiert. Diese liefert die benötigten Spannungen von \SI{3.3}{V} für die integrierten Bauteile und \SI{-13}{V} um die Photodiode mit einer negativen Biasspannung vorzuspannen. Die Beschaltung ist im Schema im Anhang abgebildet.
 \newline
-Es wurden zuerst drei verschiedene Photodioden ausgewählt und ausgemessen.
+Es wurden drei verschiedene Photodioden ausgewählt und analysiert.
+
+\begin{table}[H]
+\begin{tabular}{|l|l|l|l|}
+	\hline 
+	\textbf{Typ}&\textbf{$C_{p} (V_{R}=\SI{0}{V})$}  & \textbf{$C_{p} (V_{R}=\SI{-13}{V})$} & \textbf{Wellenlänge max. Sensitivität} \\ 
+	\hline 
+	SFH 203 FA Osram&\SI{11}{pF}  & \SI{2.5}{pF} & \SI{900}{nm} \\ 
+	\hline 
+	SFH 2701 Osram&\SI{3}{pF}  &\SI{1.7}{pF}  &\SI{820}{nm}  \\ 
+	\hline 
+	S5972 Hamamatsu&\SI{6}{pF}  &\SI{2.8}{pF}  &\SI{800}{nm}  \\ 
+	\hline 
+\end{tabular} 
+\caption{Datenblattwerte der ausgewählten Photodioden}\label{tab:Tabelle_Photo}
+\end{table}
+
+Wie aus der Tabelle zu entnehmen ist, kann die parasitäre Kapazität aller ausgewählten Photodioden durch die negative Biasspannung auf einen Wert \textless \SI{3}{pF} gebracht werden. Dieser Wert dient als Ausgangslage für weitere Berechnungen und Simulationen.
+\newline
+Um einen Anhaltspunkt für den zu erwartenden Photostrom zu haben, wurden die Photodioden bei Bestrahlung mit dem Infrarot-Emitter ($I_{F}=\SI{280}{mA}$, konstant) ausgemessen.
+
+
+\begin{tikzpicture}
+\begin{axis}[
+title={Photostrom in Abhängigkeit des Abstandes},
+xlabel={Abstand [cm]},
+ylabel={Photostrom [$\mu$ A]},
+xmin=0, xmax=10,
+ymin=0, ymax=1500,
+ymode=log,
+xtick={0,2,4,6,8,10},
+%ytick={0,5,10,50,100,500,1000},
+legend pos=north east,
+ymajorgrids=true,
+yminorgrids=true,
+grid style=dashed,
+]
+
+\addplot[
+color=blue,
+mark=square,
+]
+coordinates {
+	(0.5,300)(1,137)(1.5,82)(2,55)(2.5,32)(3,24)(3.5,19)(4,15)(4.5,12)(5,9)(7,5)(9,3.2)(10,2.6)
+};
+
+\addplot[
+color=red,
+mark=square,
+]
+coordinates {
+	(0.5,1500)(1,1050)(1.5,650)(2,460)(2.5,340)(3,250)(3.5,200)(4,165)(4.5,138)(5,115)(7,63)(9,42)(10,32)
+};
+
+\addplot[
+color=green,
+mark=square,
+]
+coordinates {
+	(0.5,400)(1,210)(1.5,90)(2,50)(2.5,30)(3,24)(3.5,17)(4,14)(4.5,11)(5,9)(7,4.5)(9,2.8)(10,2.2)
+};
+\legend{S5972,SFH203,SFH2701}
+
+\end{axis}
+\end{tikzpicture}
+
+Aus der Grafik geht hervor, dass bei einer Distanz von \SI{4}{cm} mit einem Photostrom von \textgreater $\SI{10}{\mu A}$ gerechnet werden kann. Diese Distanz wurde abgeschätzt und hängt von der späteren mechanischen Konstruktion ab. Sie dürfte aber eher kleiner werden, weshalb diese Annahme getroffen wurde.
+\newline
+Als Transimpedanzverstärker wurde der LT6268 von Linear Technology gewählt. Dieser Verstärker ist durch sein hohes GBWP von \SI{4}{GHz} und der kleinen Eingangskapazität von \SI{0.45}{pF} für High-Speed Photoanwendungen geeignet.
+
+Gemäss Formel \ref{eq:Bandwidth} ist mit diesem Verstärker in Kombination mit einer der ausgewählten Photodioden folgende Bandbreite möglich:
+
+\begin{equation}\label{eq:Bandwidth2}
+B=\sqrt{\frac{GBWP}{2\pi\cdot R_{f}\cdot (C_{opamp}+C_{photo})}}\approx \SI{96}{MHZ}
+\end{equation}
+
+Dabei wurde mit $R_{f}=\SI{20}{k\omega}$, $GBWP=\SI{4}{GHz}$, $C_{opamp}=\SI{0.45}{pF}$ und $C_{photo}=\SI{3}{pF}$ gerechnet.
+
+Gemäss Datenblatt des Verstärkers braucht es eine Kapazität im Feedback-Loop für eine stabile Funktionalität im höheren Frequenzbereich. Dafür gelten folgende Konditionen:
+\begin{equation}\label{eq:Amp_Cf}
+C{f}\textgreater \sqrt{\frac{C_{IN}}{\pi\cdot GBWP\cdot R_{f}}}
+\end{equation}
+
+\begin{equation}\label{eq:Cin_Cf}
+\frac{C_{IN}}{C_{f}}\geq 10
+\end{equation}
+
 
 
 \subsection{Simulation}
