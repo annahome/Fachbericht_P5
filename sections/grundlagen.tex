@@ -1,24 +1,128 @@
 \section{Grundlagen}
 \label{sec:Grundlagen}
 In diesem Kapitel werden die wichtigsten Grundlagen erklärt, welche nötig sind um den Bericht zu verstehen.
+
 \subsection{Grundlagen zur Energieübertragung}
-In diesem Unterkapitel werden die Grundlagen zur Energieübertragung erläutert. Im wesentlichen beinhaltet dies folgende Themen:
+In diesem Unterkapitel werden die Grundlagen zur Energieübertragung erläutert. Mittels dieser Grundlagen sollen die Eigenschaften des Flyback-converters, dessen Formeln und Grundkenntnisse zum Kopplungsfaktor vermittelt werden.
+Es soll dem Leser als Basis für das Kapitel \textbf{\ref{sec:energie} \nameref{sec:energie}} dienen.
+
 
 \paragraph{Kopplungsfaktor}
-Der Kopplungsfaktor $ k $ lässt sich wie folgt definieren:
+Der Kopplungsfaktro gibt Aufschluss darüber wie stark die gegenseitige magnetische Beeinflussung zweier oder mehreren benachbarten Drahtschleifen durch Induktion infolge einer magnetischen Flussänderung ist. Die Schleifen, wie in Abbildung \ref{eq:kopplungsfaktor} nennt man ideal gekoppelt da der magnetische Fluss der einen Drahtschleife vollständig von der anderen umschlossen wird. \textcolor{red}{[Technische Elektrizitätslehre]}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{kopplungsfaktor}
+	\caption{zwei ideal gekoppelte Einzelschleifen}\label{fig:kopplungsfaktor}
+\end{figure}
+Wenn sich in einer der beiden Schleifen der Strom ändert, induziert dieser sowohl in der eigenen als auch in der anderen Schleife dieselbe Spannung. Daher gilt Induktivität $ L_{1}$ = Induktivität $L_{2}$ = gesamte Gegeninduktivität $M$.
+So lässt sich der Kopplungsfaktor $ k $ wie folgt definieren:
 \begin{equation}
-k=\frac{M}{\sqrt{L_{1}\cdot L_{2}}}
+k=\frac{M}{\sqrt{L_{1}\cdot L_{2}}} = 1
 \label{eq:kopplungsfaktor}
 \end{equation}
+\todo[inline]{nicht ganz sicher ob M stimmt}
 
-\paragraph{Auswahl der Schaltungstopologie}
-\todo[inline]{Vor und Nachteile Flayback}
+\newpage
 
 \paragraph{Flyback}
-\todo[inline]{Abbildung Flyback}
-\todo[inline]{Formeln zur Berechnung}
+Der Flyback-converter oder Eintakt-Sperrwandler, wie die Schaltung auf Deutsch gennant wird gehört zu den primär getakteten Wandlern. Die Eingangs- und Ausgangsseite sind galvanisch getrennt. Er wird in Schaltnetzteilen von kleiner bis mittleren Leistung (ca. 500W), z.B. für PC-Netzteilen, Drucker und Fernsehgeräte eingesetzt. \textcolor{red}{[Speerwandler, schulz]}
+\\\\
+Die Schaltung besteht aus wenigen Bauteilen, Dies sind ein Schalter, ein Speichertransformator, eine Diode und ein Kondensator. Der Schalter, z.B. ein MOSFET, wird mit einem konstanten Tastgrad und Frequenz gesteuert. \textcolor{red}{[bachelor]}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\linewidth]{flyback_schaltung}
+\caption{Grundschaltung Flyback}\label{fig:flyback_schaltung}
+\end{figure}
+
+Wie man aus der Abbildung \ref{fig:flyback_schaltung} erkennen kann, beinhaltet die Schaltung einen Speichertransformator. Er dient zur dynamischen Energiespeicherung sowie für die Potenzialtrennung. Im Speichertransformator wird die gesamte übertragene Energie zwischen den einzelnen Zuständen im Magnetfeld zwischengespeichert. Aus diesem Grund benötigt er einen Luftspalt im Kern, da in diesem Teil die meiste magnetische Feldenergie gespeichert wird. Die beiden Wicklungen der Primär- und Sekundärseite müssen sehr gut magnetisch gekoppelt sein, damit die eingespeicherte Energie wieder abgegeben werden kann. Im Gegensatz wird wegen der gleichzeitigen Leistungsaufnahme und -abgabe bei gewöhnlichen Transformatoren nur wenig Energie im Kern gespeichert.  \textcolor{red}{[schulz, speerwandler]}
+\\\\
+Der Flyback überträgt dankt diesem Prinzip seine Energie erst auf die Sekundärseite, wenn der Schalter auf der Primärseite geöffnet wird. Der Flyback ist prinzipiell kurzschlussfest, da die Diode auf der Sekundärseite sperrt sobald der Schalter geschlossen wird. Die genauere Funktionsweise ist in der Tabelle \ref{tab:funktionsweise} aufgeführt. \textcolor{red}{[schulz]}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{L{7cm}| L{7cm} }
+		\multicolumn{1}{c|}{\textbf{Schalter geschlossen}}
+		& \multicolumn{1}{c}{\textbf{Schalter geöffnet}} \\ \hline\hline
+		$ \bullet $ Induktivität des Transformator lädt sich auf & $ \bullet $ Endmagnetisierung über die Sekundärwicklung \\ 
+		$ \bullet $ Transformator ist im Leerlauf & $ \bullet $ Laden des Kondensators auf $ U_{A} $ \\ 
+		$ \bullet $ Diode ist in Sperrrichtung &  \\ \hline
+	\end{tabular}
+	\caption{Funktionsweise des Flybacks \textcolor{red}{[schulz]}}\label{tab:funktionsweise}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{kurven}
+	\caption{Strom und Spannungsverlauf des Speichertrafos}\label{fig:kurven}
+\end{figure}
+
+Die Abbildung \ref{fig:kurven} zeigt, dass während der Leitphase des MOSFET die Primärspannung $ u_{L1} $ des Trafos gleich der Eingangsspannung $ U_{E} $ ist. In dieser Zeit steigt der Strom $ i_{L1} $ linear an. Die Primärspannung wird mit dieser Formel beschrieben.
+
+\begin{equation}\label{eq:induktionsspannung}
+u_{L1}=L \cdot \frac{\mathrm{d} i_{L}}{\mathrm{d} t}
+\end{equation}
+
+Die Primäspannung $ u_{L1} $ lässt sich mit der Eingangsspannung $ U_{E} $  und $ \mathrm{d} t $ mit $ a \cdot T_{p} $ darstellen. Nun kann die Formel wie folgt nach $ \^{I}_{L1} $ umgeformt werden.
+
+\begin{equation}\label{eq:strom}
+\^{I}_{L1}=\frac{U_{E}}{L}\cdot a \cdot T_{p}
+\end{equation}
+
+Um die nachfolgenden Formeln zu vereinfachen wird das Übersetzungsverhältnis $ ü $ zwischen der Anzahl Windungen der Primärseite und der Sekundärseite wie folgt definiert.
+
+\begin{equation}\label{eq:übertragung}
+ü= \frac{N_{1}}{N_{2}} = \frac{U_{E}}{U_{A}}
+\end{equation}
+
+Die Primärspannung $ u_{L1} $ muss im stationärem Betrieb einen Mittelwert gleich Null haben. Ansonsten würde der Strom auf unermesslich hohe Werte ansteigen. Das Tastverhältnis hat den Kennbuchstaben $ a $- Daraus folgt $ 0= U_{E} \cdot a + ü \cdot (-U_{A}) \cdot (1-a) $. Diese Gleich lässt sich auch wie folgt schreiben.
+
+\begin{equation}\label{eq:ausgangsspannung}
+U_{A}= \frac{1}{ü} \cdot \frac{a}{1-a} \cdot U_{E}
+\end{equation}
+
+Die Energie welche pro Periode übertragen wird lässt sich wie folgt berechnen.
+
+\begin{equation}\label{eq:energie}
+E= \frac{1}{2} \cdot L \cdot \^{I}_{p}\!^{2}
+\end{equation}
+
+Die übertragene Leistung hängt von der zwischengespeicherten Energie pro Periode und der Schaltfrequenz ab. Dies ergibt folgende Formel.
+
+\begin{equation}\label{eq:Leistung}
+P= f_{p} \cdot E = \frac{U_{2}\!^{2}}{R}
+\end{equation}
+
+
 \todo[inline]{Kontinuierlicher, Diskontinuierlicher Modus}
-\todo[inline]{Thema Snubber}
+
+
+\paragraph{Snubber}
+Eine elektrische Schaltung, welche störende Spannungsspitzen neutralisieren soll, wird Snubber genannt. Solche Spannungsspitzen treten beim Schalten von induktiven Lasten auf, wenn der Strom abrupt unterbrochen wird. Dies ist auch beim Flyback der Fall, wenn der Schalter geöffnet wird. Aufgrund der Streuinduktivität des Speichertransformator steigt die Drain-Source Spannung am MOSFET stark an. Diese Spannung kann den MOSFET beschädigen. Um diese Überspannung zu verhindern gibt es verschiedene Möglichkeiten. Ein Snubber zu dimensionieren ist nicht ganz einfach den neben der Spannungsbegrenzung müssen noch weitere Probleme gelöste werden. Folgende Punkte müssen gelöst werden:
+\begin{itemize}
+	\item Spannungsbelastung des MOSFET auf ein aktzeptables Mass begrenzen
+	\item Streuinduktivität möglichst zügig entladen, um den Wirkungsgrad hoch zu halten
+	\item Schaltverluste dürfen nur minimal erhöht werden durch das Hinzufügen des Snubber-Glieds
+	\item Auswirkungen auf das dynamische Verhalten des Netzteils zu vermeiden
+\end{itemize}
+Nachfolgen werden zwei Typologien vorgestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Flyback_RC}
+	\caption{Snubberschaltung mit RC-Glied}\label{fig:Flyback_RC}
+\end{figure}
+
+In der Abbildung \ref{fig:Flyback_RC} wird die Snubberschaltung mit einem Widerstand, einem Kondensator und einer Diode realisiert. Diese Schaltung basiert darauf, dass die überschüssige Energie aus der Streuinduktivität des Übertrags in den Snubber-Kondenstor geleitet wird. Die Differenz zwischen der Begrenzungs- und der Rest-Spannung ist gleich der Spannung über die Streuinduktivität. Die im Widerstand umgesetzte Verlustleistung und der Energiebetrag in der Streuinduktivität legen die Begrenzungsspannung dieser Schaltung fest. Ein kleiner Widerstand setzt die Begrenzungsspannung herab, jedoch entsteht eine höhere Verlustleistung. Der Nachteil dieser Schaltung ist, je weiter die Begrenzungsspannung gesenkt wird, desto mehr Energie wird der Gesamtleistung entzogen. Daher entsteht ein schlechterer Wirkungsgrad. \textcolor{red}{[power-tipps 17]}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Flyback_zehner}
+	\caption{Snubberschaltung mit Zehner Diode}\label{fig:Flyback_zehner}
+\end{figure}
+
+Die zweite Snubberschaltung (Abbildung \ref{fig:Flyback_zehner}) besteht aus einer Zener Diode und einer Diode. Die Drainspannung steigt nach dem Abschalten des MOSFET an, bis die Dioden leitend werden und die Streuinduktivität des Übertrags damit entladen. Die Differenz der reflektierten Ausgangspannung und der Zenerspannung bestimmt die Entladerate. Je schneller die Energie aus der Streuinduktivität abgebaut werden kann, desto besser ist der Wirkungsgrad. Die Werte der Dioden hängt von der zulässigen Spannungsbelastung des MOSFET ab. Nachdem die Streuinduktivität entladen ist, sollte die Z-Diode nicht mehr leiten, Aus diesem Grund sollte die Zenerspannung grösser als die reflektierte Ausgangsspannung sein. \textcolor{red}{[power-tipps 54]}
 
 \paragraph{Transformator Ersatzschaltbild}
 \todo[inline]{Abbildung Ersatzschaltbild}
