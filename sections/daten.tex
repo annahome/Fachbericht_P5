@@ -12,13 +12,13 @@ In Abbildung \ref{fig:Konzept_Daten} wird grob das Konzept zur optischen Datenü
 
 In der Abbildung sind die beiden Kanäle zu erkennen, welche optisch voneinander getrennt sind. Jeder Kanal überträgt dabei die Daten nur in jeweils eine Richtung. Beide Kanäle zusammen sorgen für die gewünschte Bidirektionalität. Auf der Primär- und Sekundärseite hat es jeweils eine Sende- und Empfangseinheit. Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden mit einer Infrarot-LED übertragen und die negativen Spannungspegel mit einer blauen LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
 \newline
-Eine Empfangseinheit besteht aus Photodioden und Verstärkerschaltungen. Im blauen Spektralbereich werden mit Hilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
+Eine Empfangseinheit besteht aus Photodioden, Verstärkerschaltungen und der Pegelanpassung. Im blauen Spektralbereich werden mit Hilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
 \newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung.
 
 \paragraph{Sender}
 In folgender Abbildung ist das Konzept einer Sendeeinheit detaillierter dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{Konzept_Sender.png}
 	\caption{Konzept der optischen Sendeeinheit}\label{fig:Konzept_Sender}
@@ -58,13 +58,13 @@ Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist k
 	\caption{Konzept der Kanäle}\label{fig:Konzept_Kanal}
 \end{figure}
 
-In der Abbildung ist die optische Isolation (schwarz) gut zu erkennen, welche die gegenseitige Störung zwischen den Kanälen verhindert. Im Kanal 1 ist die Rotation der mechanischen Konstruktion unproblematisch, da sich Sender und Empfänger auf der Drehachse befinden. Der Kanal 2 nimmt das Licht auf der einen Seite auf und der lichtstreuende Werkstoff (grau) verteilt es im ganzen Kreisring. Nun spielt es auf der Empfängerseite keine Rolle mehr, in welchem Abschnitt auf dem Kreisring man sich befindet.
+In der Abbildung ist die optische Isolation (schwarz) gut zu erkennen, welche die gegenseitige Beeinflussung der beiden Kanäle verhindert. Im Kanal 1 ist die Rotation der mechanischen Konstruktion unproblematisch, da sich Sender und Empfänger auf der Drehachse befinden. Der Kanal 2 nimmt das Licht auf der einen Seite auf und der lichtstreuende Werkstoff (grau) verteilt es im ganzen Kreisring. Nun spielt es auf der Empfängerseite keine Rolle mehr, in welchem Abschnitt auf dem Kreisring man sich befindet.
 
 \subsection{Dimensionierung Testaufbau}
-Um wichtige Erkenntnisse für den weiteren Projektverlauf zu gewinnen, wurde ein Testaufbau realisiert. Dieser beinhaltet eine Sende- und Empfangseinheit um einen Rechteckpuls im Infrarotbereich zu übertragen. 
-In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung des Testaufbaus eingegangen.
+Um wichtige Erkenntnisse für den weiteren Projektverlauf zu gewinnen, wurde ein Testaufbau realisiert. Dieser beinhaltet eine Sende- und Empfangseinheit um ein Rechtecksignal im Infrarotbereich zu übertragen. 
+In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung des Testaufbaus eingegangen. Das entsprechende Schema mit der Detailbeschaltung ist dem Anhang zu entnehmen.
 \paragraph{Sender} 
-Als Eingang beim Sender dient eine BNC-Buchse, um den Rechteckpuls einzuspeisen. Als Gatetreiber des FET wird der ISL55110 vom Hersteller Renesas verwendet. Dieser zeichnet sich durch kurze Anstiegs- und Fallzeiten von \SI{1.5}{ns} bei einer Last von \SI{100}{pF} aus.
+Als Eingang beim Sender dient eine BNC-Buchse, um das Rechtecksignal einzuspeisen. Als Gatetreiber des FET wird der ISL55110 vom Hersteller Renesas verwendet. Dieser zeichnet sich durch kurze Anstiegs- und Fallzeiten von \SI{1.5}{ns} bei einer Last von \SI{100}{pF} aus.
 Der gewählte N-Kanal-FET ist ein BSS316N vom Hersteller Infineon. Durch die kleine Eingangskapazität von \textless \SI{100}{pF} kann der FET in Kombination mit dem Gatetreiber sehr schnell geschaltet werden.
 Als Infrarot-Emitter wurde die SFH4235 von OSRAM gewählt. Die Leuchtdiode kann mit Anstiegs- und Abfallzeiten von 7/\SI{14}{ns} mit \textgreater \SI{30}{MHz} betrieben werden und ist deshalb für diese Anwendung geeignet. Folgende Abbildung zeigt das Spektrum des Infrarot-Emitters.
 
@@ -74,7 +74,7 @@ Als Infrarot-Emitter wurde die SFH4235 von OSRAM gewählt. Die Leuchtdiode kann 
 	\caption{Spektrum SFH4235}\label{fig:Spektrum_Infra}
 \end{figure}
 
-Wie in der Abbildung zu erkennen ist, hat das Spektrum den Peak bei \SI{860}{nm}. Die Photodiode auf der Empfängerseite muss dementsprechend passend zum Spektrum ausgewählt werden. Die im Konzept beschriebene Schaltungsergänzung wurde im Testaufbau vorbereitet. Weil die Standartbeschaltung schnell genug ist, wird die Ergänzung jedoch nicht bestückt.
+Wie in der Abbildung zu erkennen ist, hat das Spektrum den Peak bei \SI{860}{nm}. Die Photodiode auf der Empfängerseite muss dementsprechend passend zum Spektrum ausgewählt werden. Die im Konzept beschriebene Schaltungsergänzung wurde im Testaufbau vorbereitet. Weil die einfache Ansteuerung schnell genug ist, wird die Ergänzung vorerst nicht bestückt.
 
 \paragraph{Empfänger}
 Mit zwei Z-Dioden (SZBZX84C3V3 und BZD27C13) und einem Operationsverstärker (LM7321) als Buffer geschaltet, wird eine Speisung für die Empfängerschaltung generiert. Diese liefert die benötigten Spannungen von \SI{3.3}{V} für die integrierten Bauteile und \SI{-13}{V} um die Photodiode mit einer negativen Biasspannung vorzuspannen. Die Beschaltung ist im Schema im Anhang abgebildet.
@@ -157,7 +157,7 @@ B=\sqrt{\frac{GBWP}{2\pi\cdot R_{f}\cdot (C_{opamp}+C_{photo})}}\approx \SI{96}{
 
 Dabei wurde mit $R_{f}=\SI{20}{k\omega}$, $GBWP=\SI{4}{GHz}$, $C_{opamp}=\SI{0.45}{pF}$ und $C_{photo}=\SI{3}{pF}$ gerechnet.
 
-Gemäss Datenblatt des Verstärkers braucht es eine Kapazität im Feedback-Loop für eine stabile Funktionalität im höheren Frequenzbereich. Dafür gelten folgende Konditionen:
+Gemäss Datenblatt des Verstärkers braucht es eine Kapazität im Feedback-Loop für eine stabile Funktionalität im höheren Frequenzbereich. Dafür gelten folgende Bedingungen:
 \begin{equation}\label{eq:Amp_Cf}
 C{f}\textgreater \sqrt{\frac{C_{IN}}{\pi\cdot GBWP\cdot R_{f}}}
 \end{equation}
@@ -166,7 +166,12 @@ C{f}\textgreater \sqrt{\frac{C_{IN}}{\pi\cdot GBWP\cdot R_{f}}}
 \frac{C_{IN}}{C_{f}}\geq 10
 \end{equation}
 
+Mit den beiden Formeln \ref{eq:Amp_Cf} und \ref{eq:Cin_Cf} bekommt man folgende Bedingung für $C_{f}$: 
+\begin{equation}\label{eq:Cfminmax}
+\SI{150}{fF}\textgreater C_{f}\textgreater \SI{500}{fF}
+\end{equation}
 
+\todo[inline]{ Unterkapitel noch abschliessen und zur Simulation überleiten}
 
 \subsection{Simulation}
 Im Simulations-Abschnitt wird die Dimensionierung und das Konzept überprüft.
