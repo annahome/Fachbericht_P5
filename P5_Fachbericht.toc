@@ -1,5 +1,4 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-<<<<<<< HEAD
 \defcounter {refsection}{0}\relax 
 \select@language {ngerman}
 \select@language {ngerman}
@@ -16,32 +15,9 @@
 \contentsline {section}{\numberline {4}Daten\IeC {\"u}bertragung}{15}{section.4}
 \contentsline {subsection}{\numberline {4.1}Konzept}{15}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Dimensionierung Testaufbau}{18}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Simulation}{19}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Testaufbau}{19}{subsection.4.4}
-\contentsline {section}{\numberline {5}Validierung}{20}{section.5}
-\contentsline {subsection}{\numberline {5.1}Validierung Energie\IeC {\"u}bertragung}{20}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Validierung Daten\IeC {\"u}bertragung}{20}{subsection.5.2}
-\contentsline {section}{\numberline {6}Fazit}{21}{section.6}
-=======
-\babel@toc {ngerman}{}
-\babel@toc {ngerman}{}
-\babel@toc {ngerman}{}
-\contentsline {section}{\numberline {1}Einleitung}{1}{section.1}
-\contentsline {section}{\numberline {2}Grundlagen}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Grundlagen zur Energie\IeC {\"u}bertragung}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Grundlagen zur Daten\IeC {\"u}bertragung}{2}{subsection.2.2}
-\contentsline {section}{\numberline {3}Energie\IeC {\"u}bertagung}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Konzept}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Dimensionierung}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Simulation}{6}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Testaufbau}{7}{subsection.3.4}
-\contentsline {section}{\numberline {4}Daten\IeC {\"u}bertragung}{9}{section.4}
-\contentsline {subsection}{\numberline {4.1}Konzept}{9}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Dimensionierung Testaufbau}{12}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Simulation}{14}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Testaufbau}{14}{subsection.4.4}
-\contentsline {section}{\numberline {5}Validierung}{15}{section.5}
-\contentsline {subsection}{\numberline {5.1}Validierung Energie\IeC {\"u}bertragung}{15}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Validierung Daten\IeC {\"u}bertragung}{15}{subsection.5.2}
-\contentsline {section}{\numberline {6}Fazit}{16}{section.6}
->>>>>>> fcbd4d291dc74daea97ec5fc147468ae53970958
+\contentsline {subsection}{\numberline {4.3}Simulation}{20}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Testaufbau}{20}{subsection.4.4}
+\contentsline {section}{\numberline {5}Validierung}{21}{section.5}
+\contentsline {subsection}{\numberline {5.1}Validierung Energie\IeC {\"u}bertragung}{21}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Validierung Daten\IeC {\"u}bertragung}{21}{subsection.5.2}
+\contentsline {section}{\numberline {6}Fazit}{22}{section.6}
