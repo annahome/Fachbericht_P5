@@ -34,7 +34,7 @@ Mit einer kleinen Erweiterung der Beschaltung der LED können die Anstiegs- und 
  	\caption{Erweiterte Schaltung um Schaltzeiten zu verkürzen}\label{fig:Fast_LED}
  \end{figure}
 
-Durch den Leckstrom des FET wird die LED auch im abgeschalteten Zustand mit einigen Ladungsträgern durchflossen, was die Anstiegszeit geringfügig verkürzt. Im Einschaltmoment sorgt der Kondensator $C$ für einen Kurzschluss und überbrückt den Vorwiderstand $R_{1}$. Es kommt zu einem Strompeak, der die Kapazität der LED schneller laden lässt. Die Anstiegszeit wird dadurch massiv verkürzt. Im Ausschaltmoment induziert das Magnetfeld in der Spule $L$ eine negative Spannung. Folglich werden die Ladungsträger aus der LED gezogen. Dadurch wird auch die Abfallzeit gegenüber dem \glqq einfachen\grqq Ausschalten verkürzt.
+Durch den Leckstrom des FET wird die LED auch im abgeschalteten Zustand mit einigen Ladungsträgern durchflossen, was die Anstiegszeit geringfügig verkürzt. Im Einschaltmoment sorgt der Kondensator $C$ für einen Kurzschluss und überbrückt den Vorwiderstand $R_{1}$. Es kommt zu einem Strompeak, der die Kapazität der LED schneller laden lässt. Die Anstiegszeit wird dadurch massiv verkürzt. Im Ausschaltmoment induziert das Magnetfeld in der Spule $L$ eine negative Spannung. Folglich werden die Ladungsträger aus der LED gezogen. Dadurch wird auch die Abfallzeit gegenüber dem \glqq einfachen\grqq Ausschalten verkürzt.\textcolor{red}{[paper]}
 
 \paragraph{Empfänger}
 In folgender Abbildung wird das Konzept einer Empfangseinheit detaillierter dargestellt.
@@ -100,7 +100,8 @@ Wie aus der Tabelle zu entnehmen ist, kann die parasitäre Kapazität aller ausg
 \newline
 Um einen Anhaltspunkt für den zu erwartenden Photostrom zu haben, wurden die Photodioden bei Bestrahlung mit dem Infrarot-Emitter ($I_{F}=\SI{280}{mA}$, konstant) ausgemessen.
 
-
+\begin{figure}[h]
+\centering
 \begin{tikzpicture}
 \begin{axis}[
 title={Photostrom in Abhängigkeit des Abstandes},
@@ -144,6 +145,8 @@ coordinates {
 
 \end{axis}
 \end{tikzpicture}
+\caption{Photostrom in Funktion des Abstands verschiedener Photodioden}\label{fig:Plot_Photo}
+\end{figure}
 
 Aus der Grafik geht hervor, dass bei einer Distanz von \SI{4}{cm} mit einem Photostrom von \textgreater $\SI{10}{\mu A}$ gerechnet werden kann. Diese Distanz wurde abgeschätzt und hängt von der späteren mechanischen Konstruktion ab. Sie dürfte aber eher kleiner werden, weshalb diese Annahme getroffen wurde.
 \newline

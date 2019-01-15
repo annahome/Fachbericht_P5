@@ -1,5 +1,18 @@
 \section{Einleitung}
-
+%Kontext
+In Zusammenarbeit mit dem Spezialisten für Konserventechnik, der Ferrum AG, entwickelt die Fachhochschule Nordwestschweiz FHNW einen neuen Dosenverschliesser für die Getränke- und Lebensmittelindustrie. Dieser soll hauptsächlich kleinere Unternehmen ansprechen mit begrenztem Budget und geringeren Anforderungen hinsichtlich dem Durchsatz. Um eine Dose zu verschliessen, sind auf einem Drehteller vier Motoren mit den dazugehörigen Werkzeugen angeordnet, um die notwendigen Arbeitsschritte durchzuführen. Durch die FHNW wurde bereits ein erster Aufbau der Maschine realisiert. In diesem ersten Aufbau werden die vier Motoren-Drives mit einer Schleppkette versorgt, welche die Kabel für Energieversorgung und Datenkommunikation führt. Eine Schleppkette ist wartungsintensiv und deshalb für eine industrielle Anlage ungeeignet.
+\newline
+\ \\
+%Ziel+Anforderungen
+In dieser Projektarbeit soll eine berührungslose Energie- und Datenübertragung auf den Drehteller realisiert werden. Folglich würden die Kabel und die lange Schleppkette ersetzt werden. Die Motoren brauchen eine Leistung von mindestens $\SI{300}{W}/\SI{48}{V}$. Die Datenübertragung funktioniert über einen VARAN Ethernet-Bus. Ziel im Projekt 5 ist es, möglichst viele Erkenntnisse zur berührungslosen Energie- und Datenübertragung zu sammeln und daraus die richtigen Schlüsse zu ziehen. Mit diesem, im Projekt 5 ausgearbeiteten Konzept, wird die Vorarbeit für die Bachelor-Thesis im Projekt 6 geleistet. Dort soll schliesslich ein Produkt entstehen, welches im Dosenverschliesser die Schleppkette ersetzen kann.
+\newline
+\ \\
+%Lösungsansätze
+Die Energieübertragung wird induktiv über zwei Spulen mit Ferrit-Kern realisiert. Dafür wurden mehrere Simulationen durchgeführt, um die beiden Spulen zu dimensionieren. Für die Ansteuerung der Spulen wurden einige gängige Schaltungstypen simuliert und schliesslich eine Testschaltung aufgebaut. Die Daten sollen mittels optischer Übertragung auf den Drehteller und zurück gesendet werden. Dafür wurden infrarot Emitter, Photodioden und Transimpedanzverstärker evaluiert und simuliert. Für die Bidirektionalität sind zwei optisch getrennte Kanäle vorgesehen.
+\newline
+\ \\ 
+%Aufbau der Arbeit
+Die Energieübertragung und die Datenübertragung konnte im Projekt 5 separat untersucht werden. Dementsprechend ist dieser Bericht auch aufgebaut. Im Kapitel \ref{sec:Grundlagen} \nameref{sec:Grundlagen} werden die wichtigsten Theorien und Erklärungen für die weiteren Teile des Berichts geliefert. Die \nameref{sec:energie} wird im Kapitel \ref{sec:energie} vom Konzept bis zur Validierung des Testaufbaus detailliert dargelegt. Im Kapitel \ref{sec:Daten} \nameref{sec:Daten} wird alles vom Konzept der Sender- und Empfängerschaltung bis zur Validierung beschrieben.
 
 
 %\begin{figure}
