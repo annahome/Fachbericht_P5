@@ -10,7 +10,9 @@ In Abbildung \ref{fig:Konzept_Daten} wird grob das Konzept zur optischen Datenü
 	\caption{Konzept der optischen Datenübertragung}\label{fig:Konzept_Daten}
 \end{figure}
 
-In Abbildung \ref{fig:Konzept_Daten} sind die beiden Kanäle zu erkennen, welche optisch voneinander getrennt sind. Jeder Kanal überträgt dabei die Daten nur in jeweils eine Richtung. Beide Kanäle zusammen sorgen für die gewünschte Bidirektionalität. Auf der Primär- und Sekundärseite hat es jeweils eine Sende- und Empfangseinheit. Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden mit einer Infrarot-LED übertragen und die negativen Spannungspegel mit einer blauen LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
+In Abbildung \ref{fig:Konzept_Daten} sind die beiden Kanäle zu erkennen, welche optisch voneinander getrennt sind. Jeder Kanal überträgt dabei die Daten nur in jeweils eine Richtung. Beide Kanäle zusammen sorgen für die gewünschte Bidirektionalität. Auf der Primär- und Sekundärseite hat es jeweils eine Sende- und Empfangseinheit. Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. 
+\newline
+Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden mit einer Infrarot-LED übertragen und die negativen Spannungspegel mit einer blauen LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
 \newline
 Eine Empfangseinheit besteht aus Photodioden, Verstärkerschaltungen und der Pegelanpassung. Im blauen Spektralbereich werden mit Hilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
 \newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung.
@@ -24,9 +26,11 @@ In folgender Abbildung ist das Konzept einer Sendeeinheit detaillierter dargeste
 	\caption{Konzept der optischen Sendeeinheit}\label{fig:Konzept_Sender}
 \end{figure}
 
-Aus dem symmetrischen Signal des VARAN-Buses wird zuerst ein unsymmetrisches Signal erzeugt. Dafür kann ein Signal-Transformator eingesetzt werden. Das Signal hat nun einen Bezug zur Masse der restlichen Schaltung. Mit zwei Komparatoren wird unterschieden, ob es sich um einen positiven oder negativen Pegel handelt. Dafür werden Komparatoren mit möglichst kurzer Verzögerungszeit und ausreichender Bandbreite verwendet. Die Komparatoren steuern anschliessend die entsprechenden Treiber an. Als Treiber dient ein FET-Treiber Baustein mit hoher Treiberspannung für schnelle Anstiegs- und Abfallzeiten. Die LED wird mit einem N-Kanal-FET nach Masse geschaltet. Die Schaltzeiten der LED sind entscheidend um auf die geforderte Schaltfrequenz von \textgreater \SI{30}{MHz} zu kommen. Dafür wurde einerseits ein FET mit kleiner Gate-Kapazität gewählt und andererseits auf kurze Anstiegs- und Abfallzeiten der LED geachtet.
+Aus dem symmetrischen Signal des VARAN-Buses wird zuerst ein asymmetrisches Signal erzeugt. Dafür wird ein Signal-Transformator eingesetzt. Das Signal erhält so einen Bezug zur Masse der restlichen Schaltung. Mit zwei Komparatoren wird unterschieden, ob es sich um einen positiven oder negativen Pegel handelt. Dafür werden Komparatoren mit möglichst kurzer Verzögerungszeit und ausreichender Bandbreite verwendet. Die Komparatoren steuern anschliessend die entsprechenden Treiber an. 
 \newline
-Mit einer kleinen Erweiterung der Beschaltung der LED können die Anstiegs- und Abfallzeiten nochmals reduziert werden. Folgende Abbildung zeigt die Ansteuerung der LED mitsamt der Erweiterung von $R_{2}$, $C$ und $L$.
+Als Treiber dient ein FET-Treiber Baustein mit hoher Treiberspannung für schnelle Anstiegs- und Abfallzeiten. Die LED wird mit einem N-Kanal-FET nach Masse geschaltet. Die Schaltzeiten der LED sind entscheidend um auf die geforderte Schaltfrequenz von \textgreater \SI{30}{MHz} zu kommen. Dafür wurde einerseits ein FET mit kleiner Gate-Kapazität gewählt und andererseits auf kurze Anstiegs- und Abfallzeiten der LED geachtet.
+\newline
+Mit einer Erweiterung der Beschaltung der LED um drei passive Elemente, können die Anstiegs- und Abfallzeiten bei Bedarf um mehr als 50\% reduziert werden. Abbildung \ref{fig:Fast_LED} zeigt die Ansteuerung der LED mitsamt der Erweiterung von $R_{2}$, $C$ und $L$.
 
  \begin{figure}[h]
  	\centering
@@ -200,6 +204,8 @@ In der Abbildung \ref{fig:Plot_Cf} sind bei kleinen Kapazitätswerten hohe Über
 	\includegraphics[width=\linewidth]{LTPlot_Cf200.png}
 	\caption{Eingangsstrom und Ausgangsspannung bei $\SI{200}{fF}$ Feedback-Kapazität}\label{fig:Plot_Cf200}
 \end{figure}
+
+Mit einem Komparator kann nun aus dem Signal wieder das gewünschte Rechtecksignal erzeugt werden. 
 
 \subsection{Testaufbau}
 In diesem Unterkapitel wird der Testaufbau beschrieben.
