@@ -132,18 +132,16 @@ Die zweite Snubberschaltung (Abbildung \ref{fig:Flyback_zehner}) besteht aus ein
 In diesem Unterkapitel werden einige Grundlagen zur Datenübertragung erläutert. Mittels dieser Grundlagen sollen die Eigenschaften des zu übertragenden Datenbussystems und Grundkenntnisse zu Photodioden und Empfängerschaltungen vermittelt werden. Es soll dem Leser als Basis für das Kapitel \textbf{\ref{sec:Daten} \nameref{sec:Daten}} dienen.
 
 \paragraph{VARAN-Bus}
-
-Der VARAN-Bus ist ein Echtzeit-Bussystem für die industrielle Automatisierung. Der Bus ist ein offener, herstellerunabhängiger Standard. Er verbindet Anlagen, Maschinen und Komponenten in der modernen Industrie. Das Bussystem arbeitet nach dem Manager-/Client-Prinzip. Weil der Manager die Kommunikation initialisiert, sind Paketkollisionen ausgeschlossen. Die Übertragungsschicht basiert auf dem Ethernet-Standard nach IEEE 802.3. Die verwendete 100TX Standard Ethernet Technologie erlaubt eine maximale Übertragungsgeschwindigkeit von 100MBit pro Sekunde.\textcolor{red}{[Varan-bus.net]}
+Der VARAN-Bus ist ein Echtzeit-Bussystem für die industrielle Automatisierung. Der Bus ist ein offener, herstellerunabhängiger Standard. Er verbindet Anlagen, Maschinen und Komponenten in der modernen Industrie. Das Bussystem arbeitet nach dem Manager-/Client-Prinzip. Weil der Manager die Kommunikation initialisiert, sind Paketkollisionen ausgeschlossen. Die Übertragungsschicht basiert auf dem Ethernet-Standard nach IEEE 802.3. Die verwendete 100TX-Standard-Ethernet-Technologie erlaubt eine maximale Übertragungsgeschwindigkeit von 100MBit pro Sekunde.\textcolor{red}{[Varan-bus.net]}
 
 \paragraph{Ethernet}
+Ethernet ermöglicht den kabelgebundenen Datenaustausch in Form von Datenframes zwischen Geräten in einem lokalen Netz. Dabei gibt es verschiedene Standards für unterschiedliche Übertragungsraten. Der 100Base-TX Standard (Fast Ethernet) des VARAN-Bus erlaubt eine maximale Datenrate von 100MBit/s. Statt der Manchesterkodierung, wie beim 10MBit/s-Ethernet, wird der effizientere 4B5B-Code eingesetzt. Dadurch wird eine Taktrückgewinnung aus dem Signal möglich. Durch eine zusätzliche MLT-3 Kodierung wird der Gleichspannungsanteil entfernt. \textcolor{red}{[itwissen.info]}
 
-Ethernet ermöglicht den kabelgebundenen Datenaustausch in Form von Datenframes zwischen Geräten in einem lokalen Netz. Dabei gibt es verschiedene Standards für unterschiedliche Übertragungsraten. Der 100Base-TX Standard (Fast Ethernet) des VARAN-Bus erlaubt eine maximale Datenrate von 100MBit/s. Statt der Manchesterkodierung wie beim 10MBit/s-Ethernet, wird der effizientere 4B5B-Code eingesetzt. Dadurch wird eine Taktrückgewinnung aus dem Signal möglich. Durch eine zusätzliche MLT-3 Kodierung wird der Gleichspannungsanteil entfernt. \textcolor{red}{[itwissen.info]}
+\paragraph{4B5B Code:}
+Der Leitungscode 4B5B bildet vier Nutzdatenbits auf fünf Codebits ab. Dadurch erhöht sich die codierte Bitrate um 25\%. Beim verwendeten Ethernet-Standard beträgt die codierte Symbolrate somit 125MBit/s. Bei der Abbildung auf fünf Codebits werden lange '0'-oder '1'-Folgen vermieden. Dadurch wird die Taktrückgewinnung aus dem Signal verbessert. \textcolor{red}{[itwissen.info]}
 
-\paragraph{4B5B-Code:}
-Der Leitungscode 4B5B bildet vier Nutzdatenbits auf fünf Codebits ab. Dadurch erhöht sich die codierte Bitrate um 25\%. Beim verwendeten Ethernet-Standard beträgt die codierte Symbolrate somit 125MBit/s. Bei der Abbildung auf fünf Codebits werden lange '0' oder '1'-Folgen vermieden. Dadurch wird die Taktrückgewinnung aus dem Signal verbessert. \textcolor{red}{[itwissen.info]}
-
-\paragraph{MLT-3-Code:}
-Multilevel Transmission Encoding (MLT-3) ist ein Leitungscode mit drei Spannungspegeln. Diese werden mit den Symbolen (+,0,-) bezeichnet. Bei einer logischen '1' ändert sich der Spannungspegel nach der fixen Folge [0,+,0,-]. Wird eine logische '0' übertragen, ändert sich der Zustand der Leitung nicht.\textcolor{red}{[itwissen.info]}
+\paragraph{MLT-3 Code:}
+Multilevel Transmission Encoding (MLT-3) ist ein Leitungscode mit drei Spannungspegeln. Diese werden mit den Symbolen (+,\ 0,\ -) bezeichnet. Bei einer logischen '1' ändert sich der Spannungspegel nach der fixen Folge [0,\ +,\ 0,\ -]. Wird eine logische '0' übertragen, ändert sich der Zustand der Leitung nicht. Abbildung \ref{fig:MLT3code} zeigt eine beliebige Datenfolge mit der dazugehörigen MLT-3 Codierung. \textcolor{red}{[itwissen.info]}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{MLT3encoding.png}
@@ -154,9 +152,10 @@ In einer Übertragungsschwingung werden 4 Bit übertragen. Damit reduziert sich 
 \begin{equation}\label{eq:MLT3}
 f_{max}=\frac{Symbolrate}{4 Bit}=\frac{125Mbit/s}{4 Bit}=31.25 MHz
 \end{equation}
+Um die Datenrate von \SI{100}{MBit/s} zu erreichen, dürften also \SI{31.25}{MHz} ausreichen.
 
 \paragraph{Photodioden-Verstärker}
-Photodioden sind Halbleiter-Dioden, die auftreffende Photonen in einen elektrischen Strom umwandeln. Folgende Abbildung zeigt die typische U-I-Kennlinie einer Photodiode.
+Photodioden sind Halbleiter-Dioden, die auftreffende Photonen in einen elektrischen Strom umwandeln. Abbildung \ref{fig:Kenn_Photodiode} zeigt die typische U-I-Kennlinie einer Photodiode.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\linewidth]{Kennlinie_Photodiode.png}
@@ -169,7 +168,7 @@ Eine reale Photodiode besteht aus einer idealen Diode und einer parallel geschal
  	\includegraphics[width=0.8\linewidth]{Ersatzschaltbild_Photodiode.png}
  	\caption{Ersatzschaltbild einer Photodiode}\label{fig:Ersatz_Photodiode}
  \end{figure}
-Für eine erfolgreiche Dimensionierung einer Schaltung, sind diese Parameter des Ersatzschaltbildes unbedingt zu beachten.\newline
+Für eine richtige Dimensionierung einer Schaltung, sind diese Parameter des Ersatzschaltbildes unbedingt zu beachten. Vor allem bei höheren Frequenzen hat die parasitäre Kapazität einen starken Einfluss. Der Widerstand ist normalerweise im Mega- oder Gigaohm-Bereich und kann vernachlässigt werden. \newline
 
 Der Photostrom liegt meist im Nanoampere-Bereich und muss entsprechend verstärkt werden. Mit Hilfe eines Photodioden-Verstärkers wird der Photostrom in eine proportionale Spannung gewandelt. Meist werden dafür Transimpedanzverstärkerschaltungen eingesetzt.
 \begin{figure}[h]

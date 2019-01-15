@@ -1,6 +1,6 @@
 \section{Datenübertragung}
 \label{sec:Daten}
-Im folgenden wird ein Konzept beschrieben, um Daten des VARAN-Buses optisch und bidirektional zu übertragen. Ausserdem wird eine Sende- und Empfängerschaltung entworfen, um einen Teilbereich des Konzepts zu überprüfen und wichtige Erkenntnisse für die Fortsetzung der Arbeit zu sammeln.  
+Im Folgenden wird das Konzept beschrieben, um Daten des VARAN-Buses optisch und bidirektional auf den Drehteller zu übertragen und somit ein Datenkabel hinfällig wird. Ausserdem wird eine Sende- und Empfängerschaltung entworfen, um eine unidirektionale Übertragung mit zwei Pegeln zu testen und wichtige Erkenntnisse für die Fortsetzung der Arbeit zu sammeln.  
 \subsection{Konzept}
 In Abbildung \ref{fig:Konzept_Daten} wird grob das Konzept zur optischen Datenübertragung gezeigt.
 
@@ -10,7 +10,7 @@ In Abbildung \ref{fig:Konzept_Daten} wird grob das Konzept zur optischen Datenü
 	\caption{Konzept der optischen Datenübertragung}\label{fig:Konzept_Daten}
 \end{figure}
 
-In der Abbildung sind die beiden Kanäle zu erkennen, welche optisch voneinander getrennt sind. Jeder Kanal überträgt dabei die Daten nur in jeweils eine Richtung. Beide Kanäle zusammen sorgen für die gewünschte Bidirektionalität. Auf der Primär- und Sekundärseite hat es jeweils eine Sende- und Empfangseinheit. Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden mit einer Infrarot-LED übertragen und die negativen Spannungspegel mit einer blauen LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
+In Abbildung \ref{fig:Konzept_Daten} sind die beiden Kanäle zu erkennen, welche optisch voneinander getrennt sind. Jeder Kanal überträgt dabei die Daten nur in jeweils eine Richtung. Beide Kanäle zusammen sorgen für die gewünschte Bidirektionalität. Auf der Primär- und Sekundärseite hat es jeweils eine Sende- und Empfangseinheit. Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden mit einer Infrarot-LED übertragen und die negativen Spannungspegel mit einer blauen LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
 \newline
 Eine Empfangseinheit besteht aus Photodioden, Verstärkerschaltungen und der Pegelanpassung. Im blauen Spektralbereich werden mit Hilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
 \newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung.
@@ -158,7 +158,7 @@ Gemäss Formel \ref{eq:Bandwidth} ist mit diesem Verstärker in Kombination mit 
 B=\sqrt{\frac{GBWP}{2\pi\cdot R_{f}\cdot (C_{opamp}+C_{photo})}}\approx \SI{96}{MHZ}
 \end{equation}
 
-Dabei wurde mit $R_{f}=\SI{20}{k\omega}$, $GBWP=\SI{4}{GHz}$, $C_{opamp}=\SI{0.45}{pF}$ und $C_{photo}=\SI{3}{pF}$ gerechnet.
+Dabei wurde mit $R_{f}=\SI{20}{k\Omega}$, $GBWP=\SI{4}{GHz}$, $C_{opamp}=\SI{0.45}{pF}$ und $C_{photo}=\SI{3}{pF}$ gerechnet.
 
 Gemäss Datenblatt des Verstärkers braucht es eine Kapazität im Feedback-Loop für eine stabile Funktionalität im höheren Frequenzbereich. Dafür gelten folgende Bedingungen:
 \begin{equation}\label{eq:Amp_Cf}
@@ -174,9 +174,34 @@ Mit den beiden Formeln \ref{eq:Amp_Cf} und \ref{eq:Cin_Cf} bekommt man folgende 
 \SI{150}{fF}\textgreater C_{f}\textgreater \SI{500}{fF}
 \end{equation}
 
+Aufgrund der Dimensionierung der Sende- und Empfangsschaltung, wird in LTSpice ein Simulationsmodel erstellt.
 \todo[inline]{ Unterkapitel noch abschliessen und zur Simulation überleiten}
 
 \subsection{Simulation}
-Im Simulations-Abschnitt wird die Dimensionierung und das Konzept überprüft.
+Die im vorherigen Kapitel durchgeführte Dimensionierung soll nun anhand einer Simulation überprüft werden.
+Dafür wurde die Empfängerschaltung gemäss Schema im Anhang in LTSpice gezeichnet. Eine ideale Stromquelle soll den Photostrom simulieren, welcher durch einfallendes Licht erzeugt wird. Abbildung \ref{fig:Photo_LTSpice} zeigt die Schaltung in LTSpice.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{PhotoAmplifier_LTSpice.png}
+	\caption{Simulationsmodel Empfängerschaltung ohne Pegelanpassung}\label{fig:Photo_LTSpice}
+\end{figure}
+
+Um den Einfluss der Kapazität in der Rückkopplung $C_{f}$ ($C_{1}$ in Abbildung \ref{fig:Photo_LTSpice}) gemäss Bedingung \ref{eq:Cfminmax} zu überprüfen, wurde ein Parameter-Sweep mit mehreren Werten durchgeführt. Es wurden folgende Kapazitäten simuliert: \SI{50}{fF}, \SI{100}{fF}, \SI{200}{fF}, \SI{300}{fF}, \SI{400}{fF} und \SI{500}{fF}. Als Photostrom wurden Reckteck-Pulse mit einer Amplitude von \SI{10}{\mu A} gemäss Dimensionierung gewählt und einer Wiederholungsfrequenz von \SI{33}{MHz}.
+Abbildung \ref{fig:Plot_Cf} zeigt das Ausgangssignal des Transimpedanzverstärkers bei verschiedenen Feedback-Kapazitäten zusammen mit dem Eingangsstrom.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{LTPlot_Cf.png}
+	\caption{Eingangsstrom und Ausgangsspannung bei verschiedenen Feedback-Kapazitäten}\label{fig:Plot_Cf}
+\end{figure}
+In der Abbildung \ref{fig:Plot_Cf} sind bei kleinen Kapazitätswerten hohe Überschwinger zu erkennen. Bei grösseren Kapazitäten steigt die Spannung zu langsam an. Man kann erkennen, dass eine Kapazität von \SI{200}{fF} das beste Resultat liefert. Abbildung \ref{fig:Plot_Cf200} zeigt die \SI{200}{fF}-Kurve alleine.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{LTPlot_Cf200.png}
+	\caption{Eingangsstrom und Ausgangsspannung bei $\SI{200}{fF}$ Feedback-Kapazität}\label{fig:Plot_Cf200}
+\end{figure}
+
 \subsection{Testaufbau}
 In diesem Unterkapitel wird der Testaufbau beschrieben.
+
+\subsection{Validierung} 
