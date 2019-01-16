@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 \section{Energieübertagung}\label{sec:Energie}
 In diesem Kapitel wird aufgezeigt, wie die Energie übertragen werden soll. Die Schaltung auf der Primär- und der Sekundärseite werden entworfen.
+=======
+\section{Energieübertagung}\label{sec:energie}
+In diesem Kapitel wird aufgezeigt, wie die Energie übertragen werden soll. Zudem werden die Schaltung auf der Primär- und der Sekundärseite entworfen.
+>>>>>>> dcd2668... Test1
 
 \subsection{Konzept}
-In der Abbildung \ref{fig:konzept_energie} sind die wichtigsten Komponenten der induktiven Energieübertragung aufgeführt. Rot umrandet sind die Komponenten die entwickelt werden müssen. Die Spannungsquelle und der Treiber für den Motor sind extern. Der Treiber bestimmt die zu übertragende Leistung von 300W und Gleichspannung von 48V.
+In der Abbildung \ref{fig:konzept_energie} sind die wichtigsten Komponenten der induktiven Energieübertragung aufgeführt. Rot umrandet sind die Komponenten, die entwickelt werden müssen. Die Spannungsquelle und der Treiber für den Motor sind extern. Der Treiber bestimmt die zu übertragende Leistung von 300W und einer Gleichspannung von 48V.
 
 \begin{figure}[h]
 	\centering
@@ -10,13 +15,13 @@ In der Abbildung \ref{fig:konzept_energie} sind die wichtigsten Komponenten der 
 	\caption{Konzept der induktiven Energieübertragung}\label{fig:konzept_energie}
 \end{figure}
 
-Die beiden Schalenkerne werden benötigt, um einen guten Kopplungsfaktor zu erreichen. Es sind Ferritkerne, welche aus dem Material BFM8 besteht und eine Anfangspermeabilität $ \mu_{i} $ von 2400 hat.\\ Die Schaltung auf der Primärseite hat die Aufgabe aus der Gleichspannung eine gepulste Spannung zu erzeugen, da keine konstante Spannung an der Spule anliegen darf. Wäre dies nicht der Fall könnte man keine Energie übertragen, denn das Magnetfeld der Spule würde sich nicht ändern und es würde keinen Strom in der zweiten Spule induziert. \\
+Die beiden Schalenkerne werden benötigt, um einen guten Kopplungsfaktor zu erreichen. Es sind Ferritkerne, welche aus dem Material BFM8 bestehen und eine Anfangspermeabilität $ \mu_{i} $ von 2400 aufweisen.\\ Die Schaltung auf der Primärseite hat die Aufgabe aus der Gleichspannung eine gepulste Spannung zu erzeugen, da keine konstante Spannung an der Spule anliegen darf. Wäre dies nicht der Fall, könnte man keine Energie übertragen. Denn das Magnetfeld der Spule würde sich nicht ändern und es würde kein Strom in der zweiten Spule induziert. \\
 Auf der sekundären Seite wird wieder eine gepulste Spannung erhalten. Aus dieser gepulsten Spannung soll die Sekundärschaltung wieder eine Gleichspannung kreieren.
 
 \paragraph{Auswahl der Schaltungstopologie}
 Für die Energieübertragung kommen verschiedene Typologien zu Frage. Der Flyback bringt interessante Vorteile mit sich. Im Vergleich zu anderen Schaltungen, welche eine galvanische Trennung beinhalten, benötigt er weniger Bauteile. Zusätzlich eignet sich die Schaltung für einen Leistungsbereich bis zu ca. 500W. Im Gegensatz zum Resonanzwandler muss der benötigte Transformator bestimmte Anforderungen erfüllen, da er gleichzeitig als Energiespeicher eingesetzt wird. Da es für einen Prototypen von Vorteil ist möglichst wenig Bauteile zu verwenden, fiel der Entscheid auf den Flyback-converter.\textcolor{red}{[Speerwandler, bachelor]}
 
-In der Abbildung \ref{fig:konzept_flyback} wird die Schaltung des Flyback-converters aufgesplittet in die Primärschaltung, die Sekundärschaltung und die Schalenkerne. Die Primärseite besteht hauptsächlich aus dem MOSFET und dem Snubber-Glied. Die beiden Schalenkerene bilden den Speichertransformator, der für den Flyback benötigt wird. Die Sekundärschaltung ist ein Gleichrichter, welcher aus einer Schottky Diode und einem Kondensator gebildet wird.
+In der Abbildung \ref{fig:konzept_flyback} wird die Schaltung des Flyback-Converters aufgesplittet in die Primärschaltung, die Sekundärschaltung und die Schalenkerne. Die Primärseite besteht hauptsächlich aus dem MOSFET und dem Snubber-Glied. Die beiden Schalenkerne bilden den Speichertransformator, der für den Flyback benötigt wird. Die Sekundärschaltung ist ein Gleichrichter, welcher aus einer Schottky-Diode und einem Kondensator gebildet wird.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{konzept_flyback}
@@ -24,29 +29,32 @@ In der Abbildung \ref{fig:konzept_flyback} wird die Schaltung des Flyback-conver
 \end{figure}
 
 
-\subsection{Dimensionierung Flyback-converter}
-Um den Flyback-converter simulieren und später in einem Testaufbau realisieren zu können, müssen die wichtigsten Komponenten ausgelegt werden. In diesen Abschnitt wird die Dimensionierung der Induktivität des Speichertransformators, des MOSFET, der Schottky Diode und der Snubber Schaltung erklärt. Die genauere Dimensionierung des Speichertransformators wird im Abschnitt \ref{sec:simulation} \refname{sec:simulation} genauer beschrieben.
+\subsection{Dimensionierung Flyback-Converter}
+
+Um den Flyback-converter simulieren und später in einem Testaufbau realisieren zu können, müssen die wichtigsten Komponenten ausgelegt werden. In diesen Abschnitt wird die Dimensionierung der Induktivität des Speichertransformators, des MOSFET, der Schottky-Diode und der Snubber-Schaltung erklärt. Die genauere Dimensionierung des Speichertransformators wird im Abschnitt  \textbf{\ref{sec:simulation} \nameref{sec:simulation}} genauer beschrieben.
 
 \paragraph{Berechnung der Induktivität}
-Ein wichtiger Wert um den Speichertransformator zu dimensionieren ist die Induktivität. Mit den beiden Formeln \ref{eq:energie} und \ref{eq:Leistung} lässt sich die übertragene Leistung $ P $ beschreiben. 
+Ein wichtiger Wert, um den Speichertransformator zu dimensionieren, ist die Induktivität. Mit den beiden Formeln \ref{eq:energie} und \ref{eq:Leistung} kann die übertragene Leistung $ P $ beschreiben werden. 
 
 \begin{equation}\label{eq:zusammen}
 P = \frac{1}{2} \cdot L \cdot \left (\frac{U_{E}}{L}\cdot a \cdot T_{p}\right ) ^{2} \cdot f_{p}
 \end{equation}
+
 Die Gleichung \ref{eq:zusammen} lässt sich nun nach der gesuchten Induktivität $ L $ umformen.
+
 \begin{equation}\label{eq:induktivität}
 L = \frac{a^{2}\cdot U_{E}\!^{2}\cdot T_{p}}{2 \cdot P}
 \end{equation}
 
-Mit einem Tastverhältnis $ a $ von 0.5, einer Eingangspannung $ U_{E} $ von 48V und der übertragenen Leistung $ P $ von 300W lässt sich die Induktivität berechnen. Die Periodendauer $ T_{p} $ ist variabel.
+Mit einem Tastverhältnis $ a $ von 0.5, einer Eingangspannung $ U_{E} $ von 48V und der übertragenen Leistung $ P $ von 300W wird die Induktivität berechnet. Die Periodendauer $ T_{p} $ ist variabel.
 
 \begin{equation}\label{eq:induktivität_berechnet}
 L = \frac{0.5^{2}\cdot 48\mathrm{V}^{2}\cdot T_{p}}{2 \cdot 300\mathrm{W}}
 \end{equation}
 
-In der Tabelle \ref{tab:induktivität} sind die berechneten Resultate der Induktivität in Abhängigkeit der Schaltfrequenz aufgeführt. Die Berechnungen geben Aufschluss darüber, dass die Induktivität kleiner werden muss, wenn die Frequenz erhört wird. Dies wird auch mit der Formel \ref{eq:strom} deutlich. In der Formel ist das Tastverhältnis, der Strom und die Spannung konstant. Wenn nun die Frequenz steigt, wird die Periodendauer kleiner und die Induktivität muss dementsprechend gesenkt werden.
+In der Tabelle \ref{tab:induktivität} sind die berechneten Resultate der Induktivität in Abhängigkeit zur Schaltfrequenz aufgeführt. Die Berechnungen geben Aufschluss darüber, dass die Induktivität kleiner werden muss, wenn die Frequenz erhört wird. Dies wird auch mit der Formel \ref{eq:strom} deutlich. In der Formel ist das Tastverhältnis, der Strom und die Spannung konstant. Wenn nun die Frequenz steigt, wird die Periodendauer kleiner und die Induktivität muss dementsprechend gesenkt werden.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{>{\tt}C{2.3cm}|  L{3cm}} 
 		\normalfont\textbf{Frequenz} & \normalfont\textbf{Induktivität} \\ \hline\hline 
@@ -61,24 +69,22 @@ In der Tabelle \ref{tab:induktivität} sind die berechneten Resultate der Indukt
 \end{table}
 
 \paragraph{Auslegung des MOSFET}
-Die maximale Drain-Source-Spannung $ U_{DS} $ und der maximale Drain-Strom $ I_{D} $ sind wichtige Kenngrössen für die Auswahl des MOSFETs. Die grösste Spannung $ U_{DSmax} $ mit welcher der MOSFET belastet wird, berechnet sich mit der Formel \ref{eq:sperrspannung_mosfet}. Die Drain-Source-Spannung muss auf jeden Fall grösser $ U_{DSmax} $ gewählt werden.
+Die maximale Drain-Source-Spannung $ U_{DS} $ und der maximale Drain-Strom $ I_{D} $ sind wichtige Kenngrössen für die Auswahl des MOSFETs. Die grösste Spannung $ U_{DSmax} $, mit welcher der MOSFET belastet wird, berechnet sich mit der Formel \ref{eq:sperrspannung_mosfet}. Die Drain-Source-Spannung muss auf jeden Fall grösser $ U_{DSmax} $ gewählt werden.
 \begin{equation}\label{eq:sperrspannung_mosfet}
 U_{DSmax} = U_{e} + U_{a} \cdot \frac{N1}{N2}
 \end{equation}
 \begin{equation}\label{eq:sperrspannung_mosfet_berechnet}
 U_{DSmax}= 48\mathrm{V} + 48\mathrm{V} \cdot 1 = 96\mathrm{V}
 \end{equation}
-\todo[inline]{ ev. Verlustleistung}
 
 \paragraph{Auslegung des Ausgangsdiode}
-Die Sperrspannung $ U_{R} $ der Schottky Diode muss folgendermassen ausgelegt werden.
+Die Sperrspannung $ U_{R} $ der Schottky-Diode muss folgendermassen ausgelegt werden.
 \begin{equation}\label{eq:sperrspannung_diode}
 U_{R} = U_{a} + U_{e} \cdot \frac{N2}{N1} = 48\mathrm{V} + 48\mathrm{V} \cdot 1 = 96\mathrm{V}
 \end{equation}
-\todo[inline]{ ev. Verlustleistung}
 
 \paragraph{Auslegung  Snubber Schaltung}
-Im Kapitel \ref{sec:Grundlagen} \refname{sec:Grundlagen} wurden zwei Snubber Schaltungen vorgestellt. Da der Aufbau mit einer Zener Diode und einer Diode (Abbildung \ref{fig:Flyback_zehner}) effizienter und zusätzlich unabhängig von der Streuinduktivität ist, fiel die Wahl auf diese Topologie. Die Durchbruch-Spannung $ U_{Z} $ der Zener Diode kann mit folgenden zwei Bedienungen festgelegt werden.  
+Im Kapitel \textbf{\ref{sec:Grundlagen} \nameref{sec:Grundlagen}} wurden zwei Snubber Schaltungen vorgestellt. Da der Aufbau mit einer Zener-Diode und einer Diode (Abbildung \ref{fig:Flyback_zehner}) effizienter und zusätzlich unabhängig von der Streuinduktivität ist, ist diese Topologie gewählt worden. Die Durchbruch-Spannung $ U_{Z} $ der Zener-Diode kann mit folgenden zwei Bedingungen festgelegt werden.  
 
 \begin{equation}\label{eq:sperrspannung_zener1}
 U_{Z} < U_{DS} - U_{E}
@@ -94,17 +100,16 @@ U_{Z} >(48\mathrm{V} + 0.7\mathrm{V}) \cdot 1 = 48.7\mathrm{V}
 \end{equation}
 Die Durchbruch-Spannung darf also maximal 102 V betragen und mindestens 48.7 V.
 
-\todo[inline]{Berechnung ev. Kondensator}
+
+
 
 \subsection{Simulation}\label{sec:simulation}
-Die Simulation der Schaltung sowie die erhaltenen Erkenntnisse aus der Simulation werden beschrieben.  
+Um die dimensionierten Werte zu überprüfen und dementsprechend anzupassen, sind zwei Simulationen erstellt worden. Mit dem Simulationstool FEMM kann der Speichertrafo genauer betrachtet werden. Die Schaltung des Flyback-Converters ist im LTspice aufgebaut.
 
 \paragraph{FEMM}
-\todo[inline]{Infos zu Ferritkern}
-\todo[inline]{Erwähnung von Sättigung}
+FEMM ist ein Simulationstool mit dem elektromagnetische Probleme im zweidimensionalen Bereich gelöst werden können. Der Speichertransformator ist im FEMM achsensymmetrisch aufgebaut. Er besteht aus den zwei Ferrit-Schalenkerne. Diese sind anhand des Datenblattes aufgezeichnet. Die Anfangspermeabilität $ \mu_{i} $ des Ferrits beträgt 2400 $ \frac{H}{m} $ und die Sätigungsflussdichte ist 490 mT. In der ersten Simulation wird ermittelt wie viele Windungen für den Speichertransformator benötigt werden. Mit der darauffolgende Simulation wird der Kopplungsfaktor berechnet.
 
-\todo[inline]{Ziel 1: Anzahl Windungen Berechnen}
-\todo[inline]{Tabelle Frequenzabhängig, Abstand, Windungen ==> Induktivität}
+Damit der Transformator mit der benötigten Induktivität aufgebaut werden kann, muss die Anzahl Windungen bekannt sein. Die Resultate der Simulation für verschiedene Frequenzen und Distanzen sind in der Tabelle \ref{tab:windungen} aufgeführt. Um die simulierten Werte zu vergleichen sind in der zweiten Spalte die berechneten Resultate aus der Tabelle \ref{tab:induktivität} eingetragen. Aus der Tabelle ist ersichtlich, dass bei konstanter Windungszahl sich die Induktivität bei ändernder Frequenz gleich bleibt.
 
 \begin{table}[h]
 	\centering
@@ -118,7 +123,7 @@ Die Simulation der Schaltung sowie die erhaltenen Erkenntnisse aus der Simulatio
 												 & & 9 & \SI{5.48E-05}{H}  & 4 & \SI{7.45E-05}{H}  \\ \hline
 		\multirow{2}{*}{30 kHz}  & \multirow{2}{*}{\SI{3.2e-05}{H}} & 6 & \SI{2.44E-05}{H}  & 2 & \SI{1.87E-05}{H}  \\
 												 & & 7 & \SI{3.32E-05}{H}  & 3 & \SI{4.19E-05}{H}  \\ \hline
-		\multirow{2}{*}{40 kHz}  & \multirow{2}{*}{\SI{2.4e-05}{H}} & \multirow{2}{*}{6} & \multirow{2}{*}{\SI{2.44E-05}{H}}  & 2 & \SI{1.234e3}{H}  \\
+		\multirow{2}{*}{40 kHz}  & \multirow{2}{*}{\SI{2.4e-05}{H}} & \multirow{2}{*}{6} & \multirow{2}{*}{\SI{2.44E-05}{H}}  & 2 & \SI{1.87e-05}{H}  \\
 											     & &  &   & 3 & \SI{4.19E-05}{H}  \\ \hline
 		\multirow{2}{*}{50 kHz}  & \multirow{2}{*}{\SI{1.9e-05}{H}} & 5 & \SI{1.70E-05}{H}  & \multirow{2}{*}{2} & \multirow{2}{*}{\SI{1.87E-05}{H}}  \\
 												 & & 6 & \SI{2.44E-05}{H}  & &   \\ \hline
@@ -126,52 +131,153 @@ Die Simulation der Schaltung sowie die erhaltenen Erkenntnisse aus der Simulatio
 	\caption{Resultate der Simulation in FEMM}\label{tab:windungen}
 \end{table}
 
+Mit dieser Simulation kann auch überprüft werden, ob der Ferritkern in Sättigung gerät. In der Abbildung \ref{fig:saettigung} ist das Resultat der Simulation des Ferritkerns mit 3 Windungen, einem Abstand von 0.1mm und einer Frequenz von 20kHz dargestellt. Wie man in der Abbildung erkennen kann, ist das B-Feld an den inneren Kecken am stärksten. An diesem Punkt hat das B-Feld einen Wert von ca. 344 mT. Damit der Ferritkern in Sättigung geraten würde braucht es eine Flussdichte von 490 mT. Dies bedeutet, dass der Kern nicht in Sättigung geht.
 
-\todo[inline]{Ziel 2: Kopplungsfaktor Berechnen}
-\todo[inline]{Ergebnis für 20, 30, ev. 50kHz}
+\begin{figure}[h]
+	\centering
+	\subfloat[B-Feld-Plot des Ferritkerns ]{\includegraphics[width=0.45\linewidth]{saettigung_1}}\qquad
+	\subfloat[Farbskala in Tesla]{\includegraphics[width=0.25\linewidth]{saettigung_2}}
+	\caption{Speichertransformator mit 0.1mm Abstand}
+	\label{fig:saettigung}
+\end{figure}
+\newpage
 
-Um mit FEMM die Selbstinduktion der Primär Spule zu ermitteln, lässt man einen Strom durch die Primär Wicklung und simuliert dies wie in Abbildung. Mit dem simulierten Fluss $ \Psi_{11}  $ und dem Strom $ I_{1} $ kann die Induktivität $ L_{1} $ wie folgt berechnet werden:
+Mit Hilfe der zweiten Simulation im FEMM soll der Koppelungsfaktor anhand der Formel \ref{eq:kopplungsfaktor} ermittelt werden. Um ihn berechnen zu können, benötigt man die Induktivitäten und die Gegeninduktivität.
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Strom durch primär Wicklung.]{\includegraphics[width=0.45\linewidth]{femm_1.png}}\qquad
+	\subfloat[Strom durch primär und sekundär Wicklung.]{\includegraphics[width=0.45\linewidth]{femm_2.png}}
+	\caption{Simulation des FEMM Models.}
+	\label{fig:femmkopplung}
+\end{figure}
+
+In FEMM kann die Selbstinduktion der Primärspule simuliert werden, indem man einen Strom durch die Primär Wicklung lässt, wie in der Abbildung \ref{fig:femmkopplung}. Mit dem ermittelten Fluss $ \Psi_{11}  $ und dem Strom $ I_{1} $ kann die Induktivität $ L_{1} $ wie folgt berechnet werden. Das Simulationstool übernimmt diese Rechnung und kann die Induktivität direkt ausgeben.
 
 \begin{equation}
 L_{1}=\frac{\Psi_{11}}{I_{1}}
 \label{eq:femm_l1}
 \end{equation}
 
-Der Fluss $ \Psi_{1} $ lässt sich in FEMM simulieren in dem man durch die Primär und Sekundär einen Strom laufen lässt, wie in Abbildung. Mit der Formel \ref{eq:femm_M} wird die Gegeninduktivität $ M $ berechnet.
+Mit der Formel \ref{eq:femm_M} wird die gesuchte Gegeninduktivität $ M $ berechnet.
+Der dazu benötigte Fluss $ \Psi_{1} $ lässt sich in FEMM ermitteln indem man durch die Primär und Sekundär einen Strom fliesen lässt, wie in der Abbildung \ref{fig:femmkopplung}. 
 
 \begin{equation}
 M=\frac{\Psi_{1}-\Psi_{11}}{I_{1}}=\frac{\Psi_{12}}{I_{1}}
 \label{eq:femm_M}
 \end{equation}
 
-Da $ L_{1} $ und $ L_{2} $ den selben Wert besitzen kann man die Formel \ref{eq:kopplungsfaktor} vereinfachen wodurch sich nun der Kopplungsfaktor $ k $ wie folgt definiert:
+Da $ L_{1} $ und $ L_{2} $ denselben Wert besitzen, kann man die Formel \ref{eq:kopplungsfaktor} vereinfachen, wodurch sich nun der Kopplungsfaktor $ k $ wie folgt definiert.
 
 \begin{equation}
 k=\frac{M}{\sqrt{L_{1}^{2}}}
 \label{eq:kopplungsfaktor_neu}
 \end{equation}
 
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.8\linewidth]{ordner_struktur.png}
-%\caption{FEMM-Simulation mit einem Strom durch die primär Wicklung}\label{fig:FEMM_1}
-%\end{figure}
+In der Tabelle \ref{tab:kopplung} sind die Resultate der Simulation eingetragen. In der letzten Spalte ist der Kopplungsfaktor mit der Formel \ref{eq:kopplungsfaktor_neu} berechnet. Die für die Berechnung benötigte Induktivität ist aus der Tabelle \ref{tab:windungen} aus der Spalte der simulierten Resultate entnommen worden. 
 
-
-\begin{figure}[h]
+\begin{table}[h]
 	\centering
-	\subfloat[Strom durch primär Wicklung.]{\includegraphics[width=0.45\linewidth]{femm_1.png}}\qquad
-	\subfloat[Strom durch primär und sekundär Wicklung.]{\includegraphics[width=0.45\linewidth]{femm_2.png}}
-	\caption{Simulation des FEMM Models.}
-	\label{fig:Subfigure}
-\end{figure}
+	\begin{tabular}{>{\tt}C{2.0cm}| C{3cm} |  C{3cm} |  C{3cm} |  C{1.5cm}} 
+		\normalfont\textbf{Frequenz} & \normalfont\textbf{Abstand} & \normalfont\textbf{$ \mathbf{\mathrm{\Psi_{11}}} $} & \normalfont\textbf{$ \mathbf{\mathrm{\Psi_{1}}} $} & \normalfont\textbf{k}\\ \hline\hline 
+		\multirow{2}{*}{10 kHz} & \SI{0.1e-03}{m} & \SI{446.9e-06}{W} & \SI{889.2e-06}{W} &  \textbf{0.989}    \\ 
+		& \SI{1e-03}{m} & \SI{583.3e-06}{W} & \SI{1100e-06}{W} & \textbf{0.934}     \\ \hline
+		\multirow{2}{*}{20 kHz} & \SI{0.1e-03}{m} & \SI{ 251.5e-06}{W} & \SI{ 500.2e-06}{W} & \textbf{0.989}    \\ 
+		       & \SI{1e-03}{m} & \SI{260e-06}{W}& \SI{502.1e-06}{W} &  \textbf{0.932}   \\ \hline
+			\multirow{2}{*}{30 kHz} & \SI{0.1e-03}{m} & \SI{251.6e-06}{W} & \SI{500.4e-06}{W} & \textbf{0.988}     \\ 
+		& \SI{1e-03}{m} & \SI{199.1e-06}{W} & \SI{384.5e-06}{W} &  \textbf{0.93}   \\ \hline
+			\multirow{2}{*}{40 kHz} & \SI{0.1e-03}{m} & \SI{112.1e-06}{W} & \SI{222.7e-06}{W} &  \textbf{0.986}    \\ 
+		& \SI{1e-03}{m} & \SI{146.5e-06}{W} & \SI{282.7e-06}{W} & \textbf{0.929}     \\ \hline
+			\multirow{2}{*}{50 kHz} & \SI{0.1e-03}{m} & \SI{112.1e-06}{W} & \SI{222.7e-06}{W} &  \textbf{0.986}    \\ 
+		& \SI{1e-03}{m} &\SI{102.02e-06}{W} & \SI{196.56e-06}{W}&  \textbf{0.926}   \\ \hline
+	\end{tabular}
+	\caption{Induktivität in Abhängigkeit der Schaltfrequenz }
+	\label{tab:kopplung}
+\end{table}
+
+Der Kopplungsfaktor k beträgt etwas mehr als 0.9. Er wird grösser indem die Induktivität erhöht wird. Der beste Kopplungsdoktor ist daher bei der Frequenz 10kHz und einem Abstand von 0.1mm. 
+
+
 
 \paragraph{Schaltung}
-\todo[inline]{Wirkungsgrad}
-\todo[inline]{Energie}
-\todo[inline]{Strom, Spannung}
-\todo[inline]{Aufzeigen von Snubber}
-\todo[inline]{Verlustleistung}
+Das Ziel der Simulation ist es, verschiedene Erkenntnisse über die Schaltung des zu erhalten wie der Wirkungsgrad, die Ausgangsstrom oder die Ausgangsspannung. Die Schaltung ist im LTspice aufgebaut. Die Bauteile, welche für den Flyback-converter benötigt werden, wurden anhand der Dimensionierung ausgesucht.
+
+Der Speichertransformator wurde für 20kHz ausgelegt. Dies bringt mehrere Vorteile mit sich. Als erstes hört man diese Frequenz nicht mehr, was das Arbeiten mit dem Testaufbau einiges angenehmer macht. Beim Abstand von 0.1mm hat die berechnete Induktivität fast die kleinste Differenz zur simulierten Induktivität einer ganzen Windung. Als letztes hat die Spule nicht nur zwei Windungen und bietet etwas mehr Flexibilität.
+
+Der Widerstand kann mit der Formel \ref{eq:Leistung} berechnet werden indem sie nach R umgeformt wird. 
+
+\begin{equation}\label{eq:Widerstand}
+R= \frac{U_{2}\!^{2}}{P}=\frac{48^{2}V}{300 W} = 7.68\Omega
+\end{equation}
+
+In der Abbildung \ref{fig:LT_schema} ist der Flyback-converter mit einer Zener-Snubber-Schaltung aufgebaut. Mit dieser Schaltung sind die nachfolgenden Simulationen durchgeführt worden.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{LT_schaltung}
+	\caption{Flyback-conveter im LTspice}\label{fig:LT_schema}
+\end{figure}
+
+Der Strom und die Spannung am Widerstand R1 sind in der Abbildung \ref{fig:ausgangsstrom} simuliert. Der Mittelwert und der RMS-Wert sind in der Tabelle \ref{tab:ausgang} eingetragen.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{>{\tt}C{2.3cm}|  C{3cm}|  C{3cm}} 
+		\normalfont\textbf{Grösse} & \normalfont\textbf{Mittelwert} & \normalfont\textbf{RMS-Wert} \\ \hline\hline 
+		Spannung & 47.6V & 48.4V   \\ \hline
+		Strom & 6.2A &   6.3A   \\ \hline
+		Leistung & 304.98W &      \\ \hline
+	\end{tabular}
+	\caption{Resultate der Simulation}
+	\label{tab:ausgang}
+\end{table}
+
+Die Schaltung hat einen Wirkungsgrad von 52\% und lässt sich wie folgt berechne. 
+
+\begin{equation}\label{eq:wirkungsgrand}
+\eta=\frac{P_{ab}}{P_{zu}}=\frac{304.79W}{585.52W} = 0.52
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{flyback_v3_spannung}
+	\caption{Storm () und Spannung () über dem Widerstand R1 }\label{fig:ausgangsstrom}
+\end{figure}
+
+Der Strom in der Spule L1 und der in Storm der Spule L2 mit dem PWM-Signal sind in der Abbildung \ref{fig:spule} dargestellt. Dieser Plot kann mit der Abbildung \ref{fig:kurven} verglichen werden. Zusätzlich ist die Spannung über der Spule L1 ist im Plot b abgebildet.
+
+\begin{figure}[H]
+	\centering
+	\subfloat[B-Feld-Plot des Ferritkerns ]{\includegraphics[width=0.7\linewidth]{flyback_v3_spule1}}\qquad
+	\subfloat[Farbskala in Tesla]{\includegraphics[width=0.7\linewidth]{flyback_v3_spule2}}
+	\caption{Speichertransformator mit 0.1mm Abstand}
+	\label{fig:spule}
+\end{figure}
+
+In der Abbildung wird der Strom und die Spannung über der Spule mit und ohne Snubber verglichen.
+
+\begin{figure}[H]
+	\centering
+	\subfloat[B-Feld-Plot des Ferritkerns ]{\includegraphics[width=0.6\linewidth]{flyback_v3_spule2}}\qquad
+	\subfloat[Farbskala in Tesla]{\includegraphics[width=0.6\linewidth]{flyback_ohne}}
+	\caption{Speichertransformator mit 0.1mm Abstand}
+	\label{fig:LT_snubber}
+\end{figure}
+
+Mit der Simulation in LTspice kann auch die Verlustleistung der Halbleiter ermittelt werden. Die Resultate sind in der Tabelle aufgeführt.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{>{\tt}C{2.3cm}| C{6cm}} 
+		\normalfont\textbf{Bauteil} & \normalfont\textbf{Mittlere Verlustleistung} \\ \hline\hline 
+		MOSFET M1 & 3.84W  \\ \hline
+		Diode D1 & 197mW  \\ \hline
+		Diode D2 & 26.47W \\ \hline
+		Z-Diode D3 & 23.16W  \\ \hline
+	\end{tabular}
+	\caption{Resultate der Simulation}
+	\label{tab:LT_verlsutleistung}
+\end{table}
 
 \subsection{Testaufbau}
 \todo[inline]{Messung Induktivität, Widerstand, Freqeunzabhängig?}
@@ -181,3 +287,16 @@ k=\frac{M}{\sqrt{L_{1}^{2}}}
 \todo[inline]{Strom, Spannung}
 \todo[inline]{Aufzeigen von Snubber}
 \todo[inline]{Verlustleistung}
+
+\subsection{Validierung}
+Zur Energieübertragung wird der Kopplungsfaktor und die zu übertragene Leistung validiert. Auch der erreichte Wirkungsgrad wird betrachtet.
+
+\todo[inline]{Vergleichen der Induktivität}
+\todo[inline]{Vergleichen Kopplungsfaktor?}
+
+\todo[inline]{Vergleichen der Schaltungssimulation - Realität:}
+\todo[inline]{-Wirkungsgrad}
+\todo[inline]{-Energie}
+\todo[inline]{-Strom, Spannung}
+\todo[inline]{-Aufzeigen von Snubber}
+\todo[inline]{-Verlustleistung}
