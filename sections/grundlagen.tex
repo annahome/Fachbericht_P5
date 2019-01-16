@@ -50,7 +50,6 @@ Um eine Magnetfeldänderung zu erzeugen wird eine Schaltung benötigt. Die verwe
 \\\\
 Die Schaltung besteht aus wenigen Bauteile. Dies sind ein Schalter, ein Speichertransformator, eine Diode und ein Kondensator. Der Schalter, z.B. ein MOSFET, wird mit einem konstanten Tastgrad und Frequenz gesteuert. \textcolor{red}{[bachelor]}
 
-\begin{figure}[h]
 \centering
 \includegraphics[width=1\linewidth]{flyback_schaltung}
 \caption{Grundschaltung Flyback}\label{fig:flyback_schaltung}
@@ -60,7 +59,6 @@ Wie man in Abbildung \ref{fig:flyback_schaltung} erkennen kann, beinhaltet die S
 \\\\
 Der Flyback überträgt basierend auf diesem Prinzip seine Energie erst auf die Sekundärseite, wenn der Schalter auf der Primärseite geöffnet wird. Der Flyback ist prinzipiell kurzschlussfest, da die Diode auf der Sekundärseite sperrt, sobald der Schalter geschlossen wird. Die genauere Funktionsweise ist in der Tabelle \ref{tab:funktionsweise} aufgeführt. \textcolor{red}{[schulz]}
 
-\begin{table}[h]
 	\centering
 	\begin{tabular}{L{7cm}| L{7cm} }
 		\multicolumn{1}{c|}{\textbf{Schalter geschlossen}}
@@ -72,7 +70,6 @@ Der Flyback überträgt basierend auf diesem Prinzip seine Energie erst auf die 
 	\caption{Funktionsweise des Flybacks \textcolor{red}{[schulz]}}\label{tab:funktionsweise}
 \end{table}
 
-\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{kurven}
 	\caption{Strom und Spannungsverlauf des Speichertrafos}\label{fig:kurven}
@@ -114,7 +111,6 @@ Ein Snubber zu dimensionieren, ist nicht ganz einfach den neben der Spannungsbeg
 \end{itemize}
 Nachfolgend werden zwei Typologien vorgestellt.
 
-\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{Flyback_RC}
 	\caption{Snubberschaltung mit RC-Glied}\label{fig:Flyback_RC}
@@ -124,7 +120,6 @@ In der Abbildung \ref{fig:Flyback_RC} wird die Snubberschaltung mit einem Widers
 
 Der Nachteil dieser Schaltung ist, je weiter die Begrenzungsspannung gesenkt wird, desto mehr Energie wird der Gesamtleistung entzogen. Daher entsteht ein schlechterer Wirkungsgrad. \textcolor{red}{[power-tipps 17]}
 
-\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\linewidth]{Flyback_zehner}
 	\caption{Snubberschaltung mit Zener- Diode}\label{fig:Flyback_zehner}
