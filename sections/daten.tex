@@ -65,7 +65,13 @@ Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist k
 In der Abbildung ist die optische Isolation (schwarz) gut zu erkennen, welche die gegenseitige Beeinflussung der beiden Kanäle verhindert. Im Kanal 1 ist die Rotation der mechanischen Konstruktion unproblematisch, da sich Sender und Empfänger auf der Drehachse befinden. Der Kanal 2 nimmt das Licht auf der einen Seite auf und der lichtstreuende Werkstoff (grau) verteilt es im ganzen Kreisring. Nun spielt es auf der Empfängerseite keine Rolle mehr, in welchem Abschnitt auf dem Kreisring man sich befindet.
 
 \subsection{Dimensionierung Testaufbau}
-Um wichtige Erkenntnisse für den weiteren Projektverlauf zu gewinnen, wurde ein Testaufbau realisiert. Dieser beinhaltet eine Sende- und Empfangseinheit um ein Rechtecksignal im Infrarotbereich zu übertragen. 
+Es wurde ein Testaufbau realisiert, um für den weiteren Projektverlauf folgende Erkenntnisse zu gewinnen:
+\begin{itemize}
+	\item Kann die geforderte Geschwindigkeit erreicht werden?
+	\item Welche Distanz ist möglich?
+	\item Empfindlichkeit auf Umgebungslicht 
+\end{itemize}
+Der Testaufbau beinhaltet eine Sende- und Empfangseinheit, um ein Rechtecksignal im Infrarotbereich zu übertragen. 
 In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung des Testaufbaus eingegangen. Das entsprechende Schema mit der Detailbeschaltung ist dem Anhang zu entnehmen.
 \paragraph{Sender} 
 Als Eingang beim Sender dient eine BNC-Buchse, um das Rechtecksignal einzuspeisen. Als Gatetreiber des FET wird der ISL55110 vom Hersteller Renesas verwendet. Dieser zeichnet sich durch kurze Anstiegs- und Fallzeiten von \SI{1.5}{ns} bei einer Last von \SI{100}{pF} aus.
@@ -183,21 +189,21 @@ Aufgrund der Dimensionierung der Sende- und Empfangsschaltung, wird in LTSpice e
 
 \subsection{Simulation}
 Die im vorherigen Kapitel durchgeführte Dimensionierung soll nun anhand einer Simulation überprüft werden.
-Dafür wurde die Empfängerschaltung gemäss Schema im Anhang in LTSpice gezeichnet. Eine ideale Stromquelle soll den Photostrom simulieren, welcher durch einfallendes Licht erzeugt wird. Abbildung \ref{fig:Photo_LTSpice} zeigt die Schaltung in LTSpice.
+Dafür wurde die Empfängerschaltung gemäss Schema im Anhang in LTSpice gezeichnet. Abbildung \ref{fig:PhotoAmp_Concept} zeigt die Prinzipschaltung. Die genaue Simulationsschaltung befindet sich im Anhang.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\linewidth]{PhotoAmplifier_LTSpice.png}
-	\caption{Simulationsmodel Empfängerschaltung ohne Pegelanpassung}\label{fig:Photo_LTSpice}
+	\includegraphics[width=0.3\linewidth]{PhotoAmp_Concept.png}
+	\caption{Empfängerschaltung}\label{fig:PhotoAmp_Concept}
 \end{figure}
 
-Um den Einfluss der Kapazität in der Rückkopplung $C_{f}$ ($C_{1}$ in Abbildung \ref{fig:Photo_LTSpice}) gemäss Bedingung \ref{eq:Cfminmax} zu überprüfen, wurde ein Parameter-Sweep mit mehreren Werten durchgeführt. Es wurden folgende Kapazitäten simuliert: \SI{50}{fF}, \SI{100}{fF}, \SI{200}{fF}, \SI{300}{fF}, \SI{400}{fF} und \SI{500}{fF}. Als Photostrom wurden Reckteck-Pulse mit einer Amplitude von \SI{10}{\mu A} gemäss Dimensionierung gewählt und einer Wiederholungsfrequenz von \SI{33}{MHz}.
+Um den Einfluss der Kapazität in der Rückkopplung $C_{f}$ gemäss Bedingung \ref{eq:Cfminmax} zu überprüfen, wurde ein Parameter-Sweep mit mehreren Werten durchgeführt. Es wurden folgende Kapazitäten simuliert: \SI{50}{fF}, \SI{100}{fF}, \SI{200}{fF}, \SI{300}{fF}, \SI{400}{fF} und \SI{500}{fF}. Als Photostrom wurden Reckteck-Pulse mit einer Amplitude von \SI{10}{\mu A} gemäss Dimensionierung gewählt und einer Wiederholungsfrequenz von \SI{33}{MHz}.
 Abbildung \ref{fig:Plot_Cf} zeigt das Ausgangssignal des Transimpedanzverstärkers bei verschiedenen Feedback-Kapazitäten zusammen mit dem Eingangsstrom.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{LTPlot_Cf.png}
 	\caption{Eingangsstrom und Ausgangsspannung bei verschiedenen Feedback-Kapazitäten}\label{fig:Plot_Cf}
 \end{figure}
-In der Abbildung \ref{fig:Plot_Cf} sind bei kleinen Kapazitätswerten hohe Überschwinger zu erkennen. Bei grösseren Kapazitäten steigt die Spannung zu langsam an. Man kann erkennen, dass eine Kapazität von \SI{200}{fF} das beste Resultat liefert. Abbildung \ref{fig:Plot_Cf200} zeigt die \SI{200}{fF}-Kurve alleine.
+In der Abbildung \ref{fig:Plot_Cf} sind bei kleinen Kapazitätswerten hohe Überschwinger zu erkennen. Bei grösseren Kapazitäten ändert die Spannung zu langsam. Von den simulierten Werten liefert eine Kapazität von \SI{200}{fF} das beste Resultat. Abbildung \ref{fig:Plot_Cf200} zeigt die \SI{200}{fF}-Kurve alleine.
 
 \begin{figure}[H]
 	\centering
@@ -205,7 +211,16 @@ In der Abbildung \ref{fig:Plot_Cf} sind bei kleinen Kapazitätswerten hohe Über
 	\caption{Eingangsstrom und Ausgangsspannung bei $\SI{200}{fF}$ Feedback-Kapazität}\label{fig:Plot_Cf200}
 \end{figure}
 
-Mit einem Komparator kann nun aus dem Signal wieder das gewünschte Rechtecksignal erzeugt werden. 
+Mit einem Komparator kann nun aus dem Signal wieder das gewünschte Rechtecksignal erzeugt werden. Abbildung \ref{fig:Plot_out} zeigt das Ausgangssignal nach der Pegelanpassung durch den Komparator LTC6752.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{LTPlot_out.png}
+	\caption{Eingangsstrom und Ausgangsspannung bei $\SI{200}{fF}$ Feedback-Kapazität mit Komparator}\label{fig:Plot_out}
+\end{figure}
+
+
+
 
 \subsection{Testaufbau}
 In diesem Unterkapitel wird der Testaufbau beschrieben.
