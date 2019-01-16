@@ -210,7 +210,7 @@ In der Abbildung \ref{fig:LT_schema} ist der Flyback-converter mit einer Zener-S
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{LT_schaltung}
-	\caption{Flyback-conveter im LTspice}\label{fig:LT_schema}
+	\caption{Flyback-Conveter im LTspice}\label{fig:LT_schema}
 \end{figure}
 
 Der Strom und die Spannung am Widerstand R1 sind in der Abbildung \ref{fig:ausgangsstrom} simuliert. Der Mittelwert und der RMS-Wert sind in der Tabelle \ref{tab:ausgang} eingetragen.
@@ -227,7 +227,7 @@ Der Strom und die Spannung am Widerstand R1 sind in der Abbildung \ref{fig:ausga
 	\label{tab:ausgang}
 \end{table}
 
-Die Schaltung hat einen Wirkungsgrad von 52\% und lässt sich wie folgt berechne. 
+Die Schaltung hat einen Wirkungsgrad von 52\%, der sich wie folgt berechne lässt. 
 
 \begin{equation}\label{eq:wirkungsgrand}
 \eta=\frac{P_{ab}}{P_{zu}}=\frac{304.79W}{585.52W} = 0.52
@@ -235,16 +235,16 @@ Die Schaltung hat einen Wirkungsgrad von 52\% und lässt sich wie folgt berechne
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{flyback_v3_spannung}
-	\caption{Storm () und Spannung () über dem Widerstand R1 }\label{fig:ausgangsstrom}
+	\includegraphics[width=0.7\linewidth]{flyback_v3_spannung}
+	\caption{Storm (rot) und Spannung (blau) über dem Widerstand R1 }\label{fig:ausgangsstrom}
 \end{figure}
 
-Der Strom in der Spule L1 und der in Storm der Spule L2 mit dem PWM-Signal sind in der Abbildung \ref{fig:spule} dargestellt. Dieser Plot kann mit der Abbildung \ref{fig:kurven} verglichen werden. Zusätzlich ist die Spannung über der Spule L1 ist im Plot b abgebildet.
+Der Strom in der Spule L1 und der in Storm der Spule L2 mit dem PWM-Signal sind in der Abbildung \ref{fig:spule} Plot a) dargestellt. Dieser Plot kann mit der Abbildung \ref{fig:kurven} verglichen werden. Auch in der Simulation werden die beiden Strom-Dreiecke ersichtlich. Zusätzlich zu den Strömen ist die Spannung über der Spule L1  im Plot b abgebildet.
 
 \begin{figure}[H]
 	\centering
-	\subfloat[B-Feld-Plot des Ferritkerns ]{\includegraphics[width=0.7\linewidth]{flyback_v3_spule1}}\qquad
-	\subfloat[Farbskala in Tesla]{\includegraphics[width=0.7\linewidth]{flyback_v3_spule2}}
+	\subfloat[Strom durch die Primär-Spule(blau) und Storm durch die Sekundär-Spule (rot) mit dem PWM-Signal (grün)]{\includegraphics[width=0.47\linewidth]{flyback_v3_spule1}}\qquad
+	\subfloat[Strom durch die Primär-Spule(blau) und Storm durch die Sekundär-Spule (rot) mit der Spannung über der Primär-Spule (grün)]{\includegraphics[width=0.47\linewidth]{flyback_v3_spule2}}
 	\caption{Speichertransformator mit 0.1mm Abstand}
 	\label{fig:spule}
 \end{figure}
@@ -253,13 +253,13 @@ In der Abbildung wird der Strom und die Spannung über der Spule mit und ohne Sn
 
 \begin{figure}[H]
 	\centering
-	\subfloat[B-Feld-Plot des Ferritkerns ]{\includegraphics[width=0.6\linewidth]{flyback_v3_spule2}}\qquad
-	\subfloat[Farbskala in Tesla]{\includegraphics[width=0.6\linewidth]{flyback_ohne}}
-	\caption{Speichertransformator mit 0.1mm Abstand}
-	\label{fig:LT_snubber}
+	\includegraphics[width=0.7\linewidth]{flyback_ohne}
+	\caption{Strom durch die Primär-Spule(blau) und Storm durch die Sekundär-Spule (rot) mit der Spannung über der Primär-Spule (grün) }\label{fig:LT_snubber}
 \end{figure}
 
-Mit der Simulation in LTspice kann auch die Verlustleistung der Halbleiter ermittelt werden. Die Resultate sind in der Tabelle aufgeführt.
+In der Abbildung \ref{fig:LT_snubber} steigt die Spannung über der Primär-Spule ohne das Snubber-Glied auf eine Spannung von 1.5kHz. Die beiden Strom-Dreiecke haben ein erhöhtes Schwingen und einen hohen Pick. 
+
+Mit der Simulation in LTspice kann auch die Verlustleistung der Halbleiter ermittelt werden. Die Resultate sind in der Tabelle \ref{tab:LT_verlsutleistung} aufgeführt.
 
 \begin{table}[h]
 	\centering
@@ -275,13 +275,18 @@ Mit der Simulation in LTspice kann auch die Verlustleistung der Halbleiter ermit
 \end{table}
 
 \subsection{Testaufbau}
-\todo[inline]{Messung Induktivität, Widerstand, Freqeunzabhängig?}
+Der Testaufbau ist in das konstruieren des Speichertransformators und in das Erstellen der Schaltung unterteilt. 
 
-\todo[inline]{Wirkungsgrad}
-\todo[inline]{Energie}
-\todo[inline]{Strom, Spannung}
-\todo[inline]{Aufzeigen von Snubber}
-\todo[inline]{Verlustleistung}
+Der Speichertransformator besteht aus zwei Ferrit-Schalenkerne, zwei Spulenkörper und  Lack-isoliertem 1.5mm Kupferdraht. Der Spulenkörper wird benötigt um die Wicklungen wie in Abbildung herzustellen. Beide Wicklungen wurden mit 4 Windungen hergestellt.
+Zwischen den beiden Schalenkernen wurde mit einem Klebband einen Abstand von 0.1mm realisiert. Die beiden Schalenkerne wurden zu einem Speichertransformator zusammengeklebt.
+
+Der Flyback-Converter besteht aus einer Primär- und einer Sekundär-Schaltung. Beide Schaltungen sind anhand der Simulation gelayoutet und aufgebaut worden. In der Abbildung ist der Testaufbau dargestellt. Von links nach rechts besteht er aus der Primär-Schaltung, dem Speichertransformator (zwei Schalenkerne), der Senkundär-Schaltung und dem Widerstand.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{flyback_aufbau}
+	\caption{Testaufbau des Flyback-Converters}\label{fig:testaufbau}
+\end{figure}
 
 \subsection{Validierung}
 Zur Energieübertragung wird der Kopplungsfaktor und die zu übertragene Leistung validiert. Auch der erreichte Wirkungsgrad wird betrachtet.
