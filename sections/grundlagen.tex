@@ -175,6 +175,15 @@ f_{max}=\frac{Symbolrate}{4 Bit}=\frac{125Mbit/s}{4 Bit}=31.25 MHz
 \end{equation}
 Um die Datenrate von \SI{100}{MBit/s} zu erreichen, dürften also \SI{31.25}{MHz} ausreichen.
 
+\paragraph{Messung VARAN-Bus}
+Abbildung \ref{fig:Messung_Varan} zeigt den VARAN-Bus während einer Übertragung, gemessen mit einer Stromsonde.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Messung_Varan.png}
+	\caption{VARAN-Bus Signal im Betrieb}\label{fig:Messung_Varan}
+\end{figure}
+Die höchste aufgetretene Frequenz beträgt: $\frac{1}{\SI{41}{ns}}\approx \SI{24.4}{MHz}$. Es ist trotzdem sinnvoll, die Schaltung auf die berechneten \SI{31.25}{MHz} auszulegen. So hat man einen gewissen Spielraum.
+
 \paragraph{Photodioden-Verstärker}
 Photodioden sind Halbleiter-Dioden, die auftreffende Photonen in einen elektrischen Strom umwandeln. Abbildung \ref{fig:Kenn_Photodiode} zeigt die typische U-I-Kennlinie einer Photodiode.
 \begin{figure}[h]
