@@ -10,15 +10,15 @@ In Abbildung \ref{fig:Konzept_Daten} wird grob das Konzept zur optischen Datenü
 	\caption{Konzept der optischen Datenübertragung}\label{fig:Konzept_Daten}
 \end{figure}
 
-In Abbildung \ref{fig:Konzept_Daten} sind die beiden Kanäle zu erkennen, welche optisch voneinander getrennt sind. Jeder Kanal überträgt dabei die Daten nur in jeweils eine Richtung. Beide Kanäle zusammen sorgen für die gewünschte Bidirektionalität. Auf der Primär- und Sekundärseite hat es jeweils eine Sende- und Empfangseinheit. Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. 
+In Abbildung \ref{fig:Konzept_Daten} sind die beiden Kanäle zu erkennen, welche optisch voneinander getrennt sind. Jeder Kanal überträgt dabei die Daten nur in jeweils eine Richtung. Beide Kanäle zusammen sorgen für die gewünschte Bidirektionalität. Auf der Primär- und Sekundärseite hat es jeweils eine Sende- und Empfangseinheit. 
 \newline
-Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden mit einer Infrarot-LED übertragen und die negativen Spannungspegel mit einer blauen LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
+Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden im Infrarot-Bereich durch einen Infrarot-Emitter übertragen und die negativen Spannungspegel im blauen Spektralbereich durch eine blaue LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
 \newline
 Eine Empfangseinheit besteht aus Photodioden, Verstärkerschaltungen und der Pegelanpassung. Im blauen Spektralbereich werden mit Hilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
 \newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung.
 
 \paragraph{Sender}
-In folgender Abbildung ist das Konzept einer Sendeeinheit detaillierter dargestellt.
+In Abbildung \ref{fig:Konzept_Sender} ist das Konzept einer einzelnen Sendeeinheit detaillierter dargestellt.
 
 \begin{figure}[H]
 	\centering
@@ -34,14 +34,15 @@ Mit einer Erweiterung der Beschaltung der LED um drei passive Elemente, können 
 
  \begin{figure}[h]
  	\centering
- 	\includegraphics[width=0.3\linewidth]{Fast_LED.png}
+ 	\includegraphics[width=0.2\linewidth]{Fast_LED.png}
  	\caption{Erweiterte Schaltung um Schaltzeiten zu verkürzen}\label{fig:Fast_LED}
  \end{figure}
 
 Durch den Leckstrom des FET wird die LED auch im abgeschalteten Zustand mit einigen Ladungsträgern durchflossen, was die Anstiegszeit geringfügig verkürzt. Im Einschaltmoment sorgt der Kondensator $C$ für einen Kurzschluss und überbrückt den Vorwiderstand $R_{1}$. Es kommt zu einem Strompeak, der die Kapazität der LED schneller laden lässt. Die Anstiegszeit wird dadurch massiv verkürzt. Im Ausschaltmoment induziert das Magnetfeld in der Spule $L$ eine negative Spannung. Folglich werden die Ladungsträger aus der LED gezogen. Dadurch wird auch die Abfallzeit gegenüber dem \glqq einfachen\grqq Ausschalten verkürzt.\textcolor{red}{[paper]}
 
+\newpage
 \paragraph{Empfänger}
-In folgender Abbildung wird das Konzept einer Empfangseinheit detaillierter dargestellt.
+In Abbildung \ref{fig:Konzept_Empfaenger} wird das Konzept einer Empfangseinheit detaillierter dargestellt.
 
 \begin{figure}[h]
 	\centering
@@ -49,12 +50,12 @@ In folgender Abbildung wird das Konzept einer Empfangseinheit detaillierter darg
 	\caption{Konzept der optischen Empfangseinheit}\label{fig:Konzept_Empfaenger}
 \end{figure}
 
-Der von der Photodiode erzeugte Strom wird mit einer Transimpedanzverstärkerschaltung in eine Spannung gewandelt und verstärkt. Wie im Kapitel \nameref{sec:Grundlagen} bereits erwähnt, ist eine hohe Bandbreite bei der Verstärkerschaltung erforderlich. Deshalb ist ein Verstärker mit hohem Gain-Bandwidth Product und kleiner Eingangskapazität zu wählen. Auch die parasitäre Kapazität der Photodiode beeinflusst die Bandbreite, weshalb auch diese möglichst klein gewählt werden muss. Durch negative Biasspannung an der Anode kann die Kapazität nochmals reduziert werden.
+Der von der Photodiode erzeugte Strom wird mit einer Transimpedanzverstärkerschaltung in eine Spannung gewandelt und verstärkt. Wie im Kapitel \nameref{sec:Grundlagen} bereits erwähnt, ist eine hohe Bandbreite von mindestens \SI{31.25}{MHz} bei der Verstärkerschaltung erforderlich. Deshalb ist ein Verstärker mit ausreichendem Gain-Bandwidth Product und kleiner Eingangskapazität zu wählen. Auch die parasitäre Kapazität der Photodiode beeinflusst die Bandbreite, weshalb auch diese möglichst klein gewählt werden muss. Durch eine negative Biasspannung an der Anode der Photodiode kann die Kapazität nochmals reduziert werden.
 \newline
-Nach dem Transimpedanzverstärker werden mit Komparatoren die Pegel in Amplitude und Form angepasst. Das Signal vom blauen Spektralbereich, welches die negativen Pegel überträgt wird noch invertiert. Mit einem Signal-Transformator wird aus dem unsymmetrischen Signal wieder ein symmetrisches Signal generiert und dieses zurück an den VARAN-Bus geführt.
+Nach dem Transimpedanzverstärker werden mit Komparatoren die Pegel in Amplitude und Form angepasst. Das Signal vom blauen Spektralbereich, welches die negativen Pegel überträgt wird für die folgende Symmetrisierung invertiert. Mit einem Signal-Transformator wird aus dem asymmetrischen Signal wieder ein symmetrisches Signal generiert und dieses zurück an den VARAN-Bus geführt.
 
 \paragraph{Kanal}
-Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist keine direkte Verbindung sichergestellt. Deshalb bestehen die beiden Kanäle aus einem lichtstreuenden Werkstoff und sind optisch voneinander isoliert. Nachfolgende Abbildung zeigt den prinzipiellen Aufbau der Kanäle.
+Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist kein direkter Sichtkontakt zwischen Sende- und Empfangsdiode sichergestellt. Deshalb bestehen die beiden Kanäle aus einem lichtstreuenden Werkstoff und sind optisch voneinander isoliert.Abbildung \ref{fig:Konzept_Kanal} zeigt den prinzipiellen Aufbau der Kanäle.
 
 \begin{figure}[h]
 	\centering
@@ -221,12 +222,25 @@ Mit einem Komparator kann nun aus dem Signal wieder das gewünschte Rechtecksign
 
 
 
-
+\newpage
 \subsection{Testaufbau}
 \label{subsec:Testaufbau}
-Um die entwickelten Sende- und Empfangsschaltung auszumessen, wurde ein Testaufbau erstellt.
+Das Layout für den Sende- und Empfangsprint befindet sich im Anhang. Um die entwickelten Sende- und Empfangsschaltung auszumessen, wird ein Testaufbau erstellt. Abbildung \ref{fig:Test_direkt} zeigt den Aufbau für die Messung wenn Infrarot-Emitter und Photodiode direkten Sichtkontakt haben.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Testaufbau_direkt.png}
+	\caption{Testaufbau zur Messung des Ausgangssignals bei direktem Sichtkontakt}\label{fig:Test_direkt}
+\end{figure}
+Der Sendeprint (in der Abbildung rechts) und der Empfangsprint (in der Abbildung links) werden zueinander ausgerichtet und fixiert. Die Messresultate werden im nächsten Unterkapitel diskutiert.
 
-Dafür wurde eine \SI{8}{mm} dicke Acryl-Satlite-Platte vom Hersteller \glqq BWF-Profiles\grqq\  in eine \SI{6x6}{cm} Scheibe zugeschnitten. Anschliessend wurde das Licht-Signal
+In Abbildung \ref{fig:Test_plexi} ist der Testaufbau für die Messung durch eine Plexiglas-Platte gezeigt. Dafür wurde eine \SI{8}{mm} dicke Acryl-Satlite-Platte vom Hersteller \glqq BWF-Profiles\grqq\  in eine\linebreak \SI{6x6}{cm} Scheibe zugeschnitten.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Testaufbau_plexi.png}
+	\caption{Testaufbau zur Messung des Ausgangssignals durch die Acryl-Scheibe}\label{fig:Test_plexi}
+\end{figure}
+
+Anschliessend wird das Licht-Signal an der unteren Kante (in der Abbildung rechts) in die Acryl-Platte eingespeist. Gemessen wird diagonal gegenüber am oberen Teil der Kante. Auch diese Messresultate werden im nächsten Unterkapitel diskutiert.
 
 \subsection{Validierung} 
 
