@@ -226,6 +226,8 @@ Mit einem Komparator kann nun aus dem Signal wieder das gewünschte Rechtecksign
 \label{subsec:Testaufbau}
 In diesem Unterkapitel wird der Testaufbau beschrieben.
 
+Dafür wurde eine \SI{8}{mm} dicke Acryl-Satlite-Platte vom Hersteller \glqq BWF-Profiles\grqq\  in eine \SI{6x6}{cm} Scheibe zugeschnitten. Anschliessend wurde das Licht-Signal
+
 \subsection{Validierung} 
 
 Für die Validierung der Sende- und Empfangsschaltung wurden Messungen gemäss Beschreibung im Unterkapitel \nameref{subsec:Testaufbau} durchgeführt. Damit soll die geforderte Geschwindigkeit und der Einfluss von Störlicht überprüft werden. Zusätzlich wird eine Messung durch eine Acryl-Scheibe durchgeführt, welches später als lichtleitendes Material für den Kanal dienen soll.
@@ -254,11 +256,14 @@ Sowohl \SI{33}{MHz} als auch \SI{40}{MHz} können mit diesem Testaufbau übertra
 Mit den gemessenen \SI{45}{MHz} ist die geforderte Frequenz von \SI{31.25}{MHz} deutlich erreicht. Die benötigte Geschwindigkeit für eine berührungslose Übertragung des VARAN-Bus kann mit dieser Schaltung erreicht werden.
 
 \newpage
-\paragraph{Störlicht}
-Alle Messungen wurden bei Tageslicht und Sonneneinstrahlung durchgeführt. Dabei wurden keine Unregelmässigkeiten registriert, welche vom Umgebungslicht stammen könnten. Da der Dosenverschliesser in einem Gebäude eingesetzt wird und durch die Konstruktion kaum Licht in die Schaltung eindringen wird, kann die Schaltung als störsicher gegen Umgebungslicht eingestuft werden.
-
+\paragraph{Übertragung durch Kanal}
+Als weitere Messung wird die Übertragung durch eine Acryl-Scheibe durchgeführt. In Abbildung \ref{fig:plexi33} wird das Empfangene Signal am Ausgang der Empfängerschaltung gezeigt.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{plexi33MHz.png}
 	\caption{Ausgangssignal der Empfängerschaltung bei \SI{33}{MHz} durch Acryl-Scheibe}\label{fig:plexi33}
 \end{figure}
+Wie zu erkennen ist, eignet sich Acrylglas als lichtleitendes Material und somit als Kanal für die Übertragung. Das Licht wird im Acrylglas gebündelt und durch das Material geleitet. Bei der Vergleichsmessung ohne Acryl-Platte war der Signalpegel am gleichen Empfangspunkt hingegen zu schwach, um den Komparator zu schalten. Acrylglas ist als lichtleitendes Material geeignet. Mit Anpassungen am Verstärkungsfaktor des Transimpedanzverstärkers und der Schaltschwelle für den Komparator wären noch bessere Resultate möglich. Mit Rücksprache mit dem Hersteller, dürfte noch ein besseres Material gefunden werden, um den konzipierten Kanal herzustellen.
+
+\paragraph{Störlicht}
+Sämtliche Messungen wurden bei Tageslicht und Sonneneinstrahlung durchgeführt. Dabei wurden keine Unregelmässigkeiten registriert, welche vom Umgebungslicht stammen könnten. Da der Dosenverschliesser in einem Gebäude eingesetzt wird und durch die Konstruktion kaum Licht in die Schaltung eindringen wird, kann die Schaltung als störsicher gegen Umgebungslicht eingestuft werden.
