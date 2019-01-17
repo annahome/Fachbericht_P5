@@ -65,19 +65,24 @@ Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist k
 
 In der Abbildung ist die optische Isolation (schwarz) gut zu erkennen, welche die gegenseitige Beeinflussung der beiden Kanäle verhindert. Im Kanal 1 ist die Rotation der mechanischen Konstruktion unproblematisch, da sich Sender und Empfänger auf der Drehachse befinden. Der Kanal 2 nimmt das Licht auf der einen Seite auf und der lichtstreuende Werkstoff (grau) verteilt es im ganzen Kreisring. Nun spielt es auf der Empfängerseite keine Rolle mehr, in welchem Abschnitt auf dem Kreisring man sich befindet.
 
-\subsection{Dimensionierung Testaufbau}
-Es wurde ein Testaufbau realisiert, um für den weiteren Projektverlauf folgende Erkenntnisse zu gewinnen:
+\subsection{Dimensionierung Testschaltung}
+Es wurde eine Testschaltung realisiert, um für den weiteren Projektverlauf folgende Erkenntnisse zu gewinnen:
 \begin{itemize}
 	\item Kann die geforderte Geschwindigkeit erreicht werden?
 	\item Welche Distanz ist möglich?
 	\item Empfindlichkeit auf Umgebungslicht 
 \end{itemize}
-Der Testaufbau beinhaltet eine Sende- und Empfangseinheit, um ein Rechtecksignal im Infrarotbereich zu übertragen. 
-In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung des Testaufbaus eingegangen. Das entsprechende Schema mit der Detailbeschaltung ist dem Anhang zu entnehmen.
+Die Testschaltung beinhaltet eine Sende- und Empfangseinheit, um ein Rechtecksignal im Infrarotbereich zu übertragen. 
+In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung der Testschaltung eingegangen. Das entsprechende Schema mit der Detailbeschaltung ist dem Anhang zu entnehmen.
 \paragraph{Sender} 
-Als Eingang beim Sender dient eine BNC-Buchse, um das Rechtecksignal einzuspeisen. Als Gatetreiber des FET wird der ISL55110 vom Hersteller Renesas verwendet. Dieser zeichnet sich durch kurze Anstiegs- und Fallzeiten von \SI{1.5}{ns} bei einer Last von \SI{100}{pF} aus.
+Folgende Anforderungen werden an die Sendeschaltung gestellt:
+\begin{itemize}
+	\item schnelles Schalten der LED durch kleine Kapazitäten
+	\item LED mit Infrarot-Spektrum
+\end{itemize}
+Als Eingang beim Sender dient eine BNC-Buchse, um das Rechtecksignal ohne Störungen einzuspeisen. Als Gatetreiber des FET hat eine Evaluation den ISL55110 vom Hersteller Renesas hervorgebracht. Dieser zeichnet sich durch kurze Anstiegs- und Fallzeiten von \SI{1.5}{ns} bei einer Last von \SI{100}{pF} aus.
 Der gewählte N-Kanal-FET ist ein BSS316N vom Hersteller Infineon. Durch die kleine Eingangskapazität von \textless \SI{100}{pF} kann der FET in Kombination mit dem Gatetreiber sehr schnell geschaltet werden.
-Als Infrarot-Emitter wurde die SFH4235 von OSRAM gewählt. Die Leuchtdiode kann mit Anstiegs- und Abfallzeiten von 7/\SI{14}{ns} mit \textgreater \SI{30}{MHz} betrieben werden und ist deshalb für diese Anwendung geeignet. Folgende Abbildung zeigt das Spektrum des Infrarot-Emitters.
+Als Infrarot-Emitter wurde die SFH4235 von OSRAM gewählt. Die LED kann mit Anstiegs- und Abfallzeiten von 7/\SI{14}{ns} mit \textgreater \SI{30}{MHz} betrieben werden und ist deshalb für diese Anwendung geeignet. Abbildung \ref{fig:Spektrum_Infra} zeigt das Spektrum des Infrarot-Emitters.
 
 \begin{figure}[h]
 	\centering
@@ -85,12 +90,17 @@ Als Infrarot-Emitter wurde die SFH4235 von OSRAM gewählt. Die Leuchtdiode kann 
 	\caption{Spektrum SFH4235}\label{fig:Spektrum_Infra}
 \end{figure}
 
-Wie in der Abbildung zu erkennen ist, hat das Spektrum den Peak bei \SI{860}{nm}. Die Photodiode auf der Empfängerseite muss dementsprechend passend zum Spektrum ausgewählt werden. Die im Konzept beschriebene Schaltungsergänzung wurde im Testaufbau vorbereitet. Weil die einfache Ansteuerung schnell genug ist, wird die Ergänzung vorerst nicht bestückt.
+Wie in der Abbildung zu erkennen ist, hat das Spektrum den Peak bei \SI{860}{nm}. Die Photodiode auf der Empfängerseite muss dementsprechend passend zum Spektrum ausgewählt werden. Die im Konzept beschriebene Schaltungsergänzung wird in der Testschaltung vorbereitet. Weil die einfache Ansteuerung schnell genug ist, wird die Ergänzung vorerst nicht bestückt.
 
 \paragraph{Empfänger}
-Mit zwei Z-Dioden (SZBZX84C3V3 und BZD27C13) und einem Operationsverstärker (LM7321) als Buffer geschaltet, wird eine Speisung für die Empfängerschaltung generiert. Diese liefert die benötigten Spannungen von \SI{3.3}{V} für die integrierten Bauteile und \SI{-13}{V} um die Photodiode mit einer negativen Biasspannung vorzuspannen. Die Beschaltung ist im Schema im Anhang abgebildet.
+Folgende Anforderungen werden an die Empfängerschaltung gestellt:
+\begin{itemize}
+	\item Ausgangsspannung $\approx \SI{0.5}{V}$
+	\item Bandbreite $\textgreater \SI{31.25}{MHz}$
+\end{itemize}
+Mit zwei Z-Dioden (SZBZX84C3V3 und BZD27C13) und einem Operationsverstärker (LM7321) als Buffer geschaltet, wird eine Speisung für die Empfängerschaltung generiert. Diese liefert die benötigten Spannungen von \SI{3.3}{V} für die integrierten Bauteile und \SI{-13}{V}, um die Photodiode mit einer negativen Biasspannung vorzuspannen. Die Beschaltung ist im Schema im Anhang abgebildet.
 \newline
-Es wurden drei verschiedene Photodioden ausgewählt und analysiert.
+Es sind drei verschiedene Photodioden ausgewählt und analysiert worden.
 
 \begin{table}[H]
 \begin{tabular}{|l|l|l|l|}
@@ -107,9 +117,9 @@ Es wurden drei verschiedene Photodioden ausgewählt und analysiert.
 \caption{Datenblattwerte der ausgewählten Photodioden}\label{tab:Tabelle_Photo}
 \end{table}
 
-Wie aus der Tabelle zu entnehmen ist, kann die parasitäre Kapazität aller ausgewählten Photodioden durch die negative Biasspannung auf einen Wert \textless \SI{3}{pF} gebracht werden. Dieser Wert dient als Ausgangslage für weitere Berechnungen und Simulationen.
+Wie aus Tabelle \ref{tab:Tabelle_Photo} zu entnehmen ist, kann die parasitäre Kapazität aller ausgewählter Photodioden durch die negative Biasspannung auf einen Wert \textless \SI{3}{pF} gebracht werden. Dieser Wert dient als Ausgangslage für weitere Berechnungen und Simulationen.
 \newline
-Um einen Anhaltspunkt für den zu erwartenden Photostrom zu haben, wurden die Photodioden bei Bestrahlung mit dem Infrarot-Emitter ($I_{F}=\SI{280}{mA}$, konstant) ausgemessen.
+Um einen Anhaltspunkt für den zu erwartenden Photostrom zu erhalten, werden die Photodioden bei Bestrahlung mit dem Infrarot-Emitter ($I_{F}=\SI{280}{mA}$, konstant) ausgemessen.
 
 \begin{figure}[h]
 \centering
@@ -159,9 +169,9 @@ coordinates {
 \caption{Photostrom in Funktion des Abstands verschiedener Photodioden}\label{fig:Plot_Photo}
 \end{figure}
 
-Aus der Grafik geht hervor, dass bei einer Distanz von \SI{4}{cm} mit einem Photostrom von \textgreater $\SI{10}{\mu A}$ gerechnet werden kann. Diese Distanz wurde abgeschätzt und hängt von der späteren mechanischen Konstruktion ab. Sie dürfte aber eher kleiner werden, weshalb diese Annahme getroffen wurde.
+Aus Abbildung \ref{fig:Plot_Photo} geht hervor, dass bei einer Distanz von \SI{4}{cm} mit einem Photostrom von \textgreater $\SI{10}{\mu A}$ gerechnet werden kann. Diese Distanz wurde abgeschätzt und hängt von der späteren mechanischen Konstruktion ab. Sie dürfte aber eher kleiner werden, weshalb diese Annahme getroffen wurde.
 \newline
-Als Transimpedanzverstärker wurde der LT6268 von Linear Technology gewählt. Dieser Verstärker ist durch sein hohes GBWP von \SI{4}{GHz} und der kleinen Eingangskapazität von \SI{0.45}{pF} für High-Speed Photoanwendungen geeignet.
+Als Transimpedanzverstärker ist der LT6268 von Linear Technology gewählt worden. Dieser Verstärker ist durch sein hohes GBWP von \SI{4}{GHz} und der kleinen Eingangskapazität von \SI{0.45}{pF} für High-Speed Photoanwendungen geeignet.
 
 Gemäss Formel \ref{eq:Bandwidth} ist mit diesem Verstärker in Kombination mit einer der ausgewählten Photodioden folgende Bandbreite möglich:
 
