@@ -14,9 +14,9 @@ In Abbildung \ref{fig:Konzept_Daten} sind die beiden Kanäle zu erkennen, welche
 \newline
 Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden im Infrarot-Bereich durch einen Infrarot-Emitter übertragen und die negativen Spannungspegel im blauen Spektralbereich durch eine blaue LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
 \newline
-Eine Empfangseinheit besteht aus Photodioden, Verstärkerschaltungen und der Pegelanpassung. Im blauen Spektralbereich werden mit Hilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
+Eine Empfangseinheit besteht aus Photodioden, Verstärkerschaltungen und der Pegelanpassung. Im blauen Spektralbereich werden mithilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
 \newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung. \cite{underwater}
-
+\newpage
 \paragraph{Sender}
 In Abbildung \ref{fig:Konzept_Sender} ist das Konzept einer einzelnen Sendeeinheit detaillierter dargestellt.
 
@@ -28,9 +28,9 @@ In Abbildung \ref{fig:Konzept_Sender} ist das Konzept einer einzelnen Sendeeinhe
 
 Aus dem symmetrischen Signal des VARAN-Buses wird zuerst ein asymmetrisches Signal erzeugt. Dafür wird ein Signal-Transformator eingesetzt. Das Signal erhält so einen Bezug zur Masse der restlichen Schaltung. Mit zwei Komparatoren wird unterschieden, ob es sich um einen positiven oder negativen Pegel handelt. Dafür werden Komparatoren mit möglichst kurzer Verzögerungszeit und ausreichender Bandbreite verwendet. Die Komparatoren steuern anschliessend die entsprechenden Treiber an. 
 \newline
-Als Treiber dient ein FET-Treiber Baustein mit hoher Treiberspannung für schnelle Anstiegs- und Abfallzeiten. Die LED wird mit einem N-Kanal-FET nach Masse geschaltet. Die Schaltzeiten der LED sind entscheidend um auf die geforderte Schaltfrequenz von \textgreater \SI{30}{MHz} zu kommen. Dafür wurde einerseits ein FET mit kleiner Gate-Kapazität gewählt und andererseits auf kurze Anstiegs- und Abfallzeiten der LED geachtet.
+Als Treiber dient ein FET-Treiber Baustein mit hoher Treiberspannung für schnelle Anstiegs- und Abfallzeiten. Die LED wird mit einem N-Kanal-FET nach Masse geschaltet. Die Schaltzeiten der LED sind entscheidend um auf die geforderte Schaltfrequenz von \textgreater \SI{30}{MHz} zu kommen. Dafür wird einerseits ein FET mit kleiner Gate-Kapazität gewählt und andererseits auf kurze Anstiegs- und Abfallzeiten der LED geachtet.
 \newline
-Mit einer Erweiterung der Beschaltung der LED um drei passive Elemente, können die Anstiegs- und Abfallzeiten bei Bedarf um mehr als 50\% reduziert werden. Abbildung \ref{fig:Fast_LED} zeigt die Ansteuerung der LED mitsamt der Erweiterung von $R_{2}$, $C$ und $L$.
+Mit einer Erweiterung der Beschaltung der LED um drei passive Elemente, können die Anstiegs- und Abfallzeiten bei Bedarf um mehr als 50\% reduziert werden. Abbildung \ref{fig:Fast_LED} zeigt die Ansteuerung der LED mitsamt der Erweiterung um $R_{2}$, $C$ und $L$.
 
  \begin{figure}[h]
  	\centering
@@ -52,10 +52,10 @@ In Abbildung \ref{fig:Konzept_Empfaenger} wird das Konzept einer Empfangseinheit
 
 Der von der Photodiode erzeugte Strom wird mit einer Transimpedanzverstärkerschaltung in eine Spannung gewandelt und verstärkt. Wie im Kapitel \nameref{sec:Grundlagen} bereits erwähnt, ist eine hohe Bandbreite von mindestens \SI{31.25}{MHz} bei der Verstärkerschaltung erforderlich. Deshalb ist ein Verstärker mit ausreichendem Gain-Bandwidth Product und kleiner Eingangskapazität zu wählen. Auch die parasitäre Kapazität der Photodiode beeinflusst die Bandbreite, weshalb auch diese möglichst klein gewählt werden muss. Durch eine negative Biasspannung an der Anode der Photodiode kann die Kapazität nochmals reduziert werden.
 \newline
-Nach dem Transimpedanzverstärker werden mit Komparatoren die Pegel in Amplitude und Form angepasst. Das Signal vom blauen Spektralbereich, welches die negativen Pegel überträgt wird für die folgende Symmetrisierung invertiert. Mit einem Signal-Transformator wird aus dem asymmetrischen Signal wieder ein symmetrisches Signal generiert und dieses zurück an den VARAN-Bus geführt.
+Nach dem Transimpedanzverstärker werden mit Komparatoren die Pegel in Amplitude und Form angepasst. Das Signal vom blauen Spektralbereich, welches die negativen Pegel überträgt, wird für die folgende Symmetrisierung invertiert. Mit einem Signal-Transformator wird aus dem asymmetrischen Signal wieder ein symmetrisches Signal generiert und dieses zurück an den VARAN-Bus geführt.
 
 \paragraph{Kanal}
-Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist kein direkter Sichtkontakt zwischen Sende- und Empfangsdiode sichergestellt. Deshalb bestehen die beiden Kanäle aus einem lichtstreuenden Werkstoff und sind optisch voneinander isoliert.Abbildung \ref{fig:Konzept_Kanal} zeigt den prinzipiellen Aufbau der Kanäle.
+Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist kein direkter Sichtkontakt zwischen Sende- und Empfangsdiode sichergestellt. Deshalb bestehen die beiden Kanäle aus einem lichtstreuenden Werkstoff und sind optisch voneinander isoliert. Abbildung \ref{fig:Konzept_Kanal} zeigt den prinzipiellen Aufbau der Kanäle.
 
 \begin{figure}[h]
 	\centering
@@ -63,17 +63,17 @@ Da die optische Übertragung auf einer drehbaren Konstruktion stattfindet, ist k
 	\caption{Konzept der Kanäle}\label{fig:Konzept_Kanal}
 \end{figure}
 
-In der Abbildung ist die optische Isolation (schwarz) gut zu erkennen, welche die gegenseitige Beeinflussung der beiden Kanäle verhindert. Im Kanal 1 ist die Rotation der mechanischen Konstruktion unproblematisch, da sich Sender und Empfänger auf der Drehachse befinden. Der Kanal 2 nimmt das Licht auf der einen Seite auf und der lichtstreuende Werkstoff (grau) verteilt es im ganzen Kreisring. Nun spielt es auf der Empfängerseite keine Rolle mehr, in welchem Abschnitt auf dem Kreisring man sich befindet.
+In der Abbildung ist die optische Isolation (schwarz) gut zu erkennen, welche die gegenseitige Beeinflussung der beiden Kanäle verhindert. Im Kanal 1 ist die Rotation der mechanischen Konstruktion unproblematisch, da sich Sender und Empfänger auf der Drehachse befinden. Der Kanal 2 nimmt das Licht auf der einen Seite auf und der lichtstreuende Werkstoff (grau) verteilt es im ganzen Kreisring. Nun spielt es auf der Empfängerseite keine Rolle mehr, in welchem Abschnitt auf dem Kreisring sich die Photodiode befindet.
 
 \subsection{Dimensionierung Testschaltung}
-Es wurde eine Testschaltung realisiert, um für den weiteren Projektverlauf folgende Erkenntnisse zu gewinnen:
+Es ist eine Testschaltung realisiert worden, um für den weiteren Projektverlauf folgende Erkenntnisse zu gewinnen:
 \begin{itemize}
 	\item Kann die geforderte Geschwindigkeit erreicht werden?
 	\item Welche Distanz ist möglich?
 	\item Empfindlichkeit auf Umgebungslicht 
 \end{itemize}
 Die Testschaltung beinhaltet eine Sende- und Empfangseinheit, um ein Rechtecksignal im Infrarotbereich zu übertragen. 
-In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung der Testschaltung eingegangen. Das entsprechende Schema mit der Detailbeschaltung ist dem Anhang zu entnehmen.
+In diesem Unterkapitel wird auf die wichtigsten Punkte zur Dimensionierung der Testschaltung eingegangen. Das entsprechende Schema mit der Detailbeschaltung ist dem Anhang \ref{app:Schema_Sender} zu entnehmen.
 \paragraph{Sender} 
 Folgende Anforderungen werden an die Sendeschaltung gestellt:
 \begin{itemize}
@@ -82,7 +82,7 @@ Folgende Anforderungen werden an die Sendeschaltung gestellt:
 \end{itemize}
 Als Eingang beim Sender dient eine BNC-Buchse, um das Rechtecksignal ohne Störungen einzuspeisen. Als Gatetreiber des FET hat eine Evaluation den ISL55110 vom Hersteller Renesas hervorgebracht. Dieser zeichnet sich durch kurze Anstiegs- und Fallzeiten von \SI{1.5}{ns} bei einer Last von \SI{100}{pF} aus.
 Der gewählte N-Kanal-FET ist ein BSS316N vom Hersteller Infineon. Durch die kleine Eingangskapazität von \textless \SI{100}{pF} kann der FET in Kombination mit dem Gatetreiber sehr schnell geschaltet werden.
-Als Infrarot-Emitter wurde die SFH4235 von OSRAM gewählt. Die LED kann mit Anstiegs- und Abfallzeiten von 7/\SI{14}{ns} mit \textgreater \SI{30}{MHz} betrieben werden und ist deshalb für diese Anwendung geeignet. Abbildung \ref{fig:Spektrum_Infra} zeigt das Spektrum des Infrarot-Emitters.
+Als Infrarot-Emitter ist der SFH4235 von OSRAM gewählt worden. Die LED kann mit Anstiegs- und Abfallzeiten von 7/\SI{14}{ns} mit \textgreater \SI{30}{MHz} betrieben werden und ist deshalb für diese Anwendung geeignet. Abbildung \ref{fig:Spektrum_Infra} zeigt das Spektrum des Infrarot-Emitters.
 
 \begin{figure}[h]
 	\centering
@@ -95,12 +95,12 @@ Wie in der Abbildung zu erkennen ist, hat das Spektrum den Peak bei \SI{860}{nm}
 \paragraph{Empfänger}
 Folgende Anforderungen werden an die Empfängerschaltung gestellt:
 \begin{itemize}
-	\item Ausgangsspannung $\approx \SI{0.5}{V}$
+	\item Ausgangsspannung $\approx \SI{0.2}{V}$
 	\item Bandbreite $\textgreater \SI{31.25}{MHz}$
 \end{itemize}
-Mit zwei Z-Dioden (SZBZX84C3V3 und BZD27C13) und einem Operationsverstärker (LM7321) als Buffer geschaltet, wird eine Speisung für die Empfängerschaltung generiert. Diese liefert die benötigten Spannungen von \SI{3.3}{V} für die integrierten Bauteile und \SI{-13}{V}, um die Photodiode mit einer negativen Biasspannung vorzuspannen. Die Beschaltung ist im Schema im Anhang abgebildet.
+Mit zwei Z-Dioden (SZBZX84C3V3 und BZD27C13) und einem Operationsverstärker (LM7321) als Buffer geschaltet, wird eine Speisung für die Empfängerschaltung generiert. Diese liefert die benötigten Spannungen von \SI{3.3}{V} für die integrierten Bauteile und \SI{-13}{V}, um die Photodiode mit einer negativen Biasspannung vorzuspannen. Die Beschaltung ist im Schema im Anhang \ref{app:Schema_Empfaenger} abgebildet. Die Schaltung braucht nur eine Speisespannung und liefert alle Spannungen für die weiteren Schaltungsteile.
 \newline
-Es sind drei verschiedene Photodioden ausgewählt und analysiert worden.
+Weiter sind drei verschiedene Photodioden ausgewählt und analysiert worden. Tabelle \ref{tab:Tabelle_Photo} zeigt deren Unterschiede.
 
 \begin{table}[H]
 \begin{tabular}{c|c|c|c}
@@ -115,7 +115,7 @@ Es sind drei verschiedene Photodioden ausgewählt und analysiert worden.
 \caption{Datenblattwerte der ausgewählten Photodioden}\label{tab:Tabelle_Photo}
 \end{table}
 
-Wie aus Tabelle \ref{tab:Tabelle_Photo} zu entnehmen ist, kann die parasitäre Kapazität aller ausgewählter Photodioden durch die negative Biasspannung auf einen Wert \textless \SI{3}{pF} gebracht werden. Dieser Wert dient als Ausgangslage für weitere Berechnungen und Simulationen.
+Wie aus Tabelle \ref{tab:Tabelle_Photo} zu entnehmen ist, kann die parasitäre Kapazität aller ausgewählten Photodioden durch die negative Biasspannung auf einen Wert \textless \SI{3}{pF} gebracht werden. Dieser Wert dient als Ausgangslage für weitere Berechnungen und Simulationen.
 \newline
 Um einen Anhaltspunkt für den zu erwartenden Photostrom zu erhalten, werden die Photodioden bei Bestrahlung mit dem Infrarot-Emitter ($I_{F}=\SI{280}{mA}$, konstant) ausgemessen.
 
@@ -167,9 +167,9 @@ coordinates {
 \caption{Photostrom in Funktion des Abstands verschiedener Photodioden}\label{fig:Plot_Photo}
 \end{figure}
 
-Aus Abbildung \ref{fig:Plot_Photo} geht hervor, dass bei einer Distanz von \SI{4}{cm} mit einem Photostrom von \textgreater $\SI{10}{\mu A}$ gerechnet werden kann. Diese Distanz wurde abgeschätzt und hängt von der späteren mechanischen Konstruktion ab. Sie dürfte aber eher kleiner werden, weshalb diese Annahme getroffen wurde.
+Aus Abbildung \ref{fig:Plot_Photo} geht hervor, dass bei einer Distanz von \SI{4}{cm} mit einem Photostrom von \textgreater $\SI{10}{\mu A}$ gerechnet werden kann. Diese Distanz wurde abgeschätzt und hängt von der späteren mechanischen Konstruktion ab. Sie dürfte aber eher kleiner werden, weshalb diese Annahme getroffen worden ist.
 \newline
-Als Transimpedanzverstärker ist der LT6268 von Linear Technology gewählt worden. Dieser Verstärker ist durch sein hohes GBWP von \SI{4}{GHz} und der kleinen Eingangskapazität von \SI{0.45}{pF} für High-Speed Photoanwendungen geeignet.
+Als Transimpedanzverstärker ist der LT6268 von Linear Technology gewählt worden. Dieser Verstärker ist durch sein hohes GBWP von \SI{4}{GHz} und der kleinen Eingangskapazität von \SI{0.45}{pF} für High-Speed Photoanwendungen geeignet. Für die geforderte Ausgangsspannung von $\approx$ \SI{0.2}{V} ist ein Verstärkungsfaktor von $\SI{20}{k\Omega}$ notwendig.
 
 Gemäss Formel \ref{eq:Bandwidth} ist mit diesem Verstärker in Kombination mit einer der ausgewählten Photodioden folgende Bandbreite möglich:
 
@@ -193,24 +193,21 @@ Mit den beiden Formeln \ref{eq:Amp_Cf} und \ref{eq:Cin_Cf} bekommt man folgende 
 \SI{150}{fF}\textgreater C_{f}\textgreater \SI{500}{fF}
 \end{equation}
 
-Aufgrund der Dimensionierung der Sende- und Empfangsschaltung, wird in LTSpice ein Simulationsmodel erstellt.
-\todo[inline]{ Unterkapitel noch abschliessen und zur Simulation überleiten}
-
 \subsection{Simulation}
 Die im vorherigen Kapitel durchgeführte Dimensionierung soll nun anhand einer Simulation überprüft werden.
-Dafür wurde die Empfängerschaltung gemäss Schema im Anhang in LTSpice gezeichnet. Abbildung \ref{fig:PhotoAmp_Concept} zeigt die Prinzipschaltung. Die genaue Simulationsschaltung befindet sich im Anhang.
-\begin{figure}[h]
+Dafür wurde die sensiblere Empfängerschaltung gemäss Schema im Anhang \ref{app:Schema_Empfaenger} in LTSpice gezeichnet. Abbildung \ref{fig:PhotoAmp_Concept} zeigt die Prinzipschaltung. Das genaue Simulationsmodell befindet sich im Anhang \ref{app:Sim_LTSpice_Data}.
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\linewidth]{PhotoAmp_Concept.png}
 	\caption{Empfängerschaltung}\label{fig:PhotoAmp_Concept}
 \end{figure}
 
-Um den Einfluss der Kapazität in der Rückkopplung $C_{f}$ gemäss Bedingung \ref{eq:Cfminmax} zu überprüfen, wurde ein Parameter-Sweep mit mehreren Werten durchgeführt. Es wurden folgende Kapazitäten simuliert: \SI{50}{fF}, \SI{100}{fF}, \SI{200}{fF}, \SI{300}{fF}, \SI{400}{fF} und \SI{500}{fF}. Als Photostrom wurden Reckteck-Pulse mit einer Amplitude von \SI{10}{\mu A} gemäss Dimensionierung gewählt und einer Wiederholungsfrequenz von \SI{33}{MHz}.
-Abbildung \ref{fig:Plot_Cf} zeigt das Ausgangssignal des Transimpedanzverstärkers bei verschiedenen Feedback-Kapazitäten zusammen mit dem Eingangsstrom.
+Um den Einfluss der Kapazität in der Rückkopplung $C_{f}$ gemäss Bedingung \ref{eq:Cfminmax} zu überprüfen, ist ein Parameter-Sweep mit mehreren Werten durchgeführt worden. Es sind folgende Kapazitäten simuliert worden: \SI{50}{fF}, \SI{100}{fF}, \SI{200}{fF}, \SI{300}{fF}, \SI{400}{fF} und \SI{500}{fF}. Als Photostrom sind Reckteck-Pulse mit einer Amplitude von \SI{10}{\mu A} gemäss Dimensionierung und einer Wiederholungsfrequenz von \SI{33}{MHz} gewählt worden.
+Abbildung \ref{fig:Plot_Cf} zeigt das Ausgangssignal des Transimpedanzverstärkers bei verschiedenen Feedback-Kapazitäten(rot) zusammen mit dem Eingangsstrom(blau).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{LTPlot_Cf.png}
-	\caption{Eingangsstrom und Ausgangsspannung bei verschiedenen Feedback-Kapazitäten}\label{fig:Plot_Cf}
+	\caption{Eingangsstrom(blau) und Ausgangsspannung bei verschiedenen Feedback-Kapazitäten(rot)}\label{fig:Plot_Cf}
 \end{figure}
 In der Abbildung \ref{fig:Plot_Cf} sind bei kleinen Kapazitätswerten hohe Überschwinger zu erkennen. Bei grösseren Kapazitäten ändert die Spannung zu langsam. Von den simulierten Werten liefert eine Kapazität von \SI{200}{fF} das beste Resultat. Abbildung \ref{fig:Plot_Cf200} zeigt die \SI{200}{fF}-Kurve alleine.
 
@@ -227,19 +224,18 @@ Mit einem Komparator kann nun aus dem Signal wieder das gewünschte Rechtecksign
 	\includegraphics[width=\linewidth]{LTPlot_out.png}
 	\caption{Eingangsstrom und Ausgangsspannung bei $\SI{200}{fF}$ Feedback-Kapazität mit Komparator}\label{fig:Plot_out}
 \end{figure}
-
-
-
+Wie leicht zu erkennen ist, werden die Rechteck-Pulse mit einer gewissen Verzögerung übertragen. Diese kommt daher, weil die Laufzeit der Schaltung endlich ist und somit das Signal um einige $ns$ verzögert.
+Mit einer gleichmässigen Verzögerung in der ganzen Schaltung, wird dieser Umstand korrigiert.
 \newpage
 \subsection{Testaufbau}
 \label{subsec:Testaufbau}
-Das Layout für den Sende- und Empfangsprint befindet sich im Anhang. Um die entwickelten Sende- und Empfangsschaltung auszumessen, wird ein Testaufbau erstellt. Abbildung \ref{fig:Test_direkt} zeigt den Aufbau für die Messung wenn Infrarot-Emitter und Photodiode direkten Sichtkontakt haben.
+Das Layout für den Sende- und Empfangsprint befindet sich im Anhang \ref{app:Layout_Sender} und \ref{app:Layout_Empfaenger}. Um die entwickelte Sende- und Empfangsschaltung auszumessen, wird ein Testaufbau erstellt. Abbildung \ref{fig:Test_direkt} zeigt den Aufbau für die Messung wenn Infrarot-Emitter und Photodiode direkten Sichtkontakt haben.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Testaufbau_direkt.png}
 	\caption{Testaufbau zur Messung des Ausgangssignals bei direktem Sichtkontakt}\label{fig:Test_direkt}
 \end{figure}
-Der Sendeprint (in der Abbildung rechts) und der Empfangsprint (in der Abbildung links) werden zueinander ausgerichtet und fixiert. Die Messresultate werden im nächsten Unterkapitel diskutiert.
+Der Sendeprint (in der Abbildung rechts) und der Empfangsprint (in der Abbildung links) werden zueinander ausgerichtet und fixiert. Die Messresultate werden im Unterkapitel \ref{subsec:Validierung} diskutiert.
 
 In Abbildung \ref{fig:Test_plexi} ist der Testaufbau für die Messung durch eine Plexiglas-Platte gezeigt. Dafür wurde eine \SI{8}{mm} dicke Acryl-Satlite-Platte vom Hersteller \glqq BWF-Profiles\grqq\  in eine\linebreak \SI{6x6}{cm} Scheibe zugeschnitten.
 \begin{figure}[H]
@@ -251,11 +247,11 @@ In Abbildung \ref{fig:Test_plexi} ist der Testaufbau für die Messung durch eine
 Anschliessend wird das Licht-Signal an der unteren Kante (in der Abbildung rechts) in die Acryl-Platte eingespeist. Gemessen wird diagonal gegenüber am oberen Teil der Kante. Auch diese Messresultate werden im nächsten Unterkapitel diskutiert.
 
 \subsection{Validierung} 
-
+\label{subsec:Validierung}
 Für die Validierung der Sende- und Empfangsschaltung wurden Messungen gemäss Beschreibung im Unterkapitel \nameref{subsec:Testaufbau} durchgeführt. Damit soll die geforderte Geschwindigkeit und der Einfluss von Störlicht überprüft werden. Zusätzlich wird eine Messung durch eine Acryl-Scheibe durchgeführt, welches später als lichtleitendes Material für den Kanal dienen soll.
  
 \paragraph{Geschwindigkeit}
-Wie in den \nameref{sec:Grundlagen} mit Formel \ref{eq:MLT3} gezeigt, soll eine Frequenz von \SI{31.25}{MHz} erreicht werden. Messungen bei direktem Sichtkontakt zwischen Infrarot-Emitter und Photodiode auf eine Entfernung von ca. \SI{4}{cm} ergaben die in Abbildung \ref{fig:output33_40} gezeigten Resultate.
+Wie in den \nameref{sec:Grundlagen} mit Formel \ref{eq:MLT3} gezeigt, soll eine Frequenz von mindestens \SI{31.25}{MHz} erreicht werden. Messungen bei direktem Sichtkontakt zwischen Infrarot-Emitter und Photodiode auf eine Entfernung von ca. \SI{4}{cm} ergaben die in Abbildung \ref{fig:output33_40} gezeigten Resultate.
 
 \begin{figure}[h!]
 	\centering
@@ -275,17 +271,17 @@ Sowohl \SI{33}{MHz} als auch \SI{40}{MHz} können mit diesem Testaufbau übertra
 	\label{fig:output45}
 \end{figure}
 
-Mit den gemessenen \SI{45}{MHz} ist die geforderte Frequenz von \SI{31.25}{MHz} deutlich erreicht. Die benötigte Geschwindigkeit für eine berührungslose Übertragung des VARAN-Bus kann mit dieser Schaltung erreicht werden.
+Mit den gemessenen \SI{45}{MHz} ist die geforderte Frequenz von \SI{31.25}{MHz} deutlich erreicht. Die benötigte Geschwindigkeit für eine berührungslose Übertragung des VARAN-Bus kann mit dieser Schaltung somit erreicht werden.
 
 \newpage
 \paragraph{Übertragung durch Kanal}
-Als weitere Messung wird die Übertragung durch eine Acryl-Scheibe durchgeführt. In Abbildung \ref{fig:plexi33} wird das Empfangene Signal am Ausgang der Empfängerschaltung gezeigt.
+Als weitere Messung wird die Übertragung durch eine Acryl-Scheibe durchgeführt. In Abbildung \ref{fig:plexi33} wird das empfangene Signal am Ausgang der Empfängerschaltung gezeigt.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{plexi33MHz.png}
 	\caption{Ausgangssignal der Empfängerschaltung bei \SI{33}{MHz} durch Acryl-Scheibe}\label{fig:plexi33}
 \end{figure}
-Das Licht wird im Acrylglas gebündelt und durch das Material geleitet. Bei der Vergleichsmessung ohne Acryl-Platte war der Signalpegel am gleichen Empfangspunkt hingegen zu schwach, um den Komparator zu schalten. Auch wenn an der Kante eingespeist wird und auf der Oberfläche gemessen wird, ist der Pegel zu schwach. Acrylglas ist als lichtleitendes Material eine geeignete Wahl. Mit Anpassungen am Verstärkungsfaktor des Transimpedanzverstärkers und der Schaltschwelle für den Komparator wären noch bessere Resultate möglich. Durch Rücksprache mit dem Hersteller dürfte noch ein besseres Material gefunden werden, um mit einer geschickten Konstruktion den konzipierten Kanal herzustellen.
+Das Licht wird im Acrylglas gebündelt und durch das Material geleitet. Bei der Vergleichsmessung ohne Acryl-Platte ist der Signalpegel am gleichen Empfangspunkt hingegen zu schwach, um den Komparator zu schalten. Auch wenn an der Kante eingespeist wird und auf der Oberfläche gemessen wird, ist der Pegel zu schwach. Acrylglas ist als lichtleitendes Material eine geeignete Wahl. Mit Anpassungen am Verstärkungsfaktor des Transimpedanzverstärkers und der Schaltschwelle für den Komparator wären noch bessere Resultate möglich. Durch Rücksprache mit dem Hersteller und weiteren Untersuchungen dürfte noch ein besseres Material gefunden werden, um mit einer geschickten Konstruktion den konzipierten Kanal herzustellen.
 
 \paragraph{Störlicht}
-Sämtliche Messungen wurden bei Tageslicht und Sonneneinstrahlung durchgeführt. Dabei wurden keine Unregelmässigkeiten registriert, welche vom Umgebungslicht stammen könnten. Da der Dosenverschliesser in einem Gebäude eingesetzt wird und durch die Konstruktion kaum Licht in die Schaltung eindringen wird, kann die Schaltung als störsicher gegen Umgebungslicht eingestuft werden.
+Sämtliche Messungen sind bei Tageslicht und Sonneneinstrahlung durchgeführt worden. Dabei hat man keine Unregelmässigkeiten registriert, welche vom Umgebungslicht stammen könnten. Da der Dosenverschliesser in einem Gebäude eingesetzt wird und durch die Konstruktion kaum Licht in die Schaltung eindringen wird, kann die Schaltung als störsicher gegen Umgebungslicht eingestuft werden.

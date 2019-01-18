@@ -1,8 +1,8 @@
 \section{Energieübertragung}\label{sec:energie}
-In diesem Kapitel wird aufgezeigt, wie die Energie übertragen werden soll. Zudem werden die Schaltung auf der Primär- und der Sekundärseite entworfen.
+In diesem Kapitel wird aufgezeigt, wie die Energie übertragen werden soll. Zudem wird die Schaltung auf der Primär- und der Sekundärseite entworfen.
 
 \subsection{Konzept}
-In der Abbildung \ref{fig:konzept_energie} sind die wichtigsten Komponenten der induktiven Energieübertragung aufgeführt. Rot umrandet sind die Komponenten, die entwickelt werden müssen. Die Spannungsquelle und der Treiber für den Motor sind extern. Der Treiber bestimmt die zu übertragende Leistung von 300W und einer Gleichspannung von 48V.
+In der Abbildung \ref{fig:konzept_energie} sind die wichtigsten Komponenten der induktiven Energieübertragung aufgeführt. Rot umrandet sind die Komponenten, die entwickelt werden müssen. Die Spannungsquelle und der Treiber für den Motor sind extern. Der Treiber bestimmt die zu übertragende Leistung von \SI{300}{W} und einer Gleichspannung von \SI{48}{V}.
 
 \begin{figure}[h]
 	\centering
@@ -10,11 +10,12 @@ In der Abbildung \ref{fig:konzept_energie} sind die wichtigsten Komponenten der 
 	\caption{Konzept der induktiven Energieübertragung}\label{fig:konzept_energie}
 \end{figure}
 
-Die beiden Schalenkerne werden benötigt, um einen guten Kopplungsfaktor zu erreichen. Es sind Ferritkerne, welche aus dem Material BFM8 bestehen und eine Anfangspermeabilität $ \mu_{i} $ von 2400 aufweisen.\\ Die Schaltung auf der Primärseite hat die Aufgabe aus der Gleichspannung eine gepulste Spannung zu erzeugen, da keine konstante Spannung an der Spule anliegen darf. Wäre dies nicht der Fall, könnte man keine Energie übertragen. Denn das Magnetfeld der Spule würde sich nicht ändern und es würde kein Strom in die zweite Spule induziert. \\
+Die beiden Schalenkerne werden benötigt, um einen guten Kopplungsfaktor zu erreichen. Es sind Ferritkerne, welche aus dem Material BFM8 bestehen und eine Anfangspermeabilität $ \mu_{i} $ von 2400 aufweisen.\\
+Die Schaltung auf der Primärseite hat die Aufgabe aus der Gleichspannung eine gepulste Spannung zu erzeugen, da keine konstante Spannung an der Spule anliegen darf. Wäre dies nicht der Fall, könnte man keine Energie übertragen. Denn das Magnetfeld der Spule würde sich nicht ändern und es würde kein Strom in die zweite Spule induziert. \\
 Auf der sekundären Seite wird wieder eine gepulste Spannung generiert. Aus dieser gepulsten Spannung soll die Sekundärschaltung wieder eine Gleichspannung kreieren.
 
 \paragraph{Auswahl der Schaltungstopologie}
-Für die Energieübertragung kommen verschiedene Typologien zu Frage. Der Flyback bringt interessante Vorteile mit sich. Im Vergleich zu anderen Schaltungen, welche eine galvanische Trennung beinhalten, benötigt er weniger Bauteile. Zusätzlich eignet sich die Schaltung für einen Leistungsbereich bis zu ca. 500W. Im Gegensatz zum Resonanzwandler muss der benötigte Transformator bestimmte Anforderungen erfüllen, da er gleichzeitig als Energiespeicher eingesetzt wird. Da es für einen Prototypen von Vorteil ist, möglichst wenig Bauteile zu verwenden, fiel der Entscheid auf den Flyback-Converter. \cite{bachelor} \cite{speerwandler}
+Für die Energieübertragung kommen verschiedene Typologien zu Frage. Der Flyback bringt interessante Vorteile mit sich. Im Vergleich zu anderen Schaltungen, welche eine galvanische Trennung beinhalten, benötigt er weniger Bauteile. Zusätzlich eignet sich die Schaltung für einen Leistungsbereich bis zu ca. \SI{500}{W}. Im Gegensatz zum Resonanzwandler muss der benötigte Transformator bestimmte Anforderungen erfüllen, da er gleichzeitig als Energiespeicher eingesetzt wird. Da es für einen Prototypen von Vorteil ist, möglichst wenig Bauteile zu verwenden, fiel der Entscheid auf den Flyback-Converter. \cite{bachelor} \cite{sperrwandler}
 
 In der Abbildung \ref{fig:konzept_flyback} wird die Schaltung des Flyback-Converters aufgesplittet in die Primärschaltung, die Sekundärschaltung und die Schalenkerne. Die Primärseite besteht hauptsächlich aus dem MOSFET und dem Snubber-Glied. Die beiden Schalenkerne bilden den Speichertransformator, der für den Flyback benötigt wird. Die Sekundärschaltung ist ein Gleichrichter, welcher aus einer Schottky-Diode und einem Kondensator gebildet wird.
 \begin{figure}[h]
@@ -26,7 +27,7 @@ In der Abbildung \ref{fig:konzept_flyback} wird die Schaltung des Flyback-Conver
 
 \subsection{Dimensionierung Flyback-Converter}
 
-Um den Flyback-converter simulieren und später in einem Testaufbau realisieren zu können, müssen die wichtigsten Komponenten ausgelegt werden. In diesen Abschnitt wird die Dimensionierung der Induktivität des Speichertransformators, des MOSFET, der Schottky-Diode und der Snubber-Schaltung erklärt. Die genauere Dimensionierung des Speichertransformators wird im Abschnitt  \textbf{\ref{sec:simulation} \nameref{sec:simulation}} genauer beschrieben.
+Um den Flyback-Converter simulieren und später in einem Testaufbau realisieren zu können, müssen die wichtigsten Komponenten ausgelegt werden. In diesen Abschnitt wird die Dimensionierung der Induktivität des Speichertransformators, des MOSFETs, der Schottky-Diode und der Snubber-Schaltung erklärt. Die genauere Dimensionierung des Speichertransformators wird im Abschnitt  \textbf{\ref{sec:simulation} \nameref{sec:simulation}} genauer beschrieben.
 
 \paragraph{Berechnung der Induktivität}
 Ein wichtiger Wert, um den Speichertransformator zu dimensionieren, ist die Induktivität. Mit den beiden Formeln \ref{eq:energie} und \ref{eq:Leistung} kann die übertragene Leistung $ P $ beschreiben werden. \cite{lea}
@@ -41,7 +42,7 @@ Die Gleichung \ref{eq:zusammen} lässt sich nun nach der gesuchten Induktivität
 L = \frac{a^{2}\cdot U_{E}\!^{2}\cdot T_{p}}{2 \cdot P}
 \end{equation}
 
-Mit einem Tastverhältnis $ a $ von 0.5, einer Eingangspannung $ U_{E} $ von 48V und der übertragenen Leistung $ P $ von 300W wird die Induktivität berechnet. Die Periodendauer $ T_{p} $ ist variabel.
+Mit einem Tastverhältnis $ a $ von 0.5, einer Eingangspannung $ U_{E} $ von \SI{48}{V} und der übertragenen Leistung $ P $ von \SI{300}{W} wird die Induktivität berechnet. Die Periodendauer $ T_{p} $ ist variabel.
 
 \begin{equation}\label{eq:induktivität_berechnet}
 L = \frac{0.5^{2}\cdot 48\mathrm{V}^{2}\cdot T_{p}}{2 \cdot 300\mathrm{W}}
@@ -64,7 +65,7 @@ In der Tabelle \ref{tab:induktivität} sind die berechneten Resultate der Indukt
 \end{table}
 
 \paragraph{Auslegung des MOSFET}
-Die maximale Drain-Source-Spannung $ U_{DS} $ und der maximale Drain-Strom $ I_{D} $ sind wichtige Kenngrössen für die Auswahl des MOSFETs. Die grösste Spannung $ U_{DSmax} $, mit welcher der MOSFET belastet wird, berechnet sich mit der Formel \ref{eq:sperrspannung_mosfet}. Die Drain-Source-Spannung muss auf jeden Fall grösser $ U_{DSmax} $ gewählt werden.\cite{speerwandler}
+Die maximale Drain-Source-Spannung $ U_{DS} $ und der maximale Drain-Strom $ I_{D} $ sind wichtige Kenngrössen für die Auswahl des MOSFETs. Die grösste Spannung $ U_{DSmax} $, mit welcher der MOSFET belastet wird, berechnet sich mit der Formel \ref{eq:sperrspannung_mosfet}. Die Drain-Source-Spannung muss auf jeden Fall grösser $ U_{DSmax} $ gewählt werden. \cite{sperrwandler}
 \begin{equation}\label{eq:sperrspannung_mosfet}
 U_{DSmax} = U_{e} + U_{a} \cdot \frac{N1}{N2}
 \end{equation}
@@ -73,13 +74,13 @@ U_{DSmax}= 48\mathrm{V} + 48\mathrm{V} \cdot 1 = 96\mathrm{V}
 \end{equation}
 
 \paragraph{Auslegung der Ausgangsdiode}
-Die Sperrspannung $ U_{R} $ der Schottky-Diode muss folgendermassen ausgelegt werden.\cite{speerwandler}
+Die Sperrspannung $ U_{R} $ der Schottky-Diode muss folgendermassen ausgelegt werden. \cite{sperrwandler}
 \begin{equation}\label{eq:sperrspannung_diode}
 U_{R} = U_{a} + U_{e} \cdot \frac{N2}{N1} = 48\mathrm{V} + 48\mathrm{V} \cdot 1 = 96\mathrm{V}
 \end{equation}
 
 \paragraph{Auslegung  Snubber-Schaltung}
-Im Kapitel \textbf{\ref{sec:Grundlagen} \nameref{sec:Grundlagen}} wurden zwei Snubber Schaltungen vorgestellt. Da der Aufbau mit einer Zener-Diode und einer Diode (Abbildung \ref{fig:Flyback_zehner}) effizienter und zusätzlich unabhängig von der Streuinduktivität ist, ist diese Topologie gewählt worden. Die Durchbruch-Spannung $ U_{Z} $ der Zener-Diode kann mit folgenden zwei Bedingungen festgelegt werden. \cite{bachelor}  
+Im Kapitel \textbf{\ref{sec:Grundlagen} \nameref{sec:Grundlagen}} wurden zwei Snubber-Schaltungen vorgestellt. Da der Aufbau mit einer Zener-Diode und einer Diode (Abbildung \ref{fig:Flyback_zehner}) effizienter und zusätzlich unabhängig von der Streuinduktivität ist, ist diese Topologie gewählt worden. Die Durchbruch-Spannung $ U_{Z} $ der Zener-Diode kann mit folgenden zwei Bedingungen festgelegt werden. \cite{bachelor}  
 
 \begin{equation}\label{eq:sperrspannung_zener1}
 U_{Z} < U_{DS} - U_{E}
@@ -94,14 +95,14 @@ U_{Z} > (U_{A} + U_{F}) \cdot \frac{N_{1}}{N_{2}}
 U_{Z} >(48\mathrm{V} + 0.7\mathrm{V}) \cdot 1 = 48.7\mathrm{V}
 \end{equation}
 Die Durchbruch-Spannung darf also maximal 102 V betragen und mindestens 48.7 V.
-
+\newpage
 \subsection{Simulation}\label{sec:simulation}
 Um die dimensionierten Werte zu überprüfen und dementsprechend anzupassen, sind zwei Simulationen erstellt worden. Mit dem Simulationstool FEMM kann der Speichertrafo genauer betrachtet werden. Die Schaltung des Flyback-Converters ist im LTspice aufgebaut.
 
 \paragraph{FEMM}
 FEMM ist ein Simulationstool mit dem elektromagnetische Probleme im zweidimensionalen Bereich gelöst werden können. Der Speichertransformator ist im FEMM achsensymmetrisch aufgebaut. Er besteht aus den zwei Ferrit-Schalenkerne. Diese sind anhand des Datenblattes aufgezeichnet. Die Anfangspermeabilität $ \mu_{i} $ des Ferrits beträgt 2400 $ \frac{H}{m} $ und die Sättigungsflussdichte ist 490 mT. In der ersten Simulation wird ermittelt, wie viele Windungen für den Speichertransformator benötigt werden. Mit der darauffolgenden Simulation wird der Kopplungsfaktor berechnet. 
 
-Damit der Transformator mit der benötigten Induktivität aufgebaut werden kann, muss die Anzahl Windungen bekannt sein. Die Resultate der Simulation für verschiedene Frequenzen und Distanzen sind in der Tabelle \ref{tab:windungen} aufgeführt. Um die simulierten Werte zu vergleichen sind in der zweiten Spalte die berechneten Resultate aus der Tabelle \ref{tab:induktivität} eingetragen. Aus der Tabelle ist ersichtlich, dass bei konstanter Windungszahl, die Induktivität bei ändernder Frequenz gleich bleibt.
+Damit der Transformator mit der benötigten Induktivität aufgebaut werden kann, muss die Anzahl Windungen bekannt sein. Die Resultate der Simulation für verschiedene Frequenzen und Distanzen sind in der Tabelle \ref{tab:windungen} aufgeführt. Um die simulierten Werte zu vergleichen, sind in der zweiten Spalte die berechneten Resultate aus der Tabelle \ref{tab:induktivität} eingetragen. Aus der Tabelle ist ersichtlich, dass bei konstanter Windungszahl, die Induktivität bei ändernder Frequenz gleich bleibt.
 
 \begin{table}[h]
 	\centering
@@ -134,7 +135,7 @@ Mit dieser Simulation kann auch überprüft werden, ob der Ferritkern in Sättig
 \end{figure}
 \newpage
 
-Mit Hilfe der zweiten Simulation im FEMM soll der Koppelungsfaktor anhand der Formel \ref{eq:kopplungsfaktor} ermittelt werden. Um ihn berechnen zu können, benötigt man die Induktivität und die Gegeninduktivität.
+Mithilfe der zweiten Simulation im FEMM soll der Koppelungsfaktor anhand der Formel \ref{eq:kopplungsfaktor} ermittelt werden. Um ihn berechnen zu können, benötigt man die Induktivität und die Gegeninduktivität.
 
 \begin{figure}[H]
 	\centering
@@ -144,7 +145,7 @@ Mit Hilfe der zweiten Simulation im FEMM soll der Koppelungsfaktor anhand der Fo
 	\label{fig:femmkopplung}
 \end{figure}
 
-In FEMM kann die Selbstinduktion der Primärspule simuliert werden, indem man einen Strom, wie in der Abbildung \ref{fig:femmkopplung} durch die Primärwicklung lässt. Mit dem ermittelten Fluss $ \Psi_{11}  $ und dem Strom $ I_{1} $ kann die Induktivität $ L_{1} $ wie folgt berechnet werden. Das Simulationstool übernimmt diese Rechnung und kann die Induktivität direkt ausgeben.\cite{femm}
+In FEMM kann die Selbstinduktion der Primärspule simuliert werden, indem man einen Strom, wie in der Abbildung \ref{fig:femmkopplung} durch die Primärwicklung lässt. Mit dem ermittelten Fluss $ \Psi_{11}  $ und dem Strom $ I_{1} $ kann die Induktivität $ L_{1} $ wie folgt berechnet werden. Das Simulationstool übernimmt diese Rechnung und kann die Induktivität direkt ausgeben. \cite{femm}
 
 \begin{equation}
 L_{1}=\frac{\Psi_{11}}{I_{1}}
@@ -152,7 +153,7 @@ L_{1}=\frac{\Psi_{11}}{I_{1}}
 \end{equation}
 
 Mit der Formel \ref{eq:femm_M} wird die gesuchte Gegeninduktivität $ M $ berechnet.
-Der dazu benötigte Fluss $ \Psi_{1} $ lässt sich in FEMM ermitteln indem man durch die Primär und Sekundärspule einen Strom fliessen lässt, wie in der Abbildung \ref{fig:femmkopplung}. \cite{femm}
+Der dazu benötigte Fluss $ \Psi_{1} $ lässt sich in FEMM ermitteln, indem man durch die Primär- und Sekundärspule einen Strom fliessen lässt, wie in der Abbildung \ref{fig:femmkopplung}. \cite{femm}
 
 \begin{equation}
 M=\frac{\Psi_{1}-\Psi_{11}}{I_{1}}=\frac{\Psi_{12}}{I_{1}}
@@ -193,7 +194,7 @@ Der Kopplungsfaktor k beträgt etwas mehr als 0.9. Er wird grösser indem die In
 \paragraph{Schaltung}
 Das Ziel der Simulation ist es, verschiedene Erkenntnisse über die Schaltung zu erhalten, wie der Wirkungsgrad, der Ausgangsstrom oder die Ausgangsspannung. Die Schaltung ist im LTspice aufgebaut. Die Bauteile, welche für den Flyback-Converter benötigt werden, wurden anhand der Dimensionierung ausgesucht.
 
-Der Speichertransformator wurde für 20kHz ausgelegt. Dies bringt mehrere Vorteile mit sich. Als erstes hört man diese Frequenz nicht mehr, was das Arbeiten mit dem Testaufbau einiges angenehmer macht. Beim Abstand von 0.1mm hat die berechnete Induktivität fast die kleinste Differenz zur simulierten Induktivität einer ganzen Windung. Zum Zweiten hat die Spule nicht nur zwei Windungen und bietet etwas mehr Flexibilität.
+Der Speichertransformator wurde für 20kHz ausgelegt. Dies bringt mehrere Vorteile mit sich. Als Erstes hört man diese Frequenz nicht mehr, was das Arbeiten mit dem Testaufbau einiges angenehmer macht. Beim Abstand von 0.1mm hat die berechnete Induktivität fast die kleinste Differenz zur simulierten Induktivität einer ganzen Windung. Zum Zweiten hat die Spule nicht nur zwei Windungen und bietet etwas mehr Flexibilität.
 
 Der Widerstand kann mit der Formel \ref{eq:Leistung} berechnet werden indem sie nach R umgeformt wird. 
 
@@ -244,8 +245,8 @@ Der Strom in der Spule L1 und der in Strom der Spule L2 mit dem PWM-Signal sind 
 	\caption{Speichertransformator mit 0.1mm Abstand}
 	\label{fig:spule}
 \end{figure}
-
-In der Abbildung wird der Strom und die Spannung über der Spule mit und ohne Snubber verglichen.
+\newpage
+In Abbildung \ref{fig:LT_snubber} wird der Strom und die Spannung über der Spule mit und ohne Snubber verglichen.
 
 \begin{figure}[H]
 	\centering
@@ -253,7 +254,7 @@ In der Abbildung wird der Strom und die Spannung über der Spule mit und ohne Sn
 	\caption{Strom durch die Primär-Spule(blau) und Storm durch die Sekundär-Spule (rot) mit der Spannung über der Primär-Spule (grün) }\label{fig:LT_snubber}
 \end{figure}
 
-In der Abbildung \ref{fig:LT_snubber} steigt die Spannung über der Primär-Spule ohne das Snubber-Glied auf eine Spannung von 1.5kHz. Die beiden Strom-Dreiecke haben ein erhöhtes Schwingen und einen hohen Pick. 
+In der Abbildung steigt die Spannung über der Primär-Spule ohne das Snubber-Glied auf eine Spannung von 1.5kHz. Die beiden Strom-Dreiecke haben ein erhöhtes Schwingen und einen hohen Pick. 
 
 Mit der Simulation in LTspice kann auch die Verlustleistung der Halbleiter ermittelt werden. Die Resultate sind in der Tabelle \ref{tab:LT_verlsutleistung} aufgeführt.
 
@@ -269,7 +270,7 @@ Mit der Simulation in LTspice kann auch die Verlustleistung der Halbleiter ermit
 	\caption{Resultate der Simulation}
 	\label{tab:LT_verlsutleistung}
 \end{table}
-
+\newpage
 \subsection{Testaufbau}
 Der Testaufbau ist in das Konstruieren des Speichertransformators und in das Erstellen der Schaltung unterteilt. 
 
@@ -278,7 +279,7 @@ Zwischen den beiden Schalenkernen wurde mit einem Klebband ein Abstand von 0.1mm
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{spule}
+	\includegraphics[width=\linewidth]{spule}
 	\caption{Testaufbau des Flyback-Converters}\label{fig:aufbau_spule}
 \end{figure}
 
@@ -286,12 +287,12 @@ Der Flyback-Converter besteht aus einer Primär- und einer Sekundär-Schaltung. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{flyback_aufbau}
+	\includegraphics[width=\linewidth]{flyback_aufbau}
 	\caption{Testaufbau des Flyback-Converters}\label{fig:testaufbau}
 \end{figure}
-
+\newpage
 \subsection{Validierung}
-In der Validierung wird der Testaufbau mit der Simulation verglichen. Damit soll die Simulationen der Induktivität und des Kopplungsfaktor mit FEMM  überprüft werden. Der gesamte Testaufbau mit der Schaltung und dem Speichertransformator wird mit der Simulation in LTspice verglichen.
+In der Validierung wird der Testaufbau mit der Simulation verglichen. Damit soll die Simulationen der Induktivität und des Kopplungsfaktors mit FEMM  überprüft werden. Der gesamte Testaufbau mit der Schaltung und dem Speichertransformator wird mit der Simulation in LTspice verglichen.
 
 \paragraph{Messung der Induktivität}
 Mit dieser Messung soll überprüft werden, ob die simulierte Induktivität mit der Realität übereinstimmt. In der ersten Messung wurde ein Transformator mit 14 Windungen aufgebaut und mit einer Frequenz von 20kHz betrieben. In der Abbildung \ref{fig:mess_ind} sind die Resultate dargestellt. Die Simulation ergab eine Induktivität von $ \SI{7.8e-05}{H} $ und die Messung von $ \SI{7.9e-05}{H} $. Dies ergibt eine Abweichung von etwa 2\%. 
@@ -306,7 +307,7 @@ Bei einer zweiten Messung besteht der Transformator aus 4 Windungen, einem Absta
 	\label{fig:mess_ind}
 \end{figure}
 
-\paragraph{Messung des Kopplungsfaktor}
+\paragraph{Messung des Kopplungsfaktors}
 Der Kopplungsfaktor kann gemessen werden, indem die Induktivität im Leerlauf und bei kurzgeschlossener sekundärer Windung gemessen wird. In die Formel \ref{eq:mes_k} können die beiden ermittelten Induktivitäten eingesetzt werden um den Kopplungsfaktor zu berechnen.
 
 \begin{equation}\label{eq:mes_k}
@@ -326,14 +327,14 @@ k = \sqrt{1-\frac{\SI{3.2e-06}{H}}{\SI{51e-06}{H}}}=0.97
 Der Transformator hat einen Kopplungsfaktor von 0.95 bis 0.97 je nach Induktivität. Dieser weicht von dem simulierten Kopplungsfaktor von 0.989 ab. Da die Kopplung zwischen den Spulen kleiner ist, als simuliert, ist die Streuinduktivität höher als erwartet. Dies hat Auswirkungen auf die Schaltung. Es wird weniger Energie übertragen und die nicht übertragene Leistung muss auf der Primärseite abgebaut werden.  
 
 \paragraph{Messungen am Testaufbau}
-Da der Kopplungsfaktor des Speichertransformator sehr schlecht ist, konnte der Testaufbau nicht mit der vollen Leistung getestet werden. Die folgenden Messungen wurden mit einer Eingangsspannung von 15 Volt und einem Strom von 2 Ampere durchgeführt.   
+Da der Kopplungsfaktor des Speichertransformators sehr schlecht ist, konnte der Testaufbau nicht mit der vollen Leistung getestet werden. Die folgenden Messungen wurden mit einer Eingangsspannung von 15 Volt und einem Strom von 2 Ampere durchgeführt.   
 
-In der Abbildung \ref{fig:mess_ströme} sind die Messresultate der Ströme über den Spulen dargestellt. Die Messungen kann mit der Abbildung \ref{fig:kurven} und der Abbildung \ref{fig:spule} verglichen werden. Ein Vergleich zeigt, dass der Strom in der Sekundärspule (gelb) gedämpfter zum Primär-Strom (violett) ist und in der Hälfet der Ausschaltdauer des MOSFETs auf Null geht. In dem Plot b) ist zusätzlich zu den Strömen die Spannung (grün) über der Primärspule gemessen. Die Spannung schwingt stärker sobald der Sekundär-Strom auf Null ist. Zusätzlich steigt die Spannung kurz auf über 160V an. 
+In der Abbildung \ref{fig:mess_ströme} sind die Messresultate der Ströme über den Spulen dargestellt. Die Messungen kann mit der Abbildung \ref{fig:kurven} und der Abbildung \ref{fig:spule} verglichen werden. Ein Vergleich zeigt, dass der Strom in der Sekundärspule (gelb) gedämpfter zum Primär-Strom (violett) ist und in der Hälfte der Ausschaltdauer des MOSFETs auf null geht. In dem Plot b) ist zusätzlich zu den Strömen die Spannung (grün) über der Primärspule gemessen. Die Spannung schwingt stärker sobald der Sekundär-Strom auf Null ist. Zusätzlich steigt die Spannung kurz auf über 160V an. 
 
 \begin{figure}[H]
 	\centering
 	\subfloat[Messung der Ströme über den Spulen und des PWM-Signals]{\includegraphics[width=0.47\linewidth]{Spulenstrom_mitpwm}}\qquad
 	\subfloat[Messung der Induktivität ]{\includegraphics[width=0.47\linewidth]{Spulenstrom_mitspannung}}
-	\caption{Resultate der Induktivität}
+	\caption{Resultate der Messung}
 	\label{fig:mess_ströme}
 \end{figure}
