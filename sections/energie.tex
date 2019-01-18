@@ -282,7 +282,7 @@ Zwischen den beiden Schalenkernen wurde mit einem Klebband einen Abstand von 0.1
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{spule}
+	\includegraphics[width=0.7\linewidth]{spule}
 	\caption{Testaufbau des Flyback-Converters}\label{fig:aufbau_spule}
 \end{figure}
 
@@ -295,17 +295,51 @@ Der Flyback-Converter besteht aus einer Primär- und einer Sekundär-Schaltung. 
 \end{figure}
 
 \subsection{Validierung}
-In der Validierung werden
+In der Validierung wird der Testaufbau mit der Simulation verglichen. Damit soll die Simulationen der Induktivität und des Kopplungsfaktor mit FEMM  überprüft werden. Der gesamte Testaufbau mit der Schaltung und dem Speichertransformator wird mit der Simulation in LTspice verglichen.
+
+\paragraph{Messung der Induktivität}
+Mit dieser Messung soll überprüft werden, ob die simulierte Induktivität mit der Realität übereinstimmt. In der ersten Messung wurde der Transformator mit 14 Windungen aufgebaut und bei einer Frequenz von 20kHz betrieben. In der Abbildung \ref{fig:mess_ind} sind die Resultate dargestellt. Die Simulation ergab eine Induktivität von $ \SI{7.8e-05}{H} $ und die Messung von $ \SI{7.9e-05}{H} $. Dies gibt eine Abweichung von etwa 2\%. 
+
+In einer zweiten Messung besteht der Transformator aus 4 Windungen, einem Abstand von 0.1mm und der selben Frequenz wie in der ersten Simulation. Die gemessene Induktivität beträgt $ \SI{4.3e-05}{H} $ bis zu $ \SI{5.1e-05}{H} $, je nach dem wie stark die beiden Schalenkerne zusammengedrückt sind. In der Simulation wurde eine Induktivität $ \SI{7.45e-05}{H} $ von ermittelt. Die Abweichung beträgt etwa 60\% bis 70\%. 
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Simulation in FEMM]{\includegraphics[width=0.4\linewidth]{vali_indukivitaet}}\qquad
+	\subfloat[Messung der Induktivität ]{\includegraphics[width=0.47\linewidth]{induktivitaet}}
+	\caption{Resultate der Induktivität}
+	\label{fig:mess_ind}
+\end{figure}
+
+\paragraph{Messung des Kopplungsfaktor}
+Der Kopplungsfaktor kann gemessen werden, indem die Induktivität im Leerlauf und bei kurzgeschlossener sekundärer Windung gemessen wird. In die Formel \ref{eq:mes_k} können die beiden ermittelten Induktivitäten eingesetzt werden um den Kopplungsfaktor zu berechnen.
+
+\begin{equation}\label{eq:mes_k}
+k = \sqrt{1-\frac{L_{kurz}}{L_{offen}}}
+\end{equation}
+
+Für den Transformator mit 4 Windungen berechnet sich der Kopplungsfaktor wie folgt:
+
+\begin{equation}\label{eq:berechnung_k1}
+k = \sqrt{1-\frac{\SI{3.1e-05}{H}}{\SI{4.3e-05}{H}}}=0.53
+\end{equation}
+
+\begin{equation}\label{eq:berechnung_k2}
+k = \sqrt{1-\frac{\SI{3.1e-05}{H}}{\SI{4.3e-05}{H}}}=0.63
+\end{equation}
+Der Transformator hat einen Kopplungsfaktor von 0.53 bis 0.63 je nach Induktivität. Dieser weicht stark von dem simulierten Kopplungsfaktor von 0.989 ab. Da die Kopplung zwischen den Spulen kleiner ist, als simuliert, ist die Streuinduktivität höher als erwartet. Dies hat Auswirkungen auf die Schaltung. Es wird weniger Energie übertragen und die nicht übertragene Leistung muss auf der Primärseite abgebaut werden.  
+
+\paragraph{Messungen am Testaufbau}
+Da der Kopplungsfaktor des Speichertransformator sehr schlecht ist, konnte der Testaufbau nicht mit der vollen Leistung getestet werden. Die folgenden Messungen wurden mit einer Eingangsspannung von 15 Volt und einem Strom von 2 Ampere durchgeführt.   
+
+In der Abbildung \ref{fig:mess_ströme} sind die Messresultate der Ströme über den Spulen dargestellt. Die Messungen kann mit der Abbildung \ref{fig:kurven} und der Abbildung \ref{fig:spule} verglichen werden. Ein Vergleich zeigt, dass der Strom in der Sekundärspule (gelb) gedämpfter zum Primär-Strom (violett) ist und in der Hälfet der Ausschaltdauer des MOSFETs auf Null geht. In dem Plot b) ist zusätzlich zu den Strömen die Spannung (grün) über der Primärspule gemessen. Die Spannung schwingt stärker sobald der Sekundär-Strom auf Null ist. Zusätzlich steigt die Spannung kurz auf über 160V an. 
+
+%\begin{figure}[H]
+%	\centering
+%	\subfloat[Messung der Ströme über den Spulen und des PWM-Signals ]{\includegraphics[width=0.4\linewidth]{Spulenstrom_mitpwm.bmp}}\qquad
+%	\subfloat[Messung der Induktivität ]{\includegraphics[width=0.47\linewidth]{Spulenstrom_mitspannung.bmp}}
+%	\caption{Resultate der Induktivität}
+%	\label{fig:mess_ströme}
+%\end{figure}
 
 
-
-
-\todo[inline]{Vergleichen der Induktivität}
-\todo[inline]{Vergleichen Kopplungsfaktor?}
-
-\todo[inline]{Vergleichen der Schaltungssimulation - Realität:}
 \todo[inline]{-Wirkungsgrad}
-\todo[inline]{-Energie}
-\todo[inline]{-Strom, Spannung}
-\todo[inline]{-Aufzeigen von Snubber}
-\todo[inline]{-Verlustleistung}
