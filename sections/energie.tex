@@ -296,7 +296,7 @@ In der Validierung wird der Testaufbau mit der Simulation verglichen. Damit soll
 \paragraph{Messung der Induktivität}
 Mit dieser Messung soll überprüft werden, ob die simulierte Induktivität mit der Realität übereinstimmt. In der ersten Messung wurde ein Transformator mit 14 Windungen aufgebaut und mit einer Frequenz von 20kHz betrieben. In der Abbildung \ref{fig:mess_ind} sind die Resultate dargestellt. Die Simulation ergab eine Induktivität von $ \SI{7.8e-05}{H} $ und die Messung von $ \SI{7.9e-05}{H} $. Dies ergibt eine Abweichung von etwa 2\%. 
 
-Bei einer zweiten Messung besteht der Transformator aus 4 Windungen, einem Abstand von 0.1mm und derselben Frequenz wie in der ersten Simulation. Die gemessene Induktivität beträgt $ \SI{3.7e-05}{H} $ bis zu $ \SI{5.1e-05}{H} $, je nach dem wie stark die beiden Schalenkerne zusammengedrückt sind. In der Simulation wurde eine Induktivität $ \SI{7.45e-05}{H} $ von ermittelt. Die Abweichung beträgt etwa 50\% bis 70\%. 
+Bei einer zweiten Messung besteht der Transformator aus 4 Windungen, einem Abstand von 0.1mm und derselben Frequenz wie in der ersten Simulation. Die gemessene Induktivität beträgt $ \SI{3.7e-05}{H} $ bis zu $ \SI{5.1e-05}{H} $, je nach dem wie stark die beiden Schalenkerne zusammengedrückt sind. In der Simulation wurde eine Induktivität von $ \SI{7.45e-05}{H} $ ermittelt. Die Abweichung beträgt etwa 50\% bis 70\%. 
 
 \begin{figure}[H]
 	\centering
@@ -323,7 +323,7 @@ k = \sqrt{1-\frac{\SI{3.2e-06}{H}}{\SI{37e-06}{H}}}=0.95
 k = \sqrt{1-\frac{\SI{3.2e-06}{H}}{\SI{51e-06}{H}}}=0.97
 \end{equation}
 
-Der Transformator hat einen Kopplungsfaktor von 0.95 bis 0.97 je nach Induktivität. Dieser weicht stark von dem simulierten Kopplungsfaktor von 0.989 ab. Da die Kopplung zwischen den Spulen kleiner ist, als simuliert, ist die Streuinduktivität höher als erwartet. Dies hat Auswirkungen auf die Schaltung. Es wird weniger Energie übertragen und die nicht übertragene Leistung muss auf der Primärseite abgebaut werden.  
+Der Transformator hat einen Kopplungsfaktor von 0.95 bis 0.97 je nach Induktivität. Dieser weicht von dem simulierten Kopplungsfaktor von 0.989 ab. Da die Kopplung zwischen den Spulen kleiner ist, als simuliert, ist die Streuinduktivität höher als erwartet. Dies hat Auswirkungen auf die Schaltung. Es wird weniger Energie übertragen und die nicht übertragene Leistung muss auf der Primärseite abgebaut werden.  
 
 \paragraph{Messungen am Testaufbau}
 Da der Kopplungsfaktor des Speichertransformator sehr schlecht ist, konnte der Testaufbau nicht mit der vollen Leistung getestet werden. Die folgenden Messungen wurden mit einer Eingangsspannung von 15 Volt und einem Strom von 2 Ampere durchgeführt.   
@@ -337,6 +337,3 @@ In der Abbildung \ref{fig:mess_ströme} sind die Messresultate der Ströme über
 	\caption{Resultate der Induktivität}
 	\label{fig:mess_ströme}
 \end{figure}
-
-
-\todo[inline]{-Wirkungsgrad}
