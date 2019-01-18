@@ -1,8 +1,8 @@
 \section{Grundlagen}\label{sec:Grundlagen}
 
-Die Abbildung \ref{fig:verschliesser} zeigt den neu entwickelten Dosenverschlisser. Die vier Falzrollen, die sich im unteren Teil der Maschine befinden, verschliessen die Dose. Die vier Falzwerkzeuge werden mit je einem Motor in die gewünschte Position gebracht. Auf einem Drehteller sind diese Motoren und die dazugehörigen Falzrollen angeordnet. Da sich dieser Drehteller rotiert, kann man die Kabel nicht direkt an die Motoren-Drives anschliessen. Dieses Problem wird mit einer Schleppkette (gelb markiert), die im oberen Teil der Maschine platziert ist, gelöst. Die Schleppkette führt die Kabel für die Energieversorgung und Datenkommunikation.
+Die Abbildung \ref{fig:verschliesser} zeigt den neu entwickelten Dosenverschliesser. Die vier Falzrollen, die sich im unteren Teil der Maschine befinden, verschliessen die Dose. Die vier Falzwerkzeuge werden mit je einem Motor in die gewünschte Position gebracht. Auf einem Drehteller sind diese Motoren und die dazugehörigen Falzrollen angeordnet. Da dieser Drehteller rotiert, kann man die Kabel nicht direkt an die Motoren-Drives anschliessen. Dieses Problem wird mit einer Schleppkette (gelb markiert), die im oberen Teil der Maschine platziert ist, gelöst. Die Schleppkette führt die Kabel für die Energieversorgung und Datenkommunikation.
 
-Die Nachteile dieser Lösung sind, dass die Schleppkette und dessen Halterung viel Platz benötigt. Zusätzlich wird sie sehr schnell verschmutzt und ist daher sehr wartungsintensiv. Aus diesen Gründen eignet sich das Konzept mit der Schleppkette nicht für ein Serienprodukt.  
+Der Nachteile dieser Lösung ist, dass die Schleppkette und dessen Halterung viel Platz benötigt. Zusätzlich wird sie sehr schnell verschmutzt und ist daher sehr wartungsintensiv. Aus diesen Gründen eignet sich das Konzept mit der Schleppkette nicht für eine Serienproduktion.  
 
 \begin{figure}[H]
 	\centering
@@ -10,7 +10,7 @@ Die Nachteile dieser Lösung sind, dass die Schleppkette und dessen Halterung vi
 	\caption{Dossenverschliesser mit den Falzstationen und der Schleppkette}\label{fig:verschliesser}
 \end{figure}
 
-Der aktuelle Aufbau (Abbildung \ref{fig:gesamtkonzept}) beseht aus drei orangen Bauteilgruppen. Die blauen Blöcke kennzeichnen Kabel geführte Verbindung zwischen zwei Bauteilen. Um den Motor am Ende bedienen zu können, benötigt man ein Power-Kabel und ein Daten-Bus. Das aktuelle Konzept sieht vor dass die Kabel mit einer Schleppkette zum Motoren-Drive geführt werden und von dort direkt auf den Motor. 
+Der aktuelle Aufbau (Abbildung \ref{fig:gesamtkonzept}) besteht aus drei orangen Bauteilgruppen. Die blauen Blöcke kennzeichnen kabelgeführte Verbindung zwischen zwei Bauteilen. Um den Motor am Ende bedienen zu können, benötigt man ein Power-Kabel und ein Daten-Bus. Das aktuelle Konzept sieht vor, dass die Kabel mit einer Schleppkette zum Motoren-Drive geführt werden und von dort direkt auf den Motor. 
 
 \begin{figure}[H]
 	\centering
@@ -23,7 +23,7 @@ Da das aktuelle Konzept nicht die beste Lösung ist, soll die Verbindung zwische
 Die induktive Übertragung soll auf eine Leistung von mindestens $\SI{300}{W}/\SI{48}{V}$ ausgelegt werden, da dies die Leistung aller vier Motoren ist. Die optische Übertragung soll auf eine Datenübertragung mit einem VARAN Ethernet-Bus ausgelegt werden.
 
 \subsection{Grundlagen zur Energieübertragung}
-In diesem Unterkapitel werden die Grundlagen zur Energieübertragung erläutert. Das Kernstück der induktiven Übertragung ist ein Transformator. Dieser muss mit einer Schaltung angesteuert werden, damit sich das Magnetfeld ändert und Energie übertragen werden kann. Mittels dieser Grundlagen soll die Theorie des Transformators und der Schaltung vermittelt werden.
+In diesem Unterkapitel werden die Grundlagen zur Energieübertragung erläutert. Das Kernstück der induktiven Übertragung ist ein Transformator. Dieser muss mit einer Schaltung angesteuert werden, damit sich das Magnetfeld ändert und Energie übertragen werden kann. Mittels diesen Grundlagen sollte die Theorie des Transformators und der Schaltung vermittelt werden.
 
 \paragraph{Transformator}
 Ein Transformator besteht im wesentlichen aus zwei eng gekoppelten Wicklungen oder Induktivitäten die meistens auf einem gemeinsamen Kern aus Eisen liegen. 
@@ -63,9 +63,9 @@ Das Übersetzungsverhältnis ist beim idealen Transformator folgendermassen defi
 Lässt man nun die Voraussetzung der ideal gekopplten Spulen fallen, verhalten sich die induzierten Spannungen an zwei Induktivitäten nicht mehr wie die Windungszahlen. Die beiden Induktivitäten werden nun in einen ideal gekoppelten Teil und einen überhaupt nicht gekoppelten Teil aufgespaltenen. Der nicht gekoppelte Teil wird als Streuinduktivität bezeichnet. Sie hat Auswirkungen auf die Funktionsweise (Überspannung, Schwingungen nach Abschaltvorgängen) und Verluste von leistungselektronischen Schaltungen. Aus diesem Grund ist es wichtig einen möglichst idealen Kopplungsfaktor zu erreichen damit die Streuinduktivität klein ist. 
 
 \paragraph{Flyback-Converter}
-Um eine Magnetfeldänderung zu erzeugen wird eine Schaltung benötigt. Die verwendete Schaltung wird Flyback-Converter oder auf Deutsch Eintakt-Sperrwandler genannt. Sie gehört zu den primär getakteten Wandlern. Die Eingangs- und Ausgangsseite sind galvanisch getrennt. Er wird in Schaltnetzteilen von kleiner bis mittleren Leistung (ca. 500W), z.B. für PC-Netzteilen, Drucker und Fernsehgeräte eingesetzt. \textcolor{red}{[Speerwandler, schulz]}
+Um eine Magnetfeldänderung zu erzeugen wird eine Schaltung benötigt. Die verwendete Schaltung wird Flyback-Converter oder auf Deutsch Eintakt-Sperrwandler genannt. Sie gehört zu den primär getakteten Wandlern. Die Eingangs- und Ausgangsseite sind galvanisch getrennt. Er wird in Schaltnetzteilen von kleiner bis mittlerer Leistung (ca. 500W), z.B. für PC-Netzteilen, Drucker und Fernsehgeräte eingesetzt. \textcolor{red}{[Speerwandler, schulz]}
 
-Die Schaltung besteht aus wenigen Bauteile. Dies sind ein Schalter, ein Speichertransformator, eine Diode und ein Kondensator. Der Schalter, z.B. ein MOSFET, wird mit einem konstanten Tastgrad und Frequenz gesteuert. \textcolor{red}{[bachelor]}
+Die Schaltung besteht aus wenigen Bauteilen. Dies sind ein Schalter, ein Speichertransformator, eine Diode und ein Kondensator. Der Schalter, z.B. ein MOSFET, wird mit einem konstanten Tastgrad und Frequenz gesteuert. \textcolor{red}{[bachelor]}
 
 \begin{figure}[H]
 \centering
