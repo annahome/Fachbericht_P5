@@ -15,7 +15,7 @@ In Abbildung \ref{fig:Konzept_Daten} sind die beiden Kanäle zu erkennen, welche
 Eine Sendeeinheit besteht aus der Datenerfassung und den Leuchtdioden. Da der VARAN-Bus MLT-3 codiert ist, müssen drei Zustände übertragen werden können. Die positiven Spannungspegel werden im Infrarot-Bereich durch einen Infrarot-Emitter übertragen und die negativen Spannungspegel im blauen Spektralbereich durch eine blaue LED. Der Zustand \glqq0\grqq steht an, wenn keine der LEDs leuchtet.
 \newline
 Eine Empfangseinheit besteht aus Photodioden, Verstärkerschaltungen und der Pegelanpassung. Im blauen Spektralbereich werden mit Hilfe eines optischen Filters vor der Photodiode die unerwünschten Spektralanteile herausgefiltert.
-\newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung \cite{underwater}.
+\newline Die beiden Sende- und Empfangseinheiten sind identisch aufgebaut und unterscheiden sich nur in der Übertragungsrichtung. \cite{underwater}
 
 \paragraph{Sender}
 In Abbildung \ref{fig:Konzept_Sender} ist das Konzept einer einzelnen Sendeeinheit detaillierter dargestellt.
@@ -38,7 +38,7 @@ Mit einer Erweiterung der Beschaltung der LED um drei passive Elemente, können 
  	\caption{Erweiterte Schaltung um Schaltzeiten zu verkürzen}\label{fig:Fast_LED}
  \end{figure}
 
-Durch den Leckstrom des FET wird die LED auch im abgeschalteten Zustand mit einigen Ladungsträgern durchflossen, was die Anstiegszeit geringfügig verkürzt. Im Einschaltmoment sorgt der Kondensator $C$ für einen Kurzschluss und überbrückt den Vorwiderstand $R_{1}$. Es kommt zu einem Strompeak, der die Kapazität der LED schneller laden lässt. Die Anstiegszeit wird dadurch massiv verkürzt. Im Ausschaltmoment induziert das Magnetfeld in der Spule $L$ eine negative Spannung. Folglich werden die Ladungsträger aus der LED gezogen. Dadurch wird auch die Abfallzeit gegenüber dem \glqq einfachen\grqq Ausschalten verkürzt \cite{high-speed-led}.
+Durch den Leckstrom des FET wird die LED auch im abgeschalteten Zustand mit einigen Ladungsträgern durchflossen, was die Anstiegszeit geringfügig verkürzt. Im Einschaltmoment sorgt der Kondensator $C$ für einen Kurzschluss und überbrückt den Vorwiderstand $R_{1}$. Es kommt zu einem Strompeak, der die Kapazität der LED schneller laden lässt. Die Anstiegszeit wird dadurch massiv verkürzt. Im Ausschaltmoment induziert das Magnetfeld in der Spule $L$ eine negative Spannung. Folglich werden die Ladungsträger aus der LED gezogen. Dadurch wird auch die Abfallzeit gegenüber dem \glqq einfachen\grqq Ausschalten verkürzt. \cite{high-speed-led}
 
 \newpage
 \paragraph{Empfänger}
